@@ -1,0 +1,24 @@
+{
+	"RootView":{
+		"border":"ffc000ff,1,[0,0,0,0]",
+		"padding":"10,20,10,20",
+		"margin":"0,15,0,0",
+		"bgColor":"FFFFFFFF",
+		"width":"-1",
+		"id":"do_LinearLayout_3",
+		"type":"do_LinearLayout",
+		"views":[
+			{
+				"x":"20",
+				"width":"-1",
+				"y":"10",
+				"fontSize":"30",
+				"id":"tagText",
+				"text":"粤语粤语",
+				"type":"do_Label",
+				"height":"-1"
+			}
+		],
+		"height":"-1"
+	}
+}

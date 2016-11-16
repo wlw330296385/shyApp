@@ -1,0 +1,41 @@
+﻿{
+  "ID": "M1210_BarcodeScanner",
+  "IsContainer": "0",
+  "Type": "SM",
+  "Name": "优博讯扫描器",
+  "Version": "Internal",
+  "Description": "",
+  "Icon": "",
+  "IOS": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "WindowsPhone": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [
+    {
+      "ID": "result",
+      "Description": "返回扫描结果",
+      "ReturnType": "Node",
+      "ReturnType_JavaScript": "Node",
+      "ReturnDesc": "数据"
+    }
+  ],
+  "syncMethodes": [],
+  "asyncMethodes": []
+}

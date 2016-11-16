@@ -1,0 +1,265 @@
+{
+    "RootView": {
+        "id": "AlayoutRoot",
+        "width": "480",
+        "height": "854",
+        "bgColor": "E3E3E3FF",
+        "type": "do_ALayout",
+        "views": [
+            {
+                "id": "do_alayout_10",
+                "width": "480",
+                "height": "60",
+                "bgColor": "FB4747FF",
+                "type": "do_ALayout",
+                "views": [
+                    {
+                        "id": "action_back",
+                        "width": "122",
+                        "height": "59",
+                        "type": "do_ALayout",
+                        "views": [
+                            {
+                                "id": "do_imageview_1",
+                                "x": "6",
+                                "y": "11",
+                                "width": "43",
+                                "height": "42",
+                                "type": "do_ImageView",
+                                "source": "source://image/index/zuo.png"
+                            },
+                            {
+                                "id": "do_label_11",
+                                "x": "51",
+                                "y": "10",
+                                "width": "63",
+                                "height": "43",
+                                "type": "do_Label",
+                                "fontColor": "FFFFFFFF",
+                                "fontSize": "25",
+                                "text": "我的"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "do_scrollview_1",
+                "y": "60",
+                "width": "480",
+                "height": "794",
+                "type": "do_ScrollView",
+                "views": [
+                    {
+                        "id": "all",
+                        "width": "480",
+                        "height": "794",
+                        "type": "do_ALayout",
+                        "views": [
+                            {
+                                "id": "top",
+                                "width": "480",
+                                "height": "200",
+                                "bgColor": "FB4747FF",
+                                "type": "do_ALayout",
+                                "views": [
+                                    {
+                                        "id": "touxiang_",
+                                        "x": "189",
+                                        "y": "23",
+                                        "width": "121",
+                                        "height": "108",
+                                        "type": "do_ALayout",
+                                        "views": [
+                                            {
+                                                "id": "touxiang",
+                                                "width": "84",
+                                                "height": "85",
+                                                "type": "do_ImageView",
+                                                "source": "source://image/index/me.png"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": "do_label_1",
+                                        "x": "96",
+                                        "y": "133",
+                                        "width": "285",
+                                        "height": "40",
+                                        "type": "do_Label",
+                                        "fontColor": "FFFFFFFF",
+                                        "fontSize": "23",
+                                        "text": "登录ZAKER体验更多功能",
+                                        "textAlign": "center"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "do_alayout_1",
+                                "y": "200",
+                                "width": "480",
+                                "height": "79",
+                                "bgColor": "FFFFFFFF",
+                                "type": "do_ALayout",
+                                "views": [
+                                    {
+                                        "id": "do_label_2",
+                                        "x": "15",
+                                        "width": "150",
+                                        "type": "do_Label",
+                                        "fontSize": "23",
+                                        "text": "好友分享"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "do_alayout_2",
+                                "y": "280",
+                                "width": "480",
+                                "height": "79",
+                                "bgColor": "FFFFFFFF",
+                                "type": "do_ALayout",
+                                "views": [
+                                    {
+                                        "id": "do_label_3",
+                                        "x": "15",
+                                        "width": "150",
+                                        "type": "do_Label",
+                                        "fontSize": "23",
+                                        "text": "我的消息"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "do_alayout_3",
+                                "y": "360",
+                                "width": "480",
+                                "height": "79",
+                                "bgColor": "FFFFFFFF",
+                                "type": "do_ALayout",
+                                "views": [
+                                    {
+                                        "id": "do_label_4",
+                                        "x": "15",
+                                        "width": "150",
+                                        "type": "do_Label",
+                                        "fontSize": "23",
+                                        "text": "话题通知"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "do_alayout_4",
+                                "y": "440",
+                                "width": "480",
+                                "height": "79",
+                                "bgColor": "FFFFFFFF",
+                                "type": "do_ALayout",
+                                "views": [
+                                    {
+                                        "id": "do_label_5",
+                                        "x": "15",
+                                        "width": "150",
+                                        "type": "do_Label",
+                                        "fontSize": "23",
+                                        "text": "我的玩乐"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "do_alayout_5",
+                                "y": "520",
+                                "width": "480",
+                                "height": "79",
+                                "bgColor": "FFFFFFFF",
+                                "type": "do_ALayout",
+                                "views": [
+                                    {
+                                        "id": "do_label_6",
+                                        "x": "15",
+                                        "width": "150",
+                                        "type": "do_Label",
+                                        "fontSize": "23",
+                                        "text": "推送资讯"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "do_alayout_6",
+                                "y": "600",
+                                "width": "480",
+                                "height": "79",
+                                "bgColor": "FFFFFFFF",
+                                "type": "do_ALayout",
+                                "views": [
+                                    {
+                                        "id": "do_label_7",
+                                        "x": "15",
+                                        "width": "150",
+                                        "type": "do_Label",
+                                        "fontSize": "23",
+                                        "text": "积分活动"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "do_alayout_7",
+                                "y": "680",
+                                "width": "480",
+                                "height": "79",
+                                "bgColor": "FFFFFFFF",
+                                "type": "do_ALayout",
+                                "views": [
+                                    {
+                                        "id": "do_label_8",
+                                        "x": "15",
+                                        "width": "150",
+                                        "type": "do_Label",
+                                        "fontSize": "23",
+                                        "text": "我的收藏"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "do_alayout_8",
+                                "y": "780",
+                                "width": "480",
+                                "height": "79",
+                                "bgColor": "FFFFFFFF",
+                                "type": "do_ALayout",
+                                "views": [
+                                    {
+                                        "id": "do_label_9",
+                                        "x": "15",
+                                        "width": "150",
+                                        "type": "do_Label",
+                                        "fontSize": "23",
+                                        "text": "离线下载"
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "do_alayout_9",
+                                "y": "860",
+                                "width": "480",
+                                "height": "79",
+                                "bgColor": "FFFFFFFF",
+                                "type": "do_ALayout",
+                                "views": [
+                                    {
+                                        "id": "do_label_10",
+                                        "x": "15",
+                                        "width": "150",
+                                        "type": "do_Label",
+                                        "fontSize": "23",
+                                        "text": "更多设置"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

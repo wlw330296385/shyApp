@@ -1,0 +1,31 @@
+/*******************************************************************************
+ * @ ������: do_SegmentView do_SlideView
+ * 
+ */
+//首页底部按钮
+var navs = [ui('nav_1'),ui('nav_2'),ui('nav_3'),ui('nav_4')];
+var labels = [ui('lb_1'),ui('lb_2'),ui('lb_3'),ui('lb_4')];
+var checkNav = function(index){
+	for(var i = 0;i<labels.length;i++){
+		labels[i].fontColor = "666666FF";
+	}
+	labels[index].fontColor = "043879FF";
+};
+var pages = [{id:'home',path:'source://veiew/home/home.ui'},
+             {id:'sea',path:'source://veiew/sea/sea.ui'},
+             {id:'basket',path:'source://veiew/basket/home.ui'},
+             {id:'user',path:'source://veiew/user/user.ui'}
+             ];
+
+var main = ui('main');
+main.addViews(pages);
+main.showView('home');
+navs.forEach(function(me,i){
+	me.on('touch',function(data,e){
+		checkNav(i);
+		main.showView(pages[i].id);
+	})
+});
+
+
+

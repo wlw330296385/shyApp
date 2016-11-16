@@ -1,0 +1,18 @@
+{
+	"RootView":{
+		"bgColor":"FFFFFFFF",
+		"width":"750",
+		"id":"ALayout_1",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"templates":"source://view/nav_cell.ui",
+				"width":"750",
+				"id":"do_GridView_1",
+				"type":"do_GridView",
+				"height":"300"
+			}
+		],
+		"height":"1334"
+	}
+}

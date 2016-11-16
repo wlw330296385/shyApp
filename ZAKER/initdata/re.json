@@ -1,0 +1,51 @@
+[
+	{
+	    "template":0,
+	    "do_imageview_1":"source://image/re/1.jpg",
+	    "do_label_1":"赵丽颖4000万片酬看齐赵薇",
+	    "do_label_2":"爱奇艺娱乐",
+	    "do_label_3":"14分钟前"
+	},{
+	    "template":1,
+	    "do_imageview_1":"source://image/re/3.jpg",
+	    "do_label_1":"新Nexus 5摄像头完全曝光：拍照很疯狂",
+	    "do_label_2":"cnBeta",
+	    "do_label_3":"3小时前"
+	},{
+	    "template":1,
+	    "do_imageview_1":"source://image/re/4.jpg",
+	    "do_label_1":"华为和比亚迪相互撑腰,你怎么看?",
+	    "do_label_2":"ZAKER话题",
+	    "do_label_3":"3小时前"
+	},{
+	    "template":1,
+	    "do_imageview_1":"source://image/re/5.jpg",
+	    "do_label_1":"法拉利CaliforniaT特别版实车正式亮相",
+	    "do_label_2":"汽车之家",
+	    "do_label_3":"3小时前"
+	},{
+	    "template":1,
+	    "do_imageview_1":"source://image/re/6.jpg",
+	    "do_label_1":"关于MIUI7批判 我们有一种病态思维",
+	    "do_label_2":"腾讯科技",
+	    "do_label_3":"4小时前"
+	},{
+	    "template":1,
+	    "do_imageview_1":"source://image/re/7.jpg",
+	    "do_label_1":"MIUI7创新乏力 小牧未来何去何从?",
+	    "do_label_2":"凤凰科技",
+	    "do_label_3":"5小时前"
+	},{
+	    "template":1,
+	    "do_imageview_1":"source://image/re/8.jpg",
+	    "do_label_1":"天安门广场阅兵预演现场曝光",
+	    "do_label_2":"央视新闻",
+	    "do_label_3":"7小时前"
+	},{
+	    "template":1,
+	    "do_imageview_1":"source://image/re/9.jpg",
+	    "do_label_1":"40万内最好玩的性能车 你更喜欢谁?",
+	    "do_label_2":"汽车之家",
+	    "do_label_3":"7小时前"
+	}
+]

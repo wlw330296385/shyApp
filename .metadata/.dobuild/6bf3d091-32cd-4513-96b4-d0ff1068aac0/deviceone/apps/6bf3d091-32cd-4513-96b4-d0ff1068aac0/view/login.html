@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+	<title>web页面</title>
+</head>
+<body>
+<p>这是什么情况???</p>
+</body>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="True" name="HandheldFriendly" />
+<meta content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" name="viewport" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link href="styles/reset.css" rel="stylesheet" type="text/css" />
+<link href="styles/base.css" rel="stylesheet" type="text/css" />
+<link href="styles/login.css" rel="stylesheet" type="text/css" />
+<header id="header">
+<div class="back" id="back"><img src="images/login/back.png" /> <span>返回</span></div>
+
+<div class="next"><span id="register">注册</span></div>
+</header>
+
+<section id="content"><span style="font-family: arial, helvetica, sans-serif"><img class="logo" src="images/login/login-logo.png" /></span>
+
+<form class="login-form">
+<div class="flex-box align-center username"><label><img src="images/login/username.png" /></label> <input class="flex" id="loginName" placeholder="用户名?" type="text" /></div>
+
+<div class="flex-box align-center password"><label><img src="images/login/password.png" /></label> <input class="flex" id="loginPwd" placeholder="密码" type="password" /></div>
+
+<div class="flex-box align-center password"><label><img src="images/login/password.png" /></label> <input class="flex" id="yzmCode" placeholder="确认密码??" type="text" /> <img class="yzm" id="yzmImg" src="images/login/code.png" /></div>
+
+<div class="flex-box justify-between">
+<div class="flex-box align-center pwd-remember active" id="remember">记住密码</div>
+
+<div class="flex-box align-center pwd-forget">忘记密码</div>
+</div>
+</form>
+
+<div class="button-sure" id="login">登录</div>
+</section>
+<Script>
+	var login = document.getElementById("login");
+	var back = document.getElementById("back");
+
+	//æ‰?æœ‰å’Œdeviceoneç›¸å…³çš„è°ƒç”¨éƒ½éœ?è¦æ”¾åœ¨onDeviceOneLoadedå›žè°ƒå‡½æ•°é‡Œï¼Œç±»ä¼¼JQueryçš„readyæ–¹æ³•
+	window.onDeviceOneLoaded = function() {
+		// små¯¹è±¡çš„èŽ·å–å’Œåœ¨ui.jsé‡ŒèŽ·å–æ²¡æœ‰å·®åˆ?
+		var nf = sm("do_Notification");
+		var app = sm("do_App");
+		var page = sm("do_Page");
+
+		login.onclick = function() {
+			var name = document.getElementById("loginName").value;
+			var pwd = document.getElementById("loginPwd").value;
+			if (!name || !pwd) {
+				//è°ƒç”¨åŽŸç”Ÿçš„alertæ–¹æ³•
+				nf.alert("帐号密码不能为空!")
+			} else
+				loginNewPage(http, page);
+		}
+
+		back.onclick = function() {
+			//ç‚¹å‡»htmlçš„æŒ‰é’®è¿”å›žåˆ°å‰ä¸€ä¸ªpage
+			app.closePage();
+		}
+
+		// mmå¯¹è±¡çš„åˆ›å»ºå’Œåœ¨ui.jsé‡Œæ²¡æœ‰åŒºåˆ?
+		var http = mm("do_Http");
+		http.method = "POST";
+		http.on("result", function(data) {
+			//å¯¹uiçš„æ“ä½œæœ€å¥½æ˜¯é€šè¿‡æ¶ˆæ¯å‘é?åˆ°ui.jsé‡ŒåŽ»åšï¼Œè€Œä¸æ˜¯ç›´æŽ¥åœ¨htmlé‡Œæ“ä½?
+			page.fire("progressbar", "hide");
+			if (data.status == 200) {
+				app.openPage({
+					source : "source://view/main.ui",
+					statusBarState : "transparent"
+				});
+			}
+		});
+
+	}
+	function loginNewPage(http, page) {
+		http.url = "http://www.baidu.com";
+		http.request();
+		//å¯¹uiçš„æ“ä½œæœ€å¥½æ˜¯é€šè¿‡æ¶ˆæ¯å‘é?åˆ°ui.jsé‡ŒåŽ»åšï¼Œè€Œä¸æ˜¯ç›´æŽ¥åœ¨htmlé‡Œæ“ä½?
+		page.fire("progressbar", "show");
+	}
+</Script></html>

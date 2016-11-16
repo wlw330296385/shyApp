@@ -1,0 +1,157 @@
+/**
+ * related to addIdentityCard.ui
+ * 
+ * @Author : 18507717466
+ * @Timestamp : 2016-10-13
+ */
+//上传照片
+//var camera = sm('do_Camera');
+var album = sm("do_Album");
+var app = sm('do_App');
+var page = sm('do_Page');
+var img2 = ui('do_ImageView_2');
+var img3 = ui('do_ImageView_3');
+var core = require('do/core');
+var imgUr2,imgUrl3;
+ui('do_ALayout_2').on("touch", function() {
+	app.closePage()
+});
+img2.on("touch", function() {
+	app.openPage({
+		source:'source://view/common/popmenu.ui',
+		data:'1'
+		});
+})
+img3.on("touch", function() {
+	app.openPage({
+		source:'source://view/common/popmenu.ui',
+		data:'2'
+		});
+})
+
+
+//数据传递
+var http = mm('do_Http');
+var do_ProgressBar_1 = ui('do_ProgressBar_1');
+var pro_path,con_path;//正反面路径
+http.method = "POST";
+//http.contentType = "application/json"; 
+http.contentType = "application/x-www-form-urlencoded"; 
+http.on("fail", function(data) {
+	do_ProgressBar_1.visible = false;
+	 core.alert(data.msg, '提交失败');
+});
+
+http.on("progress", function(data) {
+	do_ProgressBar_1.visible = true;
+    do_ProgressBar_1.progress = data.currentSize * 100 / data.totalSize;
+});
+
+var do_Button_1 = ui('do_Button_1');
+do_Button_1.on('touch',function(){
+	if (pro_path == '' || pro_path == null ||pro_path == undefined) {
+		core.alert('未上传身份证正面','温馨提示');
+		return false;
+	}
+	if (con_path == '' || con_path == null ||con_path == undefined) {
+		core.alert('未上传身份证反面','温馨提示');
+		return false;
+	}
+	http.url = "http://192.168.1.167:8099/index.php/index/Identity_card/IdentityCard"; 
+	postData = {
+			"real_name":ui('do_TextField_2').text,
+			"idno":ui('do_TextField_3').text,
+			"pro_path":pro_path,
+			"con_path":con_path
+	}
+	http.body = postData;
+	http.request();
+	http.on("success", function(result) {
+		do_ProgressBar_1.visible = false;
+	    core.alert(result.msg,'提交成功');
+//	    app.closePage();
+	});
+	
+	})
+
+	
+	//拍照
+var camera = sm("do_Camera");
+var album = sm('do_Album');
+page.on("result", function(data) {
+	if(data.action == 0 && (data.path == null || data.path == undefined || data.path =='')){
+		return false;
+	}
+	if (data.path && data.img == 1 && data.action==2){
+		img2.source = data.path;
+		http.url = "http://192.168.1.167:8099/index.php/index/File_upload/uploadImage";
+		http.upload(data.path, 'idcard');
+		http.on("success", function(result) {
+			do_ProgressBar_1.visible = false;
+			pro_path = result.filePath;
+		    core.alert(result.msg,'身份证正面相册选择');
+		    
+		});
+	}
+	if (data.path && data.img == 2 && data.action==2){
+		img3.source = data.path;
+		http.url = "http://192.168.1.167:8099/index.php/index/File_upload/uploadImage";
+		http.upload(data.path, 'idcard');
+		http.on("success", function(result) {
+			do_ProgressBar_1.visible = false;
+			con_path = result.filePath;
+		    core.alert(result.msg,'身份证反面相册选择');
+		    
+		});
+	}
+	
+	if(data.action == 1 && data.img == 1){
+		camera.capture(256, -1, 100, true, function(imgUrl) {
+	        img2.source = imgUrl;
+	        http.url = "http://192.168.1.167:8099/index.php/index/File_upload/uploadImage";
+//			imgUrl = imgUrl.replace('.do','');
+			
+	        http.upload(imgUrl, 'idcard');
+			http.on("success", function(result) {
+				core.p(result,'返回数据');
+				do_ProgressBar_1.visible = false;
+				pro_path = result.filePath;
+			    core.alert(result.msg,'身份证正面拍照');
+			    
+			});
+		})
+	}
+	
+	
+	if(data.action == 1 && data.img == 2){
+		camera.capture(256, -1, 100, true, function(imgUrl) {
+	        img3.source = imgUrl;
+	        http.url = "http://192.168.1.167:8099/index.php/index/File_upload/uploadImage";
+			http.upload(imgUrl, 'idcard');
+			http.on("success", function(result) {
+				do_ProgressBar_1.visible = false;
+				con_path = result.filePath;
+			    core.alert(result.msg,'身份证反面拍照');
+			    
+			});
+		})
+	}
+	
+	
+	if (data.action == 2  && data.img == 1) {
+		album.select(1, 256, -1,100,true, function(res, e) {
+			data.path = res[0];
+			data.img = 1; 
+			app.openPage("source://view/common/crop.ui", data);
+		})
+	}
+	
+	
+	if (data.action == 2  && data.img == 2) {
+		album.select(1, 256, -1,100,true, function(res, e) {
+			data.path = res[0];
+			data.img = 2; 
+			app.openPage("source://view/common/crop.ui", data);
+		})
+	}
+})

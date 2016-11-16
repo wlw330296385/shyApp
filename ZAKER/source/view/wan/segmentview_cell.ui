@@ -1,0 +1,31 @@
+{
+    "RootView": {
+        "id": "AlayoutRoot",
+        "width": "96",
+        "height": "50",
+        "type": "do_ALayout",
+        "views": [
+            {
+                "id": "do_alayout_1",
+                "width": "96",
+                "height": "50",
+                "type": "do_ALayout",
+                "views": [
+                    {
+                        "id": "product_title",
+                        "height": "47",
+                        "type": "do_Label",
+                        "textAlign": "center"
+                    },
+                    {
+                        "id": "lb",
+                        "y": "47",
+                        "height": "3",
+                        "bgColor": "FB474BFF",
+                        "type": "do_Label"
+                    }
+                ]
+            }
+        ]
+    }
+}

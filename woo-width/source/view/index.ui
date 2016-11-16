@@ -1,0 +1,27 @@
+{
+	"RootView":{
+		"bgColor":"FFFFFFFF",
+		"width":"750",
+		"id":"ALayout_1",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"bgColor":"80808080",
+				"x":"186",
+				"width":"365",
+				"y":"364",
+				"id":"btn_hello",
+				"text":"点击改变宽度,变成750",
+				"type":"do_Button",
+				"height":"55"
+			},
+			{
+				"bgColor":"8000FFFF",
+				"y":"516",
+				"id":"do_ALayout_2",
+				"type":"do_ALayout"
+			}
+		],
+		"height":"1334"
+	}
+}

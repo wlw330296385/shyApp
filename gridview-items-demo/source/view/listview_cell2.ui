@@ -1,0 +1,32 @@
+{
+	"RootView":{
+		"width":"750",
+		"type":"do_LinearLayout",
+		"views":[
+			{
+				"bgColor":"CCCCCCFF",
+				"width":"750",
+				"id":"do_Label_1",
+				"type":"do_Label",
+				"height":"1"
+			},
+			{
+				"templates":"source://view/gridview_cell.ui",
+				"width":"750",
+				"y":"1",
+				"id":"do_GridView_1",
+				"type":"do_GridView",
+				"numColumns":"3",
+				"height":"-1"
+			},
+			{
+				"bgColor":"CCCCCCFF",
+				"width":"750",
+				"id":"do_Label_2",
+				"type":"do_Label",
+				"height":"1"
+			}
+		],
+		"height":"-1"
+	}
+}

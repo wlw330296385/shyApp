@@ -1,0 +1,186 @@
+/**
+ * related to main.ui
+ * 
+ * @Author : 18507717466
+ * @Timestamp : 2016-10-02
+ */
+var notify = sm("do_Notification");
+var phoneBtn = ui('phoneBtn');
+var time = mm('do_Timer');
+var app = sm('do_App');
+var page = sm('do_Page');
+var alayout1= ui('do_ALayout_1');
+var scrollView = ui('do_ScrollView_1');
+var username = ui('username'),
+	password = ui('password'),
+	password2 = ui('password2'),
+	recPhone = ui('recPhone'),
+	code = ui('code'),
+	myPhone = ui('myPhone');
+//通讯
+var http = require('do/http');
+var core = require('do/core');
+var storage = sm('do_Storage');
+//键盘
+function keyBoardTo(offset){
+	scrollView.scrollTo({'offset':offset});
+}
+
+myPhone.on('touch',function(){
+	keyBoardTo(-400);
+})
+
+//登录
+var toLogin = ui('toLogin');
+toLogin.on('touch',function(msg){
+	app.openPage('source://view/index/login/login.ui','login');
+})
+//倒计时
+var phoneTime = 59;
+phoneBtn.on('touch',function(){
+	time.delay = 0;
+	time.interval = 1000;
+	core.p(time);
+	if (!time.isStart()) {
+		time.start();
+	}else{
+		notify.alert('请等待倒计时结束');
+		return false;
+	}
+	if(!myPhone.text || myPhone.text == null || myPhone.text == undefined){
+		notify.alert('手机号码不能为空');
+		return false;
+	}
+	http.ajax({
+//		url:"http://192.168.1.210:8080/index.php/index/user/sendRegisterCode",
+		url:"http://192.168.1.167:8099/index.php/index/user/sendRegisterCode",
+		data:{'mobile':myPhone.text},
+		type:'POST',
+//		contentType:'application/json',
+		contentType:"application/x-www-form-urlencoded",
+		success: function(msg){
+			if(msg.code == 1){
+				notify.toast('短信验证码发送成功');
+				time.stop();
+			}else{
+				notify.toast(msg.msg);
+				phoneBtn.enabled = true;
+				phoneBtn.text = '重新验证码';
+				time.stop();
+			}
+		},
+		error: function(msg){
+			core.p(msg+111111111);
+			notify.toast(msg.msg);
+			phoneBtn.text = '发送验证码';
+            phoneBtn.enabled = true;
+			time.stop();
+		}
+	});
+	
+	time.on("tick", function(data, e) {
+		phoneBtn.enabled = false;
+		phoneBtn.text = '发送验证码('+ phoneTime-- +')';
+        if (phoneTime == 0) {
+                phoneTime = 59;
+                phoneBtn.text = '发送验证码';
+                phoneBtn.enabled = true;
+                time.stop();               
+        }
+	});
+});
+
+//注册
+var storage = sm('do_Storage');
+var regOK = true;
+var reg = ui('reg');
+reg.on('touch',function(){
+	if(!username.text ||username.text == null ||username.text == undefined){
+		notify.alert('用户名不能为空');
+		regOK = false;
+		return false;
+	}else{
+		regOK = true;
+	}
+	if(!password.text ||password.text == null ||password.text == undefined){
+		notify.alert('密码不能为空');
+		regOK = false;
+		return false;
+	}else{
+		regOK = true;
+	}
+	if(!password2.text ||password2.text == null ||password2.text == undefined){
+		notify.alert('重复密码不能为空');
+		regOK = false;
+		return false;
+	}else{
+		regOK = true;
+	}
+	if(password2.text!=password.text){
+		notify.alert('两次密码不一样');
+		regOK = false;
+		return false;
+	}else{
+		regOK = true;
+	}
+	if(!myPhone.text|| myPhone.text == undefined || myPhone.text == null){
+		notify.alert('手机号码不能为空');
+		regOK = false;
+		return false;
+	}else{
+		regOK = true;
+	}
+	if(!code.text|| code.text == undefined || code.text == null){
+		notify.alert('验证码不能为空');
+		regOK = false;
+		return false;
+	}else{
+		regOK = true;
+	}
+	if(regOK == false){
+		return false;
+	}
+	var postData = {
+			"username":username.text, 
+			"password":password.text,
+			"password2":password2.text,
+			"mobile":myPhone.text,
+			"referer":recPhone.text,
+			"code":code.text
+	};
+	
+	http.ajax({
+//		url:'http://192.168.1.210:8080/index.php/index/user/register',
+		url:"http://192.168.1.167:8099/index.php/index/user/register",
+		data:postData,
+		type:'POST',
+		contentType:'application/json',
+//		contentType:"application/x-www-form-urlencoded",
+		success: function(userInfo){
+			if(userInfo.code == 1){
+				storage.writeFile('data://userInfo',userInfo,function(res){	
+					if(res){
+						notify.toast('注册成果');
+						app.openPage('source://view/index/index.ui','index');
+					}
+											
+				})
+			}else{
+				notify.alert(userInfo.msg);
+			}
+		},
+		error:function(msg){
+			notify.alert(msg.msg);
+		}
+	})
+})
+
+//隐藏键盘
+alayout1.on('touch',function(){
+	page.hideKeyboard();
+})
+
+var pagejs=require("do/page");
+pagejs.allowClose();
+
+		

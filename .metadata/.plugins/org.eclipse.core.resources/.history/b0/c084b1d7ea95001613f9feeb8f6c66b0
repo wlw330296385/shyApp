@@ -1,0 +1,49 @@
+/**
+ * related to webCharge.ui
+ * 
+ * @Author : 18507717466
+ * @Timestamp : 2016-10-19
+ */
+
+var app,page,core;
+app = sm('do_App');
+page = sm('do_Page');
+core = require('do/core');
+var web = ui('do_WebView_1');
+var webBack = ui('do_ALayout_2');
+var webClose = ui('do_ALayout_3');
+var pro = ui('do_ProgressBar_1');
+var param;
+webBack.on('touch',function(){
+	web.back();
+})
+
+webClose.on('touch',function(){
+	app.closePage();
+})
+
+web.on('failed',function(){
+	core.toast("页面加载失败,请下拉刷新或者关闭页面");
+})
+
+web.on('pull',function(state,offset){
+	
+})
+
+web.on('start',function(){
+	core.alert(112)
+	pro.visible = true;
+})
+
+web.on('loaded',function(){
+	pro.visible = false;
+})
+
+page.on('loaded',function(){
+	param = page.getData();
+	core.alert(param);
+	web.url = "http://study.deviceone.net";
+	web.reload();
+})
+
+page.fire('getUrl');

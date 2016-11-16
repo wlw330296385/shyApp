@@ -1,0 +1,15 @@
+/**
+ * related to basket_cell.ui
+ * 
+ * @Author : 18507717466
+ * @Timestamp : 2016-10-18
+ */
+var rootview = ui($);
+rootview.setMapping({
+	"do_Label_3.text":"orderno",
+	"do_Label_2.text":"order_status",
+	"do_Label_7.text":"goods_name",
+	"do_Label_4.text":"goods_info",
+	"do_Label_5.text":"create_time",
+	"do_Label_6.text":"total_amount"
+		});

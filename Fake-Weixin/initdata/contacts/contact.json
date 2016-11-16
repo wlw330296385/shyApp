@@ -1,0 +1,208 @@
+{
+    "↑": [
+        {
+            "template": 0,
+            "name": "↑"
+        },
+        {
+            "template": 1,
+            "name": "新的朋友",
+            "photo": "source://image/contacts/new_friends.png"
+        },
+        {
+            "template": 1,
+            "name": "群聊",
+            "photo": "source://image/contacts/group_chat.png"
+        },
+        {
+            "template": 1,
+            "name": "标签",
+            "photo": "source://image/contacts/label.png"
+        },
+        {
+            "template": 1,
+            "name": "公众号",
+            "photo": "source://image/contacts/public_user.png"
+        }
+    ],
+    "W": [
+        {
+            "template": 0,
+            "name": "W"
+        },
+        {
+            "template": 1,
+            "id": "246668451",
+            "name": "王非",
+            "photo": "http://musicdata.baidu.com/data2/pic/1a14baa8e77ca622fab4876b0ae8aa5c/246586121/246586121.jpg"
+        }
+    ],
+    "T": [
+        {
+            "template": 0,
+            "name": "T"
+        },
+        {
+            "template": 1,
+            "id": "246584653",
+            "name": "TF小孩",
+            "photo": "http://musicdata.baidu.com/data2/pic/59e87df151139dc3378bb512ef521c2b/246708032/246708032.jpg"
+        }
+    ],
+    "Y": [
+        {
+            "template": 0,
+            "name": "Y"
+        },
+        {
+            "template": 1,
+            "id": "246584877",
+            "name": "鸳鸯传奇",
+            "photo": "http://musicdata.baidu.com/data2/pic/ccd9415a5328b0ea1960058ad3d92e38/246586333/246586333.jpg"
+        }
+    ],
+    "L": [
+        {
+            "template": 0,
+            "name": "L"
+        },
+        {
+            "template": 1,
+            "id": "246871658",
+            "name": "李贱",
+            "photo": "http://musicdata.baidu.com/data2/pic/f6a9c9f961c406104b3763d8f815abed/246709976/246709976.jpg"
+        }
+    ],
+    "D": [
+        {
+            "template": 0,
+            "name": "D"
+        },
+        {
+            "template": 1,
+            "id": "246707419",
+            "name": "邓美丽",
+            "photo": "http://musicdata.baidu.com/data2/pic/987dbe7dcfe2482d011a3e2021ac4663/246707683/246707683.jpg"
+        }
+    ],
+    "C": [
+        {
+            "template": 0,
+            "name": "C"
+        },
+        {
+            "template": 1,
+            "id": "246707145",
+            "name": "陈小二",
+            "photo": "http://musicdata.baidu.com/data2/pic/b413b177e55f8128f0d383315fab1037/246709959/246709959.jpg"
+        }
+    ],
+    "Q": [
+        {
+            "template": 0,
+            "name": "Q"
+        },
+        {
+            "template": 1,
+            "id": "246667246",
+            "name": "巧克力广告",
+            "photo": "http://musicdata.baidu.com/data2/pic/ba121624b84d7f45772d135c3600c92d/246667462/246667462.jpg"
+        }
+    ],
+    "B": [
+        {
+            "template": 0,
+            "name": "B"
+        },
+        {
+            "template": 1,
+            "id": "246668011",
+            "name": "Brother",
+            "photo": "http://musicdata.baidu.com/data2/pic/aaa1d83c76198b5554614c78f456677a/246708064/246708064.jpg"
+        },
+        {
+            "template": 1,
+            "id": "114650346",
+            "name": "不认识",
+            "photo": "http://musicdata.baidu.com/data2/pic/b86b6e2b7e0ab2adb7118e5a44ccfca7/246708151/246708151.jpg"
+        }
+    ],
+    "A": [
+        {
+            "template": 0,
+            "name": "A"
+        },
+        {
+            "template": 1,
+            "id": "246669558",
+            "name": "俺洪七",
+            "photo": "http://musicdata.baidu.com/data2/pic/aaa1d83c76198b5554614c78f456677a/246708064/246708064.jpg"
+        }
+    ],
+    "S": [
+        {
+            "template": 0,
+            "name": "S"
+        },
+        {
+            "template": 1,
+            "id": "246709914",
+            "name": "帅哥",
+            "photo": "http://musicdata.baidu.com/data2/pic/38816a7071853cc961935717be5302c5/246707145/246707145.jpg"
+        }
+    ],
+    "K": [
+        {
+            "template": 0,
+            "name": "K"
+        },
+        {
+            "template": 1,
+            "id": "246667426",
+            "name": "看不清",
+            "photo": "http://musicdata.baidu.com/data2/pic/708be4e399a2c8886e6b9a80270efa86/246585979/246585979.jpg"
+        },
+        {
+            "template": 1,
+            "id": "246586254",
+            "name": "砍人的",
+            "photo": "http://musicdata.baidu.com/data2/pic/4d44887cfbde2628574f2bf7f710f63f/246706808/246706808.jpg"
+        }
+    ],
+    "X": [
+        {
+            "template": 0,
+            "name": "X"
+        },
+        {
+            "template": 1,
+            "id": "246668401",
+            "name": "校长",
+            "photo": "http://musicdata.baidu.com/data2/pic/a69c1f256eca3bd109cf9100c670ff53/261932113/261932113.jpg"
+        },
+        {
+            "template": 1,
+            "id": "246708064",
+            "name": "小眼睛",
+            "photo": "http://musicdata.baidu.com/data2/pic/81c1a40725ec8fcab65c66e6dbe4a85d/246668451/246668451.jpg"
+        }
+    ],
+    "H": [
+        {
+            "template": 0,
+            "name": "H"
+        },
+        {
+            "template": 1,
+            "id": "246667462",
+            "name": "还是不认识不认识",
+            "photo": "http://musicdata.baidu.com/data2/pic/ddfd1c520e3bd5b33723831320c792c4/246707419/246707419.jpg"
+        },
+        {
+            "template": 1,
+            "id": "115293099",
+            "name": "还是看不清",
+            "photo": "http://musicdata.baidu.com/data2/pic/74312948b16e42bfa63e59994ec98981/246669450/246669450.jpg"
+        }
+    ]
+}

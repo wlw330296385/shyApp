@@ -1,0 +1,30 @@
+{
+	"RootView":{
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"id":"do_ALayout_root",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"width":"750",
+				"id":"do_ALayout_main",
+				"type":"do_ALayout",
+				"views":[
+					{
+						"isHeaderVisible":"true",
+						"isFooterVisible":"true",
+						"templates":"source://view/news/newsRowTemplate0.ui,source://view/news/newsRowTemplate1.ui",
+						"width":"750",
+						"id":"do_ListView_news",
+						"type":"do_ListView",
+						"selectedColor":"ECECECFF",
+						"height":"1038"
+					}
+				],
+				"height":"1038"
+			}
+		],
+		"height":"1334"
+	}
+}

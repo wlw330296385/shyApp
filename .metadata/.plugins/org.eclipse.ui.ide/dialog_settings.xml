@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="E:\workspace\pull_push"/>
+		<item value="E:\workspace\slideview_listview_demo"/>
+	</list>
+	<list key="installedFeatures">
+		<item value="org.eclipse.emf.common:2.12.0.v20160420-0247"/>
+		<item value="org.eclipse.emf.ecore:2.12.0.v20160420-0247"/>
+		<item value="org.eclipse.help:2.2.0.v20160606-1100"/>
+		<item value="org.eclipse.ldt.core:1.4.0.201603241203"/>
+		<item value="org.eclipse.ldt.lua52:1.4.0.201603241203"/>
+		<item value="org.eclipse.ldt:1.4.0.201603241203"/>
+		<item value="org.eclipse.platform:4.6.0.v20160606-1342"/>
+		<item value="org.eclipse.rcp:4.6.0.v20160606-1342"/>
+	</list>
+	<section name="DoOldProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="E:\workspace\demo01_04"/>
+			<item value="E:\workspace\imageView_radius"/>
+			<item value="E:\workspace\cropview_demo"/>
+			<item value="E:\workspace\star_bottomSelect"/>
+			<item value="E:\workspace\camerademo"/>
+			<item value="E:\workspace\woo2"/>
+			<item value="E:\workspace\webview_demo"/>
+			<item value="E:\workspace\http_demo"/>
+			<item value="E:\workspace\NattoGit"/>
+			<item value="E:\workspace\data_process"/>
+			<item value="E:\workspace\do_LinearLayoutDemo"/>
+			<item value="E:\workspace\scroll\do_ScrollViewDemo"/>
+			<item value="E:\workspace\gridview-items-demo"/>
+			<item value="E:\workspace\do_GridViewDemo"/>
+			<item value="E:\workspace\pull_push"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+</section>

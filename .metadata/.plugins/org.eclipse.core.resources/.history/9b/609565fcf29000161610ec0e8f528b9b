@@ -1,0 +1,26 @@
+/**
+ * @Author : 18507717466
+ * @Timestamp : 2016-10-01
+ */
+var d1 = require("deviceone");
+var app = d1.sm("do_App");
+
+//安卓返回键
+var page = d1.sm('do_Page');
+var device = d1.sm("do_Device");
+var global = d1.sm("do_Global");
+var info = device.getInfo();
+var canBack = true;
+app.on("loaded", function () {
+	app.openPage("source://view/index.ui");
+});
+
+page.on("back", function(){
+    if (canBack) {
+        global.exit();
+    } else {
+        notify.toast("再按一次退出");
+        canBack = true;
+        delay3.start();
+    }
+})

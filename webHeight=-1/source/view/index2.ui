@@ -1,0 +1,45 @@
+{
+	"RootView":{
+		"width":"750",
+		"id":"do_ScrollView_1",
+		"type":"do_ScrollView",
+		"views":[
+			{
+				"width":"750",
+				"id":"do_LinearLayout_1",
+				"type":"do_LinearLayout",
+				"views":[
+					{
+						"bgColor":"00FFFFFF",
+						"width":"750",
+						"id":"do_ALayout_1",
+						"type":"do_ALayout",
+						"views":[
+							{
+								"textAlign":"center",
+								"width":"750",
+								"y":"264",
+								"fontSize":"35",
+								"id":"do_Label_1",
+								"text":"往下拉才可以看到网页,往下拉↓",
+								"type":"do_Label"
+							},
+							{
+								"textAlign":"center",
+								"width":"750",
+								"y":"1400",
+								"fontSize":"30",
+								"id":"do_Label_2",
+								"text":"继续拉,继续拉!!! ↓",
+								"type":"do_Label"
+							}
+						],
+						"height":"1600"
+					}
+				],
+				"height":"-1"
+			}
+		],
+		"height":"1334"
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"RootView":{
+		"bgColor":"00000000",
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"id":"do_ALayout_root",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"width":"750",
+				"id":"do_ImageView_content",
+				"source":"source://image/start.png",
+				"type":"do_ImageView",
+				"height":"1334"
+			},
+			{
+				"textAlign":"center",
+				"x":"351",
+				"width":"340",
+				"y":"625",
+				"fontSize":"52",
+				"id":"do_Label_welcome",
+				"text":"欢迎体验！",
+				"type":"do_Label",
+				"fontStyle":"bold",
+				"fontColor":"0000FFFF"
+			}
+		],
+		"height":"1334"
+	}
+}

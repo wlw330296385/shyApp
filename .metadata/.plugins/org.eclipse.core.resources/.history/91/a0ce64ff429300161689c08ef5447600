@@ -1,0 +1,11 @@
+/**
+ * @Author : 18507717466
+ * @Timestamp : 2016-10-16
+ */
+var nf = sm("do_Notification");
+var b1 = ui("do_Button_1");
+
+btn_hello.on("touch", function() {
+	nf.alert("Hello World !!!!!");
+});
+

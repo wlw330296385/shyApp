@@ -1,0 +1,12 @@
+/**
+ * related to basket_cell.ui
+ * 
+ * @Author : 18507717466
+ * @Timestamp : 2016-10-18
+ */
+var rootview = ui($);
+rootview.setMapping({
+	"button_id1.text":"text_key",
+	"button_id1.bgColor":"color_key"
+		});
+}

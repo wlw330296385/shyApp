@@ -1,0 +1,20 @@
+{
+	"RootView":{
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"id":"imgbfs",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"width":"750",
+				"id":"do_ImageView_img",
+				"type":"do_ImageView",
+				"cacheType":"always",
+				"height":"300",
+				"animation":"fade"
+			}
+		],
+		"height":"300"
+	}
+}

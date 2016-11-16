@@ -1,0 +1,26 @@
+{
+	"RootView":{
+		"bgColor":"00000000",
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"id":"btn_backs",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"border":"00000000,1,6",
+				"bgColor":"33CC66FF",
+				"x":"10",
+				"width":"730",
+				"y":"10",
+				"fontSize":"36",
+				"id":"do_Button_b",
+				"text":"button text",
+				"type":"do_Button",
+				"fontColor":"FFFFFFFF",
+				"height":"120"
+			}
+		],
+		"height":"140"
+	}
+}

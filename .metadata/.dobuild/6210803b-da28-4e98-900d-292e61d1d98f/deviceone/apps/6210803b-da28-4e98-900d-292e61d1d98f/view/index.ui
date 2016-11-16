@@ -1,0 +1,27 @@
+{
+	"RootView":{
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"width":"750",
+				"id":"do_ViewShower_1",
+				"type":"do_ViewShower",
+				"height":"1254"
+			},
+			{
+				"bgColor":"0000FFFF",
+				"width":"750",
+				"y":"1254",
+				"fontSize":"40",
+				"id":"do_Button_1",
+				"text":"点我打开订单明细",
+				"type":"do_Button",
+				"fontColor":"FFFFFFFF"
+			}
+		],
+		"height":"1334"
+	}
+}

@@ -1,0 +1,32 @@
+/*******************************************************************************
+ * @ ������: do_SegmentView do_SlideView
+ * 
+ */
+//首页底部按钮
+var navs = [ui('nav_1'),ui('nav_2'),ui('nav_3'),ui('nav_4')];
+var labels = [ui('lb_1'),ui('lb_2'),ui('lb_3'),ui('lb_4')];
+var debug = require('deviceone');
+var checkNav = function(index){
+	for(var i = 0;i<labels.length;i++){
+		labels[i].fontColor = "666666FF";
+	}
+	labels[index].fontColor = "043879FF";
+};
+var pages = [{id:'home',path:'source://view/home/home.ui'},
+             {id:'sea',path:'source://view/sea/sea.ui'},
+             {id:'basket',path:'source://view/basket/home.ui'},
+             {id:'user',path:'source://view/user/user.ui'}
+             ];
+
+var main = ui('viewShower1');
+main.addViews(pages);
+main.showView('home');
+navs.forEach(function(me,i){
+	me.on('touch',function(data,e){
+		checkNav(i);
+		main.showView(pages[i].id);
+	})
+});
+
+
+

@@ -1,0 +1,16 @@
+/**
+ * related to index.ui
+ * 
+ * @Author : 18507717466
+ * @Timestamp : 2016-10-18
+ */
+var app = sm('do_App');
+var viewShower = ui('do_ViewShower_1');
+var pages = [
+       {id:'basket',path:'source://view/basket.ui'}
+       ];
+
+ui('do_Button_1').on('touch',function(){
+	viewShower.addViews(pages);
+	viewShower.showView('home');
+})

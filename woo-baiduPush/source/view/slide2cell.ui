@@ -1,0 +1,20 @@
+{
+	"RootView":{
+		"width":"750",
+		"id":"do_alayout_1",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"border":"E3E3E3FF,3,00",
+				"isHeaderVisible":"true",
+				"isFooterVisible":"true",
+				"templates":"source://view/basket_cell.ui",
+				"width":"750",
+				"id":"do_ListView_1",
+				"type":"do_ListView",
+				"height":"1334"
+			}
+		],
+		"height":"1334"
+	}
+}

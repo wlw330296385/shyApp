@@ -1,0 +1,72 @@
+﻿{
+  "ID": "M1294_Pedometer",
+  "IsContainer": "0",
+  "Type": "SM",
+  "Name": "记步器",
+  "Version": "Internal",
+  "Description": "可获取并记录步数；iOS平台仅支持iPhone5S及以后产品",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160512/M1294_Pedometer/步行.png",
+  "IOS": {
+    "Support": 1,
+    "MinVersion": "7.0"
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "WindowsPhone": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [],
+  "syncMethodes": [
+    {
+      "ID": "start",
+      "Name": "启动记步",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": []
+    },
+    {
+      "ID": "stop",
+      "Name": "停止记步",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": []
+    }
+  ],
+  "asyncMethodes": [
+    {
+      "ID": "getInfo",
+      "Name": "获取记步信息",
+      "Description": "",
+      "ReturnType": "Node",
+      "ReturnType_JavaScript": "Node",
+      "ReturnDesc": "[{'count':'步数']，返回当天或指定日期记录的步数，若指定日期没有启动记步则返回0",
+      "Paras": [
+        {
+          "ID": "date",
+          "Name": "指定日期",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "日期格式为yyyy-mm-dd，不设置时默认值为当天0点起截止到当前时间"
+        }
+      ]
+    }
+  ]
+}

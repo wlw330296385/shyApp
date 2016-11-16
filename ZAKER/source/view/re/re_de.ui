@@ -1,0 +1,83 @@
+{
+    "RootView": {
+        "id": "AlayoutRoot",
+        "width": "480",
+        "height": "854",
+        "type": "do_ALayout",
+        "views": [
+            {
+                "id": "do_alayout_1",
+                "width": "480",
+                "height": "60",
+                "bgColor": "FB4747FF",
+                "type": "do_ALayout",
+                "views": [
+                    {
+                        "id": "point",
+                        "x": "346",
+                        "width": "67",
+                        "height": "63",
+                        "type": "do_ALayout",
+                        "views": [
+                            {
+                                "id": "point_",
+                                "x": "17",
+                                "y": "13",
+                                "width": "35",
+                                "height": "37",
+                                "type": "do_ImageView",
+                                "source": "source://image/re/point.png"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "me",
+                        "x": "413",
+                        "y": "-1",
+                        "width": "69",
+                        "height": "63",
+                        "type": "do_ALayout",
+                        "views": [
+                            {
+                                "id": "me_",
+                                "x": "6",
+                                "y": "11",
+                                "width": "44",
+                                "height": "43",
+                                "type": "do_ImageView",
+                                "source": "source://image/re/me.png"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "action_back",
+                        "x": "-4",
+                        "y": "-2",
+                        "width": "75",
+                        "height": "67",
+                        "type": "do_ALayout",
+                        "views": [
+                            {
+                                "id": "do_imageview_3",
+                                "x": "20",
+                                "y": "15",
+                                "width": "32",
+                                "height": "32",
+                                "type": "do_ImageView",
+                                "source": "source://image/re/fanhui.png"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "do_listview_1",
+                "y": "60",
+                "width": "480",
+                "height": "720",
+                "type": "do_ListView",
+                "templates": "source://view/re/cell1.ui,source://view/re/cell2.ui"
+            }
+        ]
+    }
+}

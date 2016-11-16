@@ -1,0 +1,75 @@
+﻿{
+  "ID": "M2251_MagicUHF",
+  "IsContainer": "0",
+  "Type": "SM",
+  "UIType": "Layout",
+  "Name": "Cilico RFID读写组件",
+  "Version": "Internal",
+  "Description": "⚠️  Cilico C7DU/CM550 工业级手持机专用的 RFID 读写组件，不兼容普通手机，请知悉。",
+  "Icon": "",
+  "BBS": "dominic.yin@norlink.cn",
+  "Keyword": "设备功能,信息识别",
+  "IOS": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "9"
+  },
+  "Windows": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "WindowsPhone": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [],
+  "syncMethodes": [
+    {
+      "ID": "init",
+      "Name": "初始化",
+      "Description": "初始化组件并打开设备",
+      "ReturnType": "Number",
+      "ReturnType_JavaScript": "Number",
+      "ReturnDesc": "成功返回0，失败返回错误标志（-20产品不对，-1设备无法打开，1设备已打开， -2设备参数无法设置）",
+      "Paras": []
+    }
+  ],
+  "asyncMethodes": [
+    {
+      "ID": "read",
+      "Name": "开始读卡",
+      "Description": "启动读卡功能，异步回调 string 类型的读卡结果",
+      "ReturnType": "String",
+      "ReturnType_JavaScript": "String",
+      "ReturnDesc": "读卡结果，返回一串 string 字符串，内容是x位16进制数值。",
+      "Paras": []
+    },
+    {
+      "ID": "write",
+      "Name": "写卡",
+      "Description": "向 RFID 标签写入数据",
+      "ReturnType": "Number",
+      "ReturnType_JavaScript": "Number",
+      "ReturnDesc": "0:写入成功，1:写入失败",
+      "Paras": [
+        {
+          "ID": "data",
+          "Name": "要向标签写入的数据",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 1,
+          "DefaultValue": "00000000",
+          "Description": "8位16进制 (HEX)数值，不足8位自动从最后一位追加0补齐。"
+        }
+      ]
+    }
+  ]
+}

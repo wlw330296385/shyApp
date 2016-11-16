@@ -1,0 +1,114 @@
+/**
+ * related to index.ui
+ * 
+ * @Author : 18507717466
+ * @Timestamp : 2016-10-02
+ */
+//我也防止穿透
+var welcome = ui('welcome');
+var app = sm('do_App');
+var page = sm('do_Page');
+var storage = sm('do_Storage');
+var core = require('do/core');
+var device = sm("do_Device");
+var info = device.getInfo();
+//欢迎动画
+welcome.on('touch',function(){
+	
+})
+
+//关闭动画
+
+var animation = mm('do_Animation');
+animation.fillAfter = true;
+animation.scale({
+	delay:2500,
+    duration : 600,
+    scaleFromX : 1,
+    scaleFromY : 1,
+    scaleToX : 1.5,
+    scaleToY : 1.5,
+    pivotX : 0.5,
+    pivotY : 0.5
+},'id1');
+animation.alpha({
+	delay:2500,
+    duration : 600,
+    alphaFrom : 1,
+    alphaTo : 0
+}, "id2");
+
+//动画结束打开登陆页面
+//page.on("loaded",function(){
+//    welcome.animate(animation,function(){
+//    	storage.readFile('data://userInfo',function(readData, e) {
+//			if(readData.code == 1)	{
+//				app.openPage({ 
+//	            	source : "source://view/index/index.ui",
+//	            	id:'index'});
+//			}else{
+//				app.openPage({ 
+//	            	source : "source://view/login/login.ui",
+//	            	id:'login'});
+//			}
+//		})
+//            
+//    })
+//})
+
+
+//安卓返回键主页退出
+var canBack = false;
+var delay3 = mm("do_Timer");
+delay3.delay = 3000;
+delay3.interval = 1000;
+delay3.on("tick", function(){
+    this.stop();
+    canBack = false;
+});
+
+page.on("back", function(){
+    if (canBack) {
+        global.exit();
+    } else {
+        nf.toast("再按一次退出");
+        canBack = true;
+        delay3.start();
+    }
+}).on("loaded",function(){
+	//设备信息
+	core.p(info);
+	if(info.OS=="android"){
+		global.setMemory("equipment", 0);
+	}else{
+		global.setMemory("equipment", 1);
+	}
+	welcome.animate(animation,function(){
+    	storage.readFile('data://userInfo',function(readData, e) {
+			if(readData.code == 1)	{
+				app.openPage({ 
+	            	source : "source://view/index/index.ui",
+	            	id:'index'});
+			}else{
+				app.openPage({ 
+	            	source : "source://view/login/login.ui",
+	            	id:'login'});
+			}
+		})            
+    })
+	
+}).on("OrderNumber",function(data){
+	orderNum(data);
+});
+
+
+function orderNum(data){
+	if(data.orderNum!=undefined){
+		var orderNum = ui("do_Label_5");
+		if(data.orderNum>0){
+			orderNum.visible=true;
+		}else{
+			orderNum.visible=false;
+		}
+	}
+};

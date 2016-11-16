@@ -1,0 +1,17 @@
+{
+    "RootView": {
+        "id": "AlayoutRoot",
+        "width": "480",
+        "height": "670",
+        "type": "do_ALayout",
+        "views": [
+            {
+                "id": "do_listview_1",
+                "width": "480",
+                "height": "670",
+                "type": "do_ListView",
+                "templates": "source://view/wan/slideview/slideview_cell.ui"
+            }
+        ]
+    }
+}

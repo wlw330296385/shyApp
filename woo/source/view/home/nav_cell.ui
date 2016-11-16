@@ -1,0 +1,28 @@
+{
+	"RootView":{
+		"width":"187",
+		"id":"nav_cell",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"x":"35",
+				"width":"115",
+				"y":"20",
+				"id":"gridImage",
+				"type":"do_ImageView",
+				"height":"115"
+			},
+			{
+				"textAlign":"center",
+				"x":"32",
+				"width":"120",
+				"y":"145",
+				"fontSize":"25",
+				"id":"gridText",
+				"type":"do_Label",
+				"height":"25"
+			}
+		],
+		"height":"175"
+	}
+}

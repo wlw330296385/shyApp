@@ -1,0 +1,24 @@
+{
+	"RootView":{
+		"bgColor":"00000099",
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"id":"do_ALayout",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"textAlign":"center",
+				"x":"208",
+				"width":"340",
+				"y":"540",
+				"fontSize":"34",
+				"id":"do_Label_1",
+				"text":"正在更新数据...",
+				"type":"do_Label",
+				"fontColor":"FFFFFFFF"
+			}
+		],
+		"height":"1334"
+	}
+}

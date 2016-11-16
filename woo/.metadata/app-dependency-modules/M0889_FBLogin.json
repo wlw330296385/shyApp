@@ -1,0 +1,64 @@
+﻿{
+  "ID": "M0889_FBLogin",
+  "IsContainer": "0",
+  "Type": "SM",
+  "UIType": "Layout",
+  "Name": "FBLogin",
+  "Version": "Internal",
+  "Description": "facebook的登录功能。",
+  "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160921/M0889_FBLogin/icon.png",
+  "BBS": "null",
+  "Keyword": "其它类型,网络通信",
+  "IOS": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "WindowsPhone": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [
+    {
+      "ID": "fbresult",
+      "Description": "结果",
+      "ReturnType": "String",
+      "ReturnType_JavaScript": "String",
+      "ReturnDesc": "返回json结果"
+    }
+  ],
+  "syncMethodes": [
+    {
+      "ID": "login",
+      "Name": "login",
+      "Description": "",
+      "ReturnType": "String",
+      "ReturnType_JavaScript": "String",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "appid",
+          "Name": "appid",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "在facebook上生成的appid"
+        }
+      ]
+    }
+  ],
+  "asyncMethodes": []
+}

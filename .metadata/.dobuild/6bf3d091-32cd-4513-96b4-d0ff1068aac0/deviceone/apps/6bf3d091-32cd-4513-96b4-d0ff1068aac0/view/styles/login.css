@@ -1,0 +1,71 @@
+﻿@charset "utf-8";
+body {
+    background-color: #f8f8f8;
+}
+
+#header .next span {
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+#footer {
+    height: 30px;;
+    background-color: transparent;
+    border-top: none;
+    text-align: center;
+}
+
+.logo {
+    display: block;
+    height: 40px;
+    margin: 40px auto;
+}
+
+.login-form {
+    padding: 0 24px;
+    border-top: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+    background-color: white;
+}
+
+.login-form .flex-box {
+    height: 50px;
+}
+
+.login-form .flex-box input {
+    color: inherit;
+    border: 0 none;
+    background-color: transparent;
+    display: block;
+    font-size: 14px;
+    height: 36px;
+    margin-top: 8px;
+    outline: none;
+}
+
+.login-form .flex-box img {
+    display: block;
+    width: 22px;
+    margin-left: 5px;
+    margin-right: 16px;
+}
+
+.login-form .flex-box .yzm {
+    margin-right: 0;
+}
+
+.login-form .username, .login-form .password {
+    border-bottom: 1px solid #ececec;
+}
+
+.login-form .pwd-remember {
+    padding-left: 31px;
+    background: url("../images/login/check.png") no-repeat 5px center;
+    background-size: 16px;
+}
+
+.login-form .pwd-remember.active {
+    background-image: url("../images/login/checked.png");
+}

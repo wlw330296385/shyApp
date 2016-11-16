@@ -1,0 +1,27 @@
+[
+    {
+        "template":0,
+	    "do_imageview_1":"source://image/wan/4.jpg",
+	    "do_imageview_2":"source://image/wan/2.jpg",
+	    "do_label_1":"温馨夫妻韩料小店 味道正宗十年如一",
+	    "do_label_2":"福田车公庙泰然工贸大厦210栋101号食客"
+    },{
+        "template":0,
+	    "do_imageview_1":"source://image/wan/3.jpg",
+	    "do_imageview_2":"source://image/wan/2.jpg",
+	    "do_label_1":"观澜山水田园,浑然天然的世外桃源",
+	    "do_label_2":"深圳观澜山水田园旅游文化园"
+    },{
+        "template":0,
+	    "do_imageview_1":"source://image/wan/5.jpg",
+	    "do_imageview_2":"source://image/wan/1.jpg",
+	    "do_label_1":"新娘大作战",
+	    "do_label_2":"正在热播"
+    },{
+        "template":0,
+	    "do_imageview_1":"source://image/wan/6.jpg",
+	    "do_imageview_2":"source://image/wan/2.jpg",
+	    "do_label_1":"天然圆山风景区,坐享花园的优雅恬静",
+	    "do_label_2":"深圳市龙岗区横岗镇大康村山子下路"
+    }
+]

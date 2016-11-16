@@ -1,0 +1,22 @@
+/*
+ * 分享
+ */
+
+var isOpenShareUI = false;
+do_Page.on("pageMenu",function(){
+	if(!isOpenShareUI){
+		ui("$").add("shareUI", "source://view/public/share.ui");
+		isOpenShareUI = true;
+	}
+	do_Page.fire("openShare",{
+		"url": url,
+		//"img":"../images/share.png",
+		"title": ui("do_Label_title").text,
+		"content": content.substr(0, 100)
+	});
+});
+do_Page.on("closeShare",function(){
+	do_Page.on("back",function(){
+		do_App.closePage(null,"push_l2r");//当前页的返回函数
+	});
+});

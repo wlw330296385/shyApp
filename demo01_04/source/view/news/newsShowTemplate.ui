@@ -1,0 +1,30 @@
+{
+	"RootView":{
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"id":"do_ALayout_root",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"bgColor":"E0E0E0FF",
+				"width":"750",
+				"id":"do_ImageView_news",
+				"type":"do_ImageView",
+				"cacheType":"temporary",
+				"height":"375"
+			},
+			{
+				"x":"24",
+				"width":"702",
+				"y":"296",
+				"fontSize":"28",
+				"id":"do_Label_title",
+				"type":"do_Label",
+				"fontColor":"FFFFFFFF",
+				"height":"64"
+			}
+		],
+		"height":"375"
+	}
+}

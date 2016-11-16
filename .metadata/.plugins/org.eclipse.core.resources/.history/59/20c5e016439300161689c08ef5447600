@@ -1,0 +1,13 @@
+/**
+ * @Author : 18507717466
+ * @Timestamp : 2016-10-16
+ */
+var nf = sm("do_Notification");
+var b1 = ui("do_Button_1"),
+do_TextField_1 = ui('do_TextField_1'),
+do_TextField_2 = ui('do_TextField_2'),
+
+b1.on("touch", function() {
+	nf.alert("Hello World !!!!!");
+});
+

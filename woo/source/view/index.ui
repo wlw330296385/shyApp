@@ -1,0 +1,24 @@
+{
+	"RootView":{
+		"bgColor":"043879FF",
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"id":"welcome",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"textAlign":"center",
+				"x":"65",
+				"width":"650",
+				"y":"492",
+				"fontSize":"60",
+				"id":"do_Label_1",
+				"text":"欢迎",
+				"type":"do_Label",
+				"fontColor":"FFF000FF"
+			}
+		],
+		"height":"1334"
+	}
+}

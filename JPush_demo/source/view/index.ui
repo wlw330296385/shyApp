@@ -1,0 +1,66 @@
+{
+	"RootView":{
+		"bgColor":"FFFFFFFF",
+		"width":"750",
+		"id":"ALayout_1",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"bgColor":"E8F3FFFF",
+				"x":"168",
+				"width":"411",
+				"y":"130",
+				"fontSize":"25",
+				"id":"get",
+				"text":"getIconBadgeNumber - 仅支持ios",
+				"type":"do_Button",
+				"height":"55"
+			},
+			{
+				"bgColor":"D0E7FFFF",
+				"x":"168",
+				"width":"411",
+				"y":"256",
+				"fontSize":"25",
+				"id":"set",
+				"text":"setIconBadgeNumber - 仅支持ios",
+				"type":"do_Button",
+				"height":"55"
+			},
+			{
+				"bgColor":"AAD5FFFF",
+				"x":"168",
+				"width":"411",
+				"y":"391",
+				"fontSize":"25",
+				"id":"getRID",
+				"text":"getRegistrationID",
+				"type":"do_Button",
+				"height":"55"
+			},
+			{
+				"bgColor":"8AC5FFFF",
+				"x":"168",
+				"width":"411",
+				"y":"519",
+				"fontSize":"25",
+				"id":"stop",
+				"text":"stopPush - 仅支持android平台",
+				"type":"do_Button",
+				"height":"55"
+			},
+			{
+				"bgColor":"48A4FFFF",
+				"x":"167",
+				"width":"411",
+				"y":"658",
+				"fontSize":"25",
+				"id":"resume",
+				"text":"resumePush - 仅支持android平台",
+				"type":"do_Button",
+				"height":"55"
+			}
+		],
+		"height":"1334"
+	}
+}

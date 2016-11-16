@@ -1,0 +1,17 @@
+{
+	"RootView":{
+		"padding":"0,0,0,0",
+		"width":"750",
+		"type":"do_LinearLayout",
+		"views":[
+			{
+				"templates":"source://view/index/index_item.ui",
+				"width":"750",
+				"id":"talkList",
+				"type":"do_ListView",
+				"height":"-1"
+			}
+		],
+		"height":"-1"
+	}
+}

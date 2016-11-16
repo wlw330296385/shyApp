@@ -1,0 +1,18 @@
+{
+	"RootView":{
+		"bgColor":"FFFFFFFF",
+		"width":"750",
+		"id":"ALayout_1",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"templates":"source://view/home/slideview.ui,source://view/home/nav.ui,source://view/home/ad.ui,source://view/home/goods_1.ui,source://view/home/goods_2.ui,source://view/home/goods_3.ui,source://view/home/goods_4.ui,source://view/home/goods_5.ui",
+				"width":"750",
+				"id":"do_ListView_1",
+				"type":"do_ListView",
+				"height":"1146"
+			}
+		],
+		"height":"1334"
+	}
+}

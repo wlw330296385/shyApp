@@ -1,0 +1,36 @@
+{
+	"RootView":{
+		"border":"F3F3F3FF,1,00",
+		"bgColor":"F3F3F3FF",
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"id":"grid",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"border":"F3F3F3FF,1,0",
+				"bgColor":"FFFFFFFF",
+				"width":"750",
+				"y":"10",
+				"id":"do_ALayout_1",
+				"type":"do_ALayout",
+				"height":"360"
+			},
+			{
+				"isShowbar":"false",
+				"templates":"source://view/home/nav_cell.ui",
+				"width":"750",
+				"hSpacing":"0",
+				"vSpacing":"0",
+				"y":"10",
+				"canScrollToTop":"false",
+				"id":"do_GridView_1",
+				"type":"do_GridView",
+				"numColumns":"4",
+				"height":"360"
+			}
+		],
+		"height":"370"
+	}
+}

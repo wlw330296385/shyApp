@@ -1,0 +1,37 @@
+{
+	"RootView":{
+		"x":"0",
+		"width":"170",
+		"y":"0",
+		"id":"switch_box",
+		"type":"do_ALayout",
+		"isStretch":"false",
+		"views":[
+			{
+				"border":"f0f0f0ff,1,41",
+				"bgColor":"E0E0E0FF",
+				"width":"160",
+				"x":"5",
+				"y":"10",
+				"id":"switch_bg",
+				"type":"do_ALayout",
+				"isStretch":"false",
+				"height":"82"
+			},
+			{
+				"border":"C0C0C000,1,39",
+				"bgColor":"FFFFFFFF",
+				"width":"78",
+				"x":"8",
+				"y":"12",
+				"fontSize":"30",
+				"id":"switch_btn",
+				"text":"OFF",
+				"type":"do_Button",
+				"fontColor":"888888FF",
+				"height":"78"
+			}
+		],
+		"height":"100"
+	}
+}

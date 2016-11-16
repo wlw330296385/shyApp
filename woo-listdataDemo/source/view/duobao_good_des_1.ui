@@ -1,0 +1,27 @@
+{
+	"RootView":{
+		"width":"750",
+		"type":"do_ScrollView",
+		"views":[
+			{
+				"padding":"5,5,5,5",
+				"width":"750",
+				"id":"do_LinearLayout_1",
+				"type":"do_LinearLayout",
+				"views":[
+					{
+						"x":"5",
+						"width":"740",
+						"y":"5",
+						"maxLines":"0",
+						"id":"do_RichLabel_1",
+						"type":"do_RichLabel",
+						"height":"-1"
+					}
+				],
+				"height":"-1"
+			}
+		],
+		"height":"1334"
+	}
+}

@@ -1,0 +1,31 @@
+/**
+ * related to user.ui
+ * 
+ * @Author : 18507717466
+ * @Timestamp : 2016-10-03
+ */
+
+var app, page, notify,storage,core,userInfo,global;
+global = sm('do_Global');
+notify = sm("do_Notification");
+app = sm("do_App");
+page = sm("do_Page");
+storage = sm('do_Storage');
+core = require('do/core');
+
+var userInfo = global.getMemory('userInfo');
+var addOilCard = ui('do_ALayout_69');
+
+addOilCard.on('touch',function(){
+	app.openPage('source://view/user/addOilCard.ui','addOilCard');
+})
+
+var addIdentityCard = ui('do_ALayout_73');
+addIdentityCard.on('touch',function(){
+	if(userInfo[0]['id_verify'] == 0 ){
+		app.openPage('source://view/user/addIdentityCard.ui','addIdentityCard');
+	}else{
+		
+	}
+	
+})

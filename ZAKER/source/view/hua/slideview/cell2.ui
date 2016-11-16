@@ -1,0 +1,45 @@
+{
+    "RootView": {
+        "id": "AlayoutRoot",
+        "width": "480",
+        "height": "95",
+        "type": "do_ALayout",
+        "views": [
+            {
+                "id": "do_imageview_1",
+                "x": "24",
+                "y": "15",
+                "width": "64",
+                "height": "60",
+                "type": "do_ImageView"
+            },
+            {
+                "id": "do_imageview_2",
+                "x": "428",
+                "y": "33",
+                "width": "30",
+                "height": "31",
+                "type": "do_ImageView"
+            },
+            {
+                "id": "do_label_1",
+                "x": "110",
+                "y": "14",
+                "width": "312",
+                "height": "30",
+                "type": "do_Label",
+                "fontSize": "23"
+            },
+            {
+                "id": "do_label_2",
+                "x": "110",
+                "y": "45",
+                "width": "312",
+                "height": "30",
+                "type": "do_Label",
+                "fontColor": "C0C0C0FF",
+                "fontSize": "18"
+            }
+        ]
+    }
+}

@@ -1,0 +1,24 @@
+{
+	"RootView":{
+		"bgColor":"00000055",
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"id":"do_ALayout_root",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"border":"00000000,1,[0,0,0,0]",
+				"bgColor":"808080FF",
+				"width":"750",
+				"y":"440",
+				"index":"0",
+				"fontSize":"48",
+				"id":"do_Picker_types",
+				"type":"do_Picker",
+				"height":"308"
+			}
+		],
+		"height":"1334"
+	}
+}

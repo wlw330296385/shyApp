@@ -1,0 +1,29 @@
+{
+	"RootView":{
+		"border":"F3F3F3FF,1,0",
+		"bgColor":"F2F2F2FF",
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"bgColor":"FFFFFFFF",
+				"width":"750",
+				"y":"10",
+				"id":"do_ALayout_2",
+				"type":"do_ALayout",
+				"height":"230"
+			},
+			{
+				"width":"750",
+				"scale":"center",
+				"y":"10",
+				"id":"do_ImageView_2",
+				"type":"do_ImageView",
+				"height":"230"
+			}
+		],
+		"height":"250"
+	}
+}

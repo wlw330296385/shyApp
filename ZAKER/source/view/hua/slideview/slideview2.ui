@@ -1,0 +1,17 @@
+{
+	"RootView":{
+		"width":"480",
+		"id":"AlayoutRoot",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"templates":"source://view/hua/slideview/cell2.ui",
+				"width":"480",
+				"id":"do_listview_1",
+				"type":"do_ListView",
+				"height":"670"
+			}
+		],
+		"height":"670"
+	}
+}

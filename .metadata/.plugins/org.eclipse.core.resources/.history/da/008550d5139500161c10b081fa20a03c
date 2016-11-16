@@ -1,0 +1,10 @@
+/**
+ * related to index.ui
+ * 
+ * @Author : 18507717466
+ * @Timestamp : 2016-10-18
+ */
+var app = sm('do_App')
+ui('do_Button_1').on('touch',function(){
+	
+})

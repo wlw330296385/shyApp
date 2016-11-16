@@ -1,0 +1,122 @@
+[
+	{
+		"template":0,
+		"path" : "source://view/test/test_index.ui",
+		"img" : "",
+		"title" : "测试",
+		"subtitle" : "测试一些功能",
+		"round" : "1x"
+	},
+	{
+		"template":0,
+		"path" : "source://view/shakeShake/shake_index.ui",
+		"img" : "",
+		"title" : "shakeShake(摇一摇)",
+		"subtitle" : "摇一摇",
+		"round" : "1x"
+	},
+	{
+		"template":0,
+		"path" : "source://view/coverFlow/CF_index.ui",
+		"img" : "",
+		"title" : "coverFlow(流动视图)",
+		"subtitle" : "coverFlow流动视图",
+		"round" : "1x"
+	},
+	{
+		"template":0,
+		"path" : "source://view/progressbars/probar_index.ui",
+		"img" : "",
+		"title" : "progressbar(自定义进度条)",
+		"subtitle" : "自定义进度条",
+		"round" : "1x"
+	},
+	{
+		"template":0,
+		"path" : "source://view/pickers/picker_index.ui",
+		"img" : "",
+		"title" : "picker(选择)",
+		"subtitle" : "滚动选择",
+		"round" : "1x"
+	},
+	{
+		"template":0,
+		"path" : "source://view/logReg/login.ui",
+		"img" : "",
+		"title" : "login(登录)",
+		"subtitle" : "登录界面",
+		"round" : "1x"
+	},
+	{
+		"template":0,
+		"path" : "source://view/header/header_index.ui",
+		"img" : "",
+		"title" : "Header(头部)",
+		"subtitle" : "通过fire选择纯文字 返回 右边图标等)",
+		"round" : "1x"
+	},
+	{
+		"template":0,
+		"path" : "source://view/switch/switch_index.ui",
+		"img" : "",
+		"title" : "switch(开关)",
+		"subtitle" : "切换开关状态,可文字",
+		"round" : "1x"
+	},
+	{
+		"template":0,
+		"path" : "source://view/loadings/loading_index.ui",
+		"img" : "",
+		"title" : "loading(加载)",
+		"subtitle" : "多种加载样式",
+		"round" : "2"
+	},
+	{
+		"template":0,
+		"path" : "source://view/tabs/tab_index.ui",
+		"img" : "",
+		"title" : "tab(顶部选项卡)",
+		"subtitle" : "顶部选项卡",
+		"round" : "3"
+	},
+	{
+		"template":0,
+		"path" : "source://view/buttons/button_index.ui",
+		"img" : "",
+		"title" : "button(按钮)",
+		"subtitle" : "各种按钮",
+		"round" : "1x"
+	},
+	{
+		"template":0,
+		"path" : "source://view/bannerScroll/bannerS_index.ui",
+		"img" : "",
+		"title" : "banner(轮播)",
+		"subtitle" : "图片轮播",
+		"round" : "1x"
+	},
+	{
+		"template":0,
+		"path" : "source://view/pops/pop_index.ui",
+		"img" : "",
+		"title" : "POP-actionSheet(弹出提示)",
+		"subtitle" : "弹出",
+		"round" : "1x"
+	},
+	{
+		"template":0,
+		"path" : "source://view/viewShower/VSIndex.ui",
+		"img" : "",
+		"title" : "viewShower",
+		"subtitle" : "切换",
+		"round" : "1x"
+	},
+	{
+		"template":0,
+		"path" : "source://view/ExpandableListView/ELV_index.ui",
+		"img" : "",
+		"title" : "ExpandableListView",
+		"subtitle" : "分组视图",
+		"round" : "1x"
+	}
+]

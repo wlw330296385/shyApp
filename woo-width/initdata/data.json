@@ -1,0 +1,286 @@
+{
+    "code": 5,
+    "msg": "读取即将揭晓数据成功",
+    "data": [
+        {
+            "template": 0,
+            "data": {
+                "id": 61,
+                "goods_name": "美的F50-21BM7(EY)即热储水式 电热水器 带遥控器",
+                "image": "http://mall.e-shy.com/uploads/goods/20161013/d668d6baf9a442efbca7919271e5b6c7.jpg",
+                "sales_price": 79,
+                "sales_people_num": 19,
+                "buycounts": "1",
+                "surplus": "18",
+                "per": "5.26%",
+                "progress": 13
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 64,
+                "goods_name": "TCL KFRd-35GW/EP13 大1.5匹 节能静音定频 壁挂式冷暖 空调",
+                "image": "http://mall.e-shy.com/uploads/goods/20161013/8f686f9f28941a35973b5dbc9f578442.jpg",
+                "sales_price": 88,
+                "sales_people_num": 25,
+                "buycounts": "1",
+                "surplus": "24",
+                "per": "4%",
+                "progress": 10
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 83,
+                "goods_name": "SIEMENS/西门子 WT46G4000W 原装进口烘干机滚筒干衣机8公斤",
+                "image": "http://mall.e-shy.com/uploads/goods/20161027/4e11bfb9f0192fc1a617291f4b4898f7.jpg",
+                "sales_price": 69,
+                "sales_people_num": 99,
+                "buycounts": "1",
+                "surplus": "98",
+                "per": "1.01%",
+                "progress": 3
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 112,
+                "goods_name": "2016款 捷豹XJ L 2.0T 两驱典雅商务版",
+                "image": "http://mall.e-shy.com/uploads/auto/20161109/c78ba92b881666475685715b15aedcca.jpg",
+                "sales_price": 892,
+                "sales_people_num": 999,
+                "buycounts": "0",
+                "surplus": "999",
+                "per": "0%",
+                "progress": 0
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 117,
+                "goods_name": "2016款 宝马730Li 领先型",
+                "image": "http://mall.e-shy.com/uploads/auto/20160929/88d9b38682fec31526f702f901fda62a.jpg",
+                "sales_price": 999,
+                "sales_people_num": 1001,
+                "buycounts": "0",
+                "surplus": "1001",
+                "per": "0%",
+                "progress": 0
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 66,
+                "goods_name": "Haier/海尔 E900T6A+QE636B (12T) 抽油烟机燃气灶具烟灶套餐套装",
+                "image": "http://mall.e-shy.com/uploads/goods/20161013/de1440d265c5849ef93efab0be85a6f1.jpg",
+                "sales_price": 125,
+                "sales_people_num": 20,
+                "buycounts": "0",
+                "surplus": "20",
+                "per": "0%",
+                "progress": 0
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 96,
+                "goods_name": " 2015款 起亚K2 1.4L 自动 GLS",
+                "image": "http://mall.e-shy.com/uploads/auto/20161103/c48957348608f9feab94c2735d4ab5d9.jpg",
+                "sales_price": 92,
+                "sales_people_num": 999,
+                "buycounts": "0",
+                "surplus": "999",
+                "per": "0%",
+                "progress": 0
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 100,
+                "goods_name": "2016款 奥迪Q5 40 TFSI 进取型 ",
+                "image": "http://mall.e-shy.com/uploads/auto/20161109/b436e04d35bb022ba67c41cfba86e01b.jpg",
+                "sales_price": 459,
+                "sales_people_num": 999,
+                "buycounts": "0",
+                "surplus": "999",
+                "per": "0%",
+                "progress": 0
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 104,
+                "goods_name": "2016款 奥迪A8L 45 TFSI quattro豪华型",
+                "image": "http://mall.e-shy.com/uploads/auto/20161109/10bc8d51c6dc8c740c60bd9afd3a3d4d.jpg",
+                "sales_price": 1199,
+                "sales_people_num": 999,
+                "buycounts": "0",
+                "surplus": "999",
+                "per": "0%",
+                "progress": 0
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 108,
+                "goods_name": " 2015款 凯迪拉克SRX 3.0L 精英型",
+                "image": "http://mall.e-shy.com/uploads/auto/20161104/e13004f8990fec4b7ee29ef99cc7ffb0.jpg",
+                "sales_price": 499,
+                "sales_people_num": 999,
+                "buycounts": "0",
+                "surplus": "999",
+                "per": "0%",
+                "progress": 0
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 114,
+                "goods_name": "2015款 奔驰 E400L 4MATIC运动豪华型",
+                "image": "http://mall.e-shy.com/uploads/auto/20161110/7b747f2f78f6d0cf8a6b1bd96c312186.png",
+                "sales_price": 896,
+                "sales_people_num": 999,
+                "buycounts": "0",
+                "surplus": "999",
+                "per": "0%",
+                "progress": 0
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 118,
+                "goods_name": "2016款 宝马 730Li 豪华型",
+                "image": "http://mall.e-shy.com/uploads/auto/20161109/6631d2ce66818b4d8b921c9d73545876.jpg",
+                "sales_price": 999,
+                "sales_people_num": 1189,
+                "buycounts": "0",
+                "surplus": "1189",
+                "per": "0%",
+                "progress": 0
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 62,
+                "goods_name": "美的 MG70-1232E(S) 7公斤 家用节能静音 全自动滚筒洗衣机 快洗",
+                "image": "http://mall.e-shy.com/uploads/goods/20161013/26fe634de70e10b607c96e0b3fdf86e3.jpg",
+                "sales_price": 79,
+                "sales_people_num": 19,
+                "buycounts": "0",
+                "surplus": "19",
+                "per": "0%",
+                "progress": 0
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 69,
+                "goods_name": "黄金镶玉坠关公吊坠",
+                "image": "http://mall.e-shy.com/uploads/goods/20160930/97efe60abe99acdda02f9fddbddf7969.jpg",
+                "sales_price": 310,
+                "sales_people_num": 99,
+                "buycounts": "0",
+                "surplus": "99",
+                "per": "0%",
+                "progress": 0
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 97,
+                "goods_name": "2016款 起亚K3 1.6L 自动 GL ",
+                "image": "http://mall.e-shy.com/uploads/auto/20161103/9e154ede6a9d1d83e1c0d9b8d076a6a2.jpg",
+                "sales_price": 129,
+                "sales_people_num": 999,
+                "buycounts": "0",
+                "surplus": "999",
+                "per": "0%",
+                "progress": 0
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 101,
+                "goods_name": "2016款 奥迪A6L 45 TFSI quattro 运动型",
+                "image": "http://mall.e-shy.com/uploads/auto/20161109/e1b74dd7250cb2cf84194d9e4fb717f7.jpg",
+                "sales_price": 589,
+                "sales_people_num": 999,
+                "buycounts": "0",
+                "surplus": "999",
+                "per": "0%",
+                "progress": 0
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 105,
+                "goods_name": "2017款 保时捷卡宴 3.0T ",
+                "image": "http://mall.e-shy.com/uploads/auto/20161109/331dfaf7c1f0dec4fc4cef3f0f28ad61.jpg",
+                "sales_price": 1355,
+                "sales_people_num": 999,
+                "buycounts": "0",
+                "surplus": "999",
+                "per": "0%",
+                "progress": 0
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 109,
+                "goods_name": "2016款 凯迪拉克XTS 28T 技术型 ",
+                "image": "http://mall.e-shy.com/uploads/auto/20161104/02a3a0b15aa073e2b128c19d23f7b849.jpg",
+                "sales_price": 397,
+                "sales_people_num": 999,
+                "buycounts": "0",
+                "surplus": "999",
+                "per": "0%",
+                "progress": 0
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 115,
+                "goods_name": "2014款 奔驰E300L 3.0运动豪华型",
+                "image": "http://mall.e-shy.com/uploads/auto/20161105/ec1578866f00ce0290882143e51bc36a.jpg",
+                "sales_price": 785,
+                "sales_people_num": 999,
+                "buycounts": "0",
+                "surplus": "999",
+                "per": "0%",
+                "progress": 0
+            }
+        },
+        {
+            "template": 0,
+            "data": {
+                "id": 119,
+                "goods_name": "2016款 宝马 740LI 领先型",
+                "image": "http://mall.e-shy.com/uploads/auto/20161109/f5bf5211182ae65117d226e8ce621935.jpg",
+                "sales_price": 999,
+                "sales_people_num": 1220,
+                "buycounts": "0",
+                "surplus": "1220",
+                "per": "0%",
+                "progress": 0
+            }
+        }
+    ]
+}

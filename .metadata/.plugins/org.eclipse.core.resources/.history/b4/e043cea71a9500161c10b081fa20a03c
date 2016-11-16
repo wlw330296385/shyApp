@@ -1,0 +1,17 @@
+/**
+ * related to basket.ui
+ * 
+ * @Author : 18507717466
+ * @Timestamp : 2016-10-03
+ */
+var app,page,core;
+app = sm('do_App');
+page = sm('do_Page');
+
+var listview = ui('do_ListView_1');
+var listData = mm('do_ListData');
+listview.bindItems(listData);
+
+listData.addData();
+
+listview.refreshItems();

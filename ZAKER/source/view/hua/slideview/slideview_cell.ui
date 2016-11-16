@@ -1,0 +1,10 @@
+﻿{
+    "RootView": {
+        "id": "AlayoutRoot",
+        "x": "0",
+        "y": "0",
+        "width": "480",
+        "height": "854",
+        "type": "do_ALayout"
+    }
+}

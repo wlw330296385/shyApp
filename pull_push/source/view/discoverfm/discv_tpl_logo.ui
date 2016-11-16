@@ -1,0 +1,18 @@
+{
+	"RootView":{
+		"height":"350",
+		"views":[
+			{
+				"id":"m_imgDiscvLogo",
+				"height":"350",
+				"source":"source://image/discv_logo.jpg",
+				"width":"750",
+				"type":"do_ImageView"
+			}
+		],
+		"width":"750",
+		"type":"do_ALayout",
+		"y":"0",
+		"x":"0"
+	}
+}

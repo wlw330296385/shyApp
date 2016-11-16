@@ -1,0 +1,53 @@
+﻿{
+  "ID": "M2251_CM980Scanner",
+  "IsContainer": "0",
+  "Type": "SM",
+  "Name": "CM980扫描组件",
+  "Version": "Internal",
+  "Description": "CM980手持端专用扫描组件",
+  "Icon": "",
+  "IOS": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "8"
+  },
+  "Windows": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "WindowsPhone": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [],
+  "Events": [],
+  "syncMethodes": [
+    {
+      "ID": "init",
+      "Name": "初始化",
+      "Description": "扫描组件底层驱动",
+      "ReturnType": "Number",
+      "ReturnType_JavaScript": "Number",
+      "ReturnDesc": "初始化结果，0表示成功",
+      "Paras": []
+    }
+  ],
+  "asyncMethodes": [
+    {
+      "ID": "read",
+      "Name": "启动扫描",
+      "Description": "启动扫描器，异步回调字符串类型的扫描结果",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": []
+    }
+  ]
+}

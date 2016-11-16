@@ -1,0 +1,21 @@
+{
+	"RootView":{
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"border":"E3E3E3FF,1,0",
+				"textAlign":"center",
+				"width":"750",
+				"y":"446",
+				"fontSize":"30",
+				"id":"do_Label_1",
+				"text":"敬请期待",
+				"type":"do_Label"
+			}
+		],
+		"height":"1334"
+	}
+}

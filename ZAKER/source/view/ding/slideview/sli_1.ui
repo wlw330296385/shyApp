@@ -1,0 +1,17 @@
+{
+    "RootView": {
+        "id": "AlayoutRoot",
+        "width": "480",
+        "height": "280",
+        "type": "do_ALayout",
+        "views": [
+            {
+                "id": "do_imageview_1",
+                "width": "480",
+                "height": "280",
+                "type": "do_ImageView",
+                "source": "source://image/ding/top_1.jpg"
+            }
+        ]
+    }
+}

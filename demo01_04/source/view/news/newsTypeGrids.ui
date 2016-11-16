@@ -1,0 +1,34 @@
+{
+	"RootView":{
+		"bgColor":"A0A0A099",
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"id":"do_ALayout_root",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"x":"12",
+				"width":"730",
+				"y":"66",
+				"id":"do_ALayout_Types",
+				"type":"do_ALayout",
+				"views":[
+					{
+						"bgColor":"FFFFFFFF",
+						"isShowbar":"false",
+						"templates":"source://view/news/newsTypeGridTemplate.ui",
+						"width":"730",
+						"hSpacing":"0",
+						"id":"do_GridView_Types",
+						"type":"do_GridView",
+						"numColumns":"4",
+						"height":"380"
+					}
+				],
+				"height":"380"
+			}
+		],
+		"height":"1334"
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"RootView":{
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"width":"750",
+				"id":"do_ALayout_main",
+				"type":"do_ALayout",
+				"views":[
+					{
+						"textAlign":"center",
+						"x":"208",
+						"width":"296",
+						"y":"525",
+						"fontSize":"32",
+						"id":"do_Label_1",
+						"text":"通讯录",
+						"type":"do_Label"
+					}
+				],
+				"height":"1109"
+			}
+		],
+		"height":"1334"
+	}
+}
