@@ -1,0 +1,22 @@
+{
+	"RootView":{
+		"x":"0",
+		"width":"750",
+		"y":"0",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"border":"FFFFFFFF,2,20",
+				"visible":"false",
+				"x":"225",
+				"width":"300",
+				"y":"1150",
+				"fontSize":"35",
+				"id":"do_Button_1",
+				"text":"立即进入",
+				"type":"do_Button"
+			}
+		],
+		"height":"1334"
+	}
+}

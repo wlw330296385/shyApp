@@ -20,7 +20,6 @@ http1.on("success",function(result){
 		sessionID = result.data.session_id
 		core.toast(result.msg);
 	}else{
-//		core.p(result);
 		core.toast(result.msg);
 	}
 	
@@ -34,11 +33,9 @@ http2.url = "http://api.e-shy.com/index.php/index/user/forget";
 http2.method = "POST";
 http2.contentType = "application/json";
 http2.on("success",function(result){
-	
 	if(result.code == 1){
-		core.alert(result.msg,'通讯成功',function(){
-			app.closePage();
-		});
+		core.toast("修改成功");
+		app.closePage();
 	}else{
 		core.alert(result.msg);
 	}
@@ -55,7 +52,6 @@ var do_TextField_1 = ui('do_TextField_1'),
 
 var phoneTime = 59;
 do_Button_1.on('touch', "", 3000, function(){
-//	http2.setRequestHeader("Cookie","PHPSESSID="+sessionID);
 	time.delay = 0;
 	time.interval = 1000;
 	if (!time.isStart()){
@@ -85,34 +81,55 @@ time.on("tick", function(data, e) {
 
 
 //提交
-ui('do_Button_2').on('touch','',3000,function(){
+var canNotSubmit = false;
+
+do_TextField_1.on('focusOut',function(){
 	if(do_TextField_1.text == ''){
 		core.alert('用户名不能为空');
-		return false;
+		canNotSubmit = false;
+	}else{
+		canNotSubmit = true;
 	}
+})
+do_TextField_2.on('focusOut',function(){
 	if(do_TextField_2.text == ''){
 		core.alert('密码不能为空');
-		return false;
+		canNotSubmit = false;
+	}else{
+		canNotSubmit = true;
 	}
-	if(do_TextField_3.text == ''){
-		core.alert('确认密码不能为空');
-		return false;
+})
+do_TextField_3.on('focusOut',function(){
+	if(do_TextField_3.text == '' || do_TextField_2.text != do_TextField_3.text){
+		core.alert('两次输入的密码不一致');
+		canNotSubmit = false;
+	}else{
+		canNotSubmit = true;
 	}
+})
+
+do_TextField_4.on('focusOut',function(){
 	if(do_TextField_4.text == ''){
 		core.alert('验证码不能为空');
-		return false;
+		canNotSubmit = false;
+	}else{
+		canNotSubmit = true;
 	}
-	if(do_TextField_2.text != do_TextField_3.text){
-		core.alert('两次密码不一致');
-		return false;
-	}
-	http2.body = {
+})
+
+ui('do_Button_2').on('touch','',3000,function(){
+	http2.setRequestHeader("Cookie","PHPSESSID="+sessionID);
+	if(canNotSubmit){
+		http2.body = {
 			"username":do_TextField_1.text,
 			"password":do_TextField_2.text,
 			"password2":do_TextField_3.text,
 			"code":do_TextField_4.text
+		}
+		http2.request();
+	}else{
+		core.alert('输入的内容不对,请重新输入');
 	}
-	http2.request();
 })
 
 //隐藏键盘

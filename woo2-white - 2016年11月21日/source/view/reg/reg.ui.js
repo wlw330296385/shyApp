@@ -58,11 +58,11 @@ phoneBtn.on('touch', "", 3000, function(){
 	
 	http.ajax({
 		url:"http://api.e-shy.com/index.php/index/user/sendRegisterCode",
+//		url:"http://192.168.0.240:8099/index.php/index/user/sendRegisterCode",
 		data:{'mobile':myPhone.text},
 		type:'POST',
 		contentType:'application/json',
-		success: function(msg){	
-//			core.p(msg,'code');
+		success: function(msg){
 			if(msg.code == 1){
 				notify.toast(msg.msg);
 				sessionID = msg.data.session_id;
