@@ -1,0 +1,38 @@
+{
+	"RootView":{
+		"x":"0",
+		"width":"550",
+		"y":"0",
+		"type":"do_ALayout",
+		"views":[
+			{
+				"textAlign":"center",
+				"fontSize":"26",
+				"id":"do_Label_1",
+				"text":"1.",
+				"type":"do_Label",
+				"height":"30"
+			},
+			{
+				"x":"100",
+				"width":"450",
+				"fontSize":"26",
+				"id":"do_Label_2",
+				"text":"2016-11-10 21:28:57",
+				"type":"do_Label",
+				"height":"30"
+			},
+			{
+				"x":"100",
+				"width":"450",
+				"y":"30",
+				"fontSize":"26",
+				"id":"do_Label_3",
+				"text":"000000000000",
+				"type":"do_Label",
+				"height":"30"
+			}
+		],
+		"height":"60"
+	}
+}
