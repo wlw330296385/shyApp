@@ -67,7 +67,7 @@ login.on('touch', "", 3000, function(){
 						tf_1.enabled = true;
 						tf_2.enabled = true;
 						login.redraw();
-						app.openPage('source://view/index/index.ui','index');
+						app.closePage();
 						})
 					}else{
 						notify.toast(userData.msg);

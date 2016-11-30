@@ -58,7 +58,6 @@ phoneBtn.on('touch', "", 3000, function(){
 	
 	http.ajax({
 		url:"http://testapi.e-shy.com/index.php/index/user/sendRegisterCode",
-//		url:"http://192.168.0.240:8099/index.php/index/user/sendRegisterCode",
 		data:{'mobile':myPhone.text},
 		type:'POST',
 		contentType:'application/json',
