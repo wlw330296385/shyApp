@@ -125,7 +125,7 @@ ui('do_ALayout_89').on('touch',function(){
 			storage.writeFile("data://userInfo",outData,true,function(boo){
 				if(boo){
 					core.toast('注销成功');
-					app.openPage("source://view/login/login.ui");
+					app.openPage("source://view/login/login1.ui");
 				}else{
 					core.toast('注销失败');
 				}

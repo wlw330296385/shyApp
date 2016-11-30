@@ -45,23 +45,24 @@ viewShower.on('viewChanged',function(viewID,e){
 		core.p(userInfo,'viewShow.userInfo');
 		global.setMemory("userInfo",userInfo.data);
 		if(userInfo.code != 1){
-			var confirmData = {
-					"title":"提示",
-					"content":"需要登录才可以浏览,马上登录?",
-					"btn1":"取消",
-					"btn2":"确定"
-			};
-			dialog.open("source://view/dialog/confirm.ui",confirmData,function(dialogData,e){
-				var outData = {
-						"code":0
-				}
-				if (dialogData == 1){					
-					core.toast('进行登陆');
-					app.openPage("source://view/login/login.ui");			
-				}else{
-					viewShower.showView('home');
-				}
-			})
+//			var confirmData = {
+//					"title":"提示",
+//					"content":"需要登录才可以浏览,马上登录?",
+//					"btn1":"取消",
+//					"btn2":"确定"
+//			};
+//			dialog.open("source://view/dialog/confirm.ui",confirmData,function(dialogData,e){
+//				var outData = {
+//						"code":0
+//				}
+//				if (dialogData == 1){					
+//					core.toast('进行登陆');
+//					app.openPage("source://view/login/login.ui");			
+//				}else{
+//					viewShower.showView('home');
+//				}
+//			})
+			app.openPage("source://view/login/login1.ui");	
 		}
 	}
 })

@@ -9,21 +9,22 @@ var app,page,core,http;
 app = sm('do_App');
 page = sm('do_Page');
 core = require('do/core');
-http = mm('do_Http');
+
 var mobile;
 var phoneBtn = ui('do_Button_1');
 var toStep2 = ui('do_Button_2');
 toStep2.enabled = false;
-page.on('loaded',function(){
-	if(ui('do_TextField_1').text == ''){
-		core.toast('手机号码不能为空');
-	}
-	if(ui('do_TextField_2').text == ''){
-		core.toast('验证码不能为空');
-	}
-})
+//page.on('loaded',function(){
+//	if(ui('do_TextField_1').text == ''){
+//		core.toast('手机号码不能为空');
+//	}
+//	if(ui('do_TextField_2').text == ''){
+//		core.toast('验证码不能为空');
+//	}
+//})
 
 //点击获取验证码
+http = mm('do_Http');
 http.method = "post";
 http.contentType = "application/json";
 http.url = "http://testapi.e-shy.com/index.php/index/user/sendRegisterCode";
@@ -85,7 +86,7 @@ time.on("tick", function(data, e) {
 });
 
 //验证验证码
-var http2 = mm('http2');
+var http2 = mm('do_Http');
 http2.method = "post";
 http2.contentType = "application/json";
 http2.url = "http://testapi.e-shy.com/index.php/index/user/checkVerify";
@@ -105,6 +106,7 @@ http2.on('fail',function(result){
 	core.toast(result.message);
 })
 toStep2.on('touch',function(){
+	core.p(mobile)
 	if(mobile == ''){
 		core.toast('手机号码不能为空');
 		return false;

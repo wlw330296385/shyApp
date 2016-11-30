@@ -23,6 +23,7 @@ page.on('loaded',function(){
 })
 
 //通讯
+http = mm('do_Http');
 http.method = "post";
 http.contentType = "application/json";
 http.on('success',function(result){
@@ -44,11 +45,11 @@ ui('do_Button_1').on('touch',function(){
 
 //注册
 ui('do_Button_3').on('touch',function(){
-	app.openPage('source://view/reg/reg1.ui');
+	app.openPage('source://view/reg/reg0.ui');
 })
 //忘记密码
 ui('do_Button_2').on('touch',function(){
-	app.openPage('source://view/reg/forget1.ui');
+	app.openPage('source://view/reg/forget0.ui');
 })
 //返回
 ui('do_ALayout_2').on('touch',function(){

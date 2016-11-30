@@ -53,11 +53,11 @@ global.on("launch",function(data,e) {
 	userInfo = storage.readFileSync("data://userInfo",true);	
 	if (data.type == "localNotification")
 	{	do_LocalNotification.removeNotify();
-		app.openPage("source://view/login/login.ui");
+		app.openPage("source://view/login/login1.ui");
 	}else{
 		if(userInfo.code == 0){
 			app.openPage({ 
-	        	source : "source://view/login/login.ui",
+	        	source : "source://view/login/login1.ui",
 	        	id:'login'});
 		}else if(userInfo.code == 1){
 			app.openPage({ 
