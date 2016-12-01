@@ -40,5 +40,3 @@ slideview.on("indexChanged", function(index) {
     segmentview.refreshItems();
 });
 
-
-//获取数据

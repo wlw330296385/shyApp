@@ -21,11 +21,6 @@ kess = require('kess');
 var listData = mm('do_ListData');
 var do_ListView_1 = ui('do_ListView_1');
 do_ListView_1.bindItems(listData);
-//http.url = "http://testapi.e-shy.com/index.php/index/order/index";
-http.url = "http://testapi.e-shy.com/index.php/index/order/index/token/"+token;
-//http.url = "http://testapi.e-shy.com/index.php/index/order/index";
-http.method = "POST";
-http.contentType = "application/json";
 http.on('success',function(data){
 	if(data.code == 1){
 		listData.addData(data.data);
@@ -57,6 +52,9 @@ do_ListView_1.on('push',function(data){
 })
 
 function getData(){
+	http.url = "http://192.168.0.240:8099/index.php/index/order/index/token/"+token;
+	http.method = "POST";
+	http.contentType = "application/json";
 	http.body = {
 			"status":status,
 			"p":p

@@ -1,15 +1,17 @@
 /**
- * related to getBackUser.ui
+ * related to forget0.ui
  * 
  * @Author : 18507717466
- * @Timestamp : 2016-10-22
+ * @Timestamp : 2016-11-30
  */
-var app,page,core,http1,http2,time,sessionID;
-time = mm('do_Timer');
+
+var app,core,page,http1,http2,time;
 app = sm('do_App');
-page = sm('do_Page');
 core = require('do/core');
+page = sm('do_Page');
 http1 = mm('do_Http');
+http2 = mm('do_Http');
+time = mm('do_Timer');
 http1.url = "http://192.168.0.240:8099/index.php/index/user/sendRegisterCode";
 http1.method = "POST";
 http1.contentType = "application/json";
@@ -33,12 +35,11 @@ http2.method = "POST";
 http2.contentType = "application/json";
 http2.on("success",function(result){
 	if(result.code == 1){
-		core.toast("修改成功");
+		core.toast(result.msg);
 		app.closePage();
 	}else{
-		core.alert(result.msg);
+		core.toast(result.msg);
 	}
-	
 })
 http2.on('fail',function(result){
 	core.toast(result.message);
@@ -47,7 +48,7 @@ var do_TextField_1 = ui('do_TextField_1'),
 	do_TextField_2 = ui('do_TextField_2'),
 	do_TextField_3 = ui('do_TextField_3'),
 	do_TextField_4 = ui('do_TextField_4'),
-	do_Button_1 = ui('do_Button_1');
+	do_Button_1 = ui('do_Button_2');
 
 var phoneTime = 59;
 do_Button_1.on('touch', "", 3000, function(){
@@ -60,7 +61,7 @@ do_Button_1.on('touch', "", 3000, function(){
 		return false;
 	}
 	if(!do_TextField_1.text || do_TextField_1.text == null || do_TextField_1.text == undefined){
-		notify.alert('账号不能为空');
+		notify.alert('账号/手机号码不能为空');
 		return false;
 	}
 	http1.body = {"username":do_TextField_1.text};
@@ -77,40 +78,43 @@ time.on("tick", function(data, e) {
             time.stop();               
     }
 });
+
 var device = sm("do_Device");
 var deviceInfo = device.getInfo();
 var nf = sm('do_Notification');
-//提交
-if(deviceInfo.OS!="android"){
-	do_TextField_1.on('focusOut',function(){
-	if(do_TextField_1.text == ''){
-		nf.toast({text:"账号不能为空",y:120});
+page.on('loaded',function(){
+	if(deviceInfo.OS!="android"){
+		do_TextField_1.on('focusOut',function(){
+		if(do_TextField_1.text == ''){
+			nf.toast({text:"账号不能为空",y:120});
+		}
+		})
+		do_TextField_2.on('focusOut',function(){
+			if(do_TextField_2.text == ''){
+				nf.toast({text:"密码不能为空",y:120});
+			}
+		})
+		do_TextField_3.on('focusOut',function(){
+			if(do_TextField_3.text == '' || do_TextField_2.text != do_TextField_3.text){
+				nf.toast({text:"重复密码不能为空",y:120});
+			}
+		})
+		
+		do_TextField_4.on('focusOut',function(){
+			if(do_TextField_4.text == ''){
+				nf.toast({text:"两次密码不一致",y:120});
+			}
+		})
 	}
-	})
-	do_TextField_2.on('focusOut',function(){
-		if(do_TextField_2.text == ''){
-			nf.toast({text:"密码不能为空",y:120});
-		}
-	})
-	do_TextField_3.on('focusOut',function(){
-		if(do_TextField_3.text == '' || do_TextField_2.text != do_TextField_3.text){
-			nf.toast({text:"重复密码不能为空",y:120});
-		}
-	})
-	
-	do_TextField_4.on('focusOut',function(){
-		if(do_TextField_4.text == ''){
-			nf.toast({text:"两次密码不一致",y:120});
-		}
-	})
-}
+})
+
 ui('do_Button_2').on('touch','',3000,function(){
 	if(do_TextField_1.text == ''){
 		nf.toast({text:"账号不能为空"});
 		return false;
 	}
 	if(do_TextField_2.text == ''){
-		nf.toast({text:"密码不能为空"});
+		nf.toast({text:"密码不能为空"}); 
 		return false;
 	}
 	if(do_TextField_3.text == ''){
@@ -130,27 +134,18 @@ ui('do_Button_2').on('touch','',3000,function(){
 			"code":do_TextField_4.text
 	}
 	http2.request();
-//	if(canNotSubmit){
-//		http2.body = {
-//			"username":do_TextField_1.text,
-//			"password":do_TextField_2.text,
-//			"password2":do_TextField_3.text,
-//			"code":do_TextField_4.text
-//		}
-//		http2.request();
-//	}else{
-//		core.alert('输入的内容不对,请重新输入');
-//	}
 })
+
 
 //隐藏键盘
 ui('$').on('touch',function(){
 	page.hideKeyboard();
 })
-page.on('back',function(){
-	app.closePage();
-})
 
-ui('do_ALayout_2').on('touch',function(){
-	app.closePage();
+//关闭注册
+ui('do_Button_1').on('touch',function(){
+	app.closePage('reg','slide_t2b',2);
+})
+page.on('back',function(){
+	app.closePage('reg','slide_t2b',2);
 })

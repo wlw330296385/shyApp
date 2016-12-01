@@ -20,7 +20,8 @@
 						"width":"450",
 						"fontSize":"35",
 						"id":"do_TextField_1",
-						"type":"do_TextField"
+						"type":"do_TextField",
+						"clearAll":"true"
 					}
 				]
 			},

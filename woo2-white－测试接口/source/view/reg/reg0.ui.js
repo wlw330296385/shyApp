@@ -1,4 +1,4 @@
-/**
+	/**
  * related to reg1.ui
  * 
  * @Author : 18507717466
@@ -13,6 +13,7 @@ storage = sm('do_Storage');
 http = mm('do_Http');
 http.method = "post";
 http.contentType = "application/json";
+http.url = "http://192.168.0.240:8099/index.php/index/user/register/";
 http.on('success',function(result){
 	if(result.code == 1){
 		core.toast(result.msg);
@@ -21,7 +22,7 @@ http.on('success',function(result){
 				core.toast('注册成功');
 				app.closePage();
 			}else{
-				core.toast('存储失败，请检查手机权限');
+					core.toast('存储失败，请检查手机权限');
 				return false;
 			}											
 		})
@@ -32,34 +33,35 @@ http.on('success',function(result){
 http.on('fail',function(result){
 	core.toast(result.message);
 })
-var pages = [{id:'step1',path:'source://view/reg/reg1.ui'},
+var pages = [
+             {id:'step1',path:'source://view/reg/reg1.ui'},
              {id:'step2',path:'source://view/reg/reg2.ui'},
              ];
 viewShower.addViews(pages);
-viewShower.showView('step1');
+viewShower.showView('step1','slide_b2t');
 
 
-var mobile,password,password2,username,sessionId;
+var mobile,password,password2,username;
 page.on('step1',function(data){
-	mobile = data.mobile;
-	username = data.mobile;
-	sessionId = data.sessionId;
-	viewShower.showView('step2');
+	core.p(data,'step1-data');
+	mobile = data;
+	username = data;
+	viewShower.showView('step2','slide_r2l');
 })
 
 page.on('step2',function(data){
+	core.p(data,'step2-data');
 	password = data.password;
 	password2 = data.password2;
 	referer = data.referer;
 	http.body = {
 			"password":password,
 			"password2":password2,
-			"uername":username,
+			"username":username,
 			"mobile":mobile,
 			"refere":referer
 	}
-	http.setRequestHeader('cookie', "PHPSESSID="+sessionId)
-	http.url = "http://testapi.e-shy.com/index.php/index/user/register/";
+	core.p(http.body);
 	http.request();
 })
 
@@ -69,5 +71,8 @@ page.on('step3',function(){
 
 //关闭注册
 ui('do_Button_1').on('touch',function(){
-	app.closePage();
+	app.closePage('reg','slide_t2b',2);
+})
+page.on('back',function(){
+	app.closePage('reg','slide_t2b',2);
 })

@@ -129,7 +129,7 @@ ui('do_Button_4').on('touch',function(){
 		type:"0", 
 		title:"我在深海油夺宝大展身手,快来看看我有没有中奖", 
 		content:"万一中奖一定请你吃饭", 
-		url:"http://testapi.e-shy.com/index.php/index/promote/registerWeb.html?r="+userInfo.data.mobile, 
+		url:"http://192.168.0.240:8099/index.php/index/promote/registerWeb.html?r="+userInfo.data.mobile, 
 		image:"source://image/por.png", 
 		audio:''
 	},function(res){

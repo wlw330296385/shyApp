@@ -19,11 +19,21 @@
 								"textAlign":"center",
 								"fontSize":"50",
 								"id":"do_Label_1",
-								"text":"<",
+								"text":"×",
 								"type":"do_Label",
 								"fontColor":"FFFFFFFF"
 							}
 						]
+					},
+					{
+						"textAlign":"center",
+						"x":"100",
+						"width":"550",
+						"fontSize":"35",
+						"id":"do_Label_3",
+						"text":"登陆",
+						"type":"do_Label",
+						"fontColor":"FFFFFFFF"
 					}
 				]
 			},
@@ -40,6 +50,7 @@
 						"width":"450",
 						"x":"25",
 						"fontSize":"35",
+						"inputType":"ASC",
 						"id":"do_TextField_1",
 						"type":"do_TextField"
 					}
@@ -54,7 +65,8 @@
 				"type":"do_ALayout",
 				"views":[
 					{
-						"hint":"请输入手机号码",
+						"password":"true",
+						"hint":"请输入密码",
 						"width":"450",
 						"x":"25",
 						"fontSize":"35",

@@ -79,7 +79,7 @@ do_Button_1.on('touch',function(){
 		return false;
 	}
 	http.contentType = "application/json"; 
-	http.url = "http://testapi.e-shy.com/index.php/index/Identity_card/IdentityCard/token/"+token; 
+	http.url = "http://192.168.0.240:8099/index.php/index/Identity_card/IdentityCard/token/"+token; 
 	postData = {
 			"real_name":ui('do_TextField_2').text,
 			"idno":ui('do_TextField_3').text,
@@ -130,7 +130,7 @@ http2.on("progress", function(data) {
 	do_ProgressBar_1.visible = true;
     do_ProgressBar_1.progress = data.currentSize * 100 / data.totalSize;
 });
-http2.url = "http://testapi.e-shy.com/index.php/index/File_upload/uploadImage/token/"+token;
+http2.url = "http://192.168.0.240:8099/index.php/index/File_upload/uploadImage/token/"+token;
 //http2.url = "http://192.168.0.240:8099/index.php/index/File_upload/uploadImage/token/"+token;
 //反面http
 var http3 = mm('do_Http');
@@ -146,7 +146,7 @@ http3.on("progress", function(data) {
 	do_ProgressBar_1.visible = true;
     do_ProgressBar_1.progress = data.currentSize * 100 / data.totalSize;
 });
-http3.url = "http://testapi.e-shy.com/index.php/index/File_upload/uploadImage/token/"+token;
+http3.url = "http://192.168.0.240:8099/index.php/index/File_upload/uploadImage/token/"+token;
 page.on("result", function(data) {
 	if(data.action == 0 && (data.path == null || data.path == undefined || data.path =='')){
 		return false;

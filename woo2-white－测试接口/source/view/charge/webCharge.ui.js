@@ -60,11 +60,10 @@ page.on('loaded',function(){
 	}
 	param = page.getData();
 	userId = userInfo.data.id;
-//	web.url = "http://testapi.e-shy.com/index.php/index/charge/charge?userId="+userId;
-	web.url = "http://testapi.e-shy.com/index.php/index/charge/charge?type="+param+"&userId="+userId;
+	web.url = "http://192.168.0.240:8099/index.php/index/charge/charge?type="+param+"&userId="+userId;
 })
 page.on('result',function(){
 	userInfo = storage.readFileSync('data://userInfo',true);
 	userId = userInfo.data.id;
-	web.url = "http://testapi.e-shy.com/index.php/index/charge/charge?type="+param+"&userId="+userId;
+	web.url = "http://192.168.0.240:8099/index.php/index/charge/charge?type="+param+"&userId="+userId;
 })

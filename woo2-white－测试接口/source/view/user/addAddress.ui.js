@@ -81,7 +81,7 @@ do_InitData.readFile("initdata://ssx.json", function(data, e){
 var http = mm('do_Http');
 http.method = "POST";
 http.contentType = "application/json";
-http.url = "http://testapi.e-shy.com/index.php/index/Panicbuy/addAddress/token/"+token;
+http.url = "http://192.168.0.240:8099/index.php/index/Panicbuy/addAddress/token/"+token;
 http.on('success',function(result){
 	core.p(result,'addaddress');
 	if(result.code == 1){

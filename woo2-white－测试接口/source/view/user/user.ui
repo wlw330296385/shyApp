@@ -5,6 +5,7 @@
 		"type":"do_ALayout",
 		"views":[
 			{
+				"isHeaderVisible":"true",
 				"bgColor":"F0F0F0FF",
 				"width":"750",
 				"id":"do_ScrollView_6",

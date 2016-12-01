@@ -55,7 +55,7 @@
 				"views":[
 					{
 						"width":"350",
-						"x":"5",
+						"x":"10",
 						"y":"20",
 						"id":"do_ImageView_2",
 						"type":"do_ImageView",

@@ -34,7 +34,14 @@ ui('do_Button_1').on('touch',function(){
 	}
 	var data = {
 			"password":ui('do_TextField_1').text,
-			"password2":ui('do_TextField_2').text
+			"password2":ui('do_TextField_2').text,
+			"referer":ui('do_TextField_3').text
 	};
 	page.fire('step2',data);
+})
+
+
+//隐藏键盘
+ui('$').on('touch',function(){
+	page.hideKeyboard();
 })

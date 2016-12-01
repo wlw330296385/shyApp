@@ -113,7 +113,7 @@ if(userInfo.code == 1){
 	}else{
 		core.toast("请先登录");
 }
-http.url = "http://testapi.e-shy.com/index.php/index/panicbuy/order/token/"+token;
+http.url = "http://192.168.0.240:8099/index.php/index/panicbuy/order/token/"+token;
 http.method = "POST";
 http.contentType = "application/json";
 http.on('success',function(result){
@@ -166,7 +166,7 @@ ui('do_Label_27').text = (price*num).toFixed(0)+'元';
 var buy_score,return_score,next_score,point,address_id = 0,
 postscript,sales_num,sales_total_price;
 //var http2 = mm('do_Http');
-//http2.url = "http://testapi.e-shy.com/index.php/index/panicbuy/order_create";
+//http2.url = "http://192.168.0.240:8099/index.php/index/panicbuy/order_create";
 //http2.method = "POST";
 //http2.contentType = "application/json";
 //http2.on('seccess',function(result){
@@ -187,7 +187,7 @@ ui('do_Button_1').on('touch','',3000,function(){
 		return false;
 	}
 	postscript = ui('do_TextBox_1').text==''?0:ui('do_TextBox_1').text;
-	var payUrl = "http://testapi.e-shy.com/index.php/index/panicbuy/order_create";
+	var payUrl = "http://192.168.0.240:8099/index.php/index/panicbuy/order_create";
 	payUrls = payUrl+'?userId='+userInfo.data.id+'&token='+token+'&address_id='+address_id+'&postscript='+postscript+"&sales_id="+goods_id+"&sales_num="+num+"&sales_total_price="+total+"&buy_score="+buy_score+"&return_score="+return_score+"&next_score="+next_score+"&point="+point;
 //	http2.body = {
 //		"address_id":address_id,

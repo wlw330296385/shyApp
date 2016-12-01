@@ -82,13 +82,13 @@
     },
     {
       "ID": "defaultImage",
-      "Name": "默认图片",
+      "Name": "网络初始化图片",
       "Type": "String",
       "Type_JavaScript": "String",
       "DefaultValue": "",
       "EditType": "1",
       "Group": "",
-      "Description": "支持data://和source://",
+      "Description": "当加载一个网络图片比较慢的时候，先显示这个图片，生命周期为从开始加载网络图片到完全正确加载完网络图片为止；支持data://和source://",
       "Design": {
         "Type": "ImageSource",
         "Data": []

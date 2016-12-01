@@ -1,10 +1,10 @@
 /**
- * related to winning.ui
+ * related to duobao_list.ui
  * 
  * @Author : 18507717466
- * @Timestamp : 2016-11-08
+ * @Timestamp : 2016-12-01
  */
-var app,page,core,listData,do_ListView_1,http,p=1,type=5,kess,token;
+var app,page,core,listData,do_ListView_1,http,p=1,type=3,storage,kess,token;
 app = sm('do_App');
 page = sm('do_Page');
 core = require('do/core');
@@ -34,13 +34,12 @@ do_ListView_1.on('push',function(data){
 })
 
 http.url = "http://192.168.0.240:8099/index.php/index/panicbuy/index/token/"+token;
-//http.url = "http://192.168.0.240:8099/index.php/index/panicbuy/index";
 http.method ="POST";
 http.contentType = "application/json";
 http.on('success',function(result){
-//	core.p(result.data,'返回的data');
-	if (result.code == 5) {
+	if (result.code == 3) {
 		data = result.data;
+		core.p(data);
 		listData.addData(data);
 		do_ListView_1.bindItems(listData);
 		do_ListView_1.refreshItems();
@@ -60,16 +59,29 @@ function getData(){
 	}
 	http.request();
 }
+var buttons = [ui('do_Button_1'),ui('do_Button_2'),ui('do_Button_3'),ui('do_Button_4')];
+//按钮事件
+buttons.forEach(function(me,i){
+	me.on('touch',function(data,e){
+		type = i+3;
+		listData.removeAll();
+		listData.addData(data);
+		listData.refreshData();
+		do_ListView_1.refreshItems();
+		getData();
+	})
+})
 
 
-getData()
-ui('do_ALayout_6').on('touch',function(){
-	app.closePage();
-})
-ui('$').on('touch',function(){
-	page.hideKeyboard();
-})
-//安卓返回键
-page.on('back',function(){
-	app.closePage();
-})
+function changeStatus(index){
+	for(var i = 0;i<labels.length;i++){
+		labels[i].fontColor = "666666FF";
+		icons[i].source = "source://image/menu"+i+'-2.png';
+	} 
+	buttons[index].bgColor('FF0000FF');
+	buttons[index].enabled = false;
+}
+getData();
+listData.addData(data);
+do_ListView_1.bindItems(listData);
+do_ListView_1.refreshItems();
