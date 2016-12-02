@@ -30,7 +30,8 @@ d[0].s_tag = [ {
 //商品列表
 d[1] = {};
 d[1].template = 1;
-
+d[2] = {};
+d[2].template = 2;
 listdata.addData(d);
 do_ListView_1.refreshItems();
 //debug.print(JSON.stringify(listdata.getRange(0)));

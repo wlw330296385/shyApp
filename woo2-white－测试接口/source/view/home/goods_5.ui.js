@@ -6,7 +6,7 @@
  */
 var app,page,core,storage,userInfo;
 app = sm('do_App');
-page = sm('dp_Page');
+page = sm('do_Page');
 core = require('do/core');
 storage = sm('do_Storage');
 userInfo = storage.readFileSync("data://userInfo",true);

@@ -4,7 +4,6 @@
  * @Author : 18507717466
  * @Timestamp : 2016-10-19
  */
-
 var app,page,core,storage,userInfo,userId,actiUrl;
 app = sm('do_App');
 page = sm('do_Page');
@@ -31,10 +30,15 @@ web.on('failed',function(){
 	core.toast("页面加载失败,请下拉刷新或者关闭页面");
 })
 
-web.on('pull',function(state,offset){
-	web.url ='';
-	web.url = data.url;
-	web.reload();
+web.on('pull',function(data){
+	core.p(data,'state')
+	if(state == 2){
+		core.toast(111);
+		web.url ='';
+		web.url = toUrl;
+		web.reload();		
+	}
+	web.rebound();
 })
 
 web.on('start',function(){
@@ -60,7 +64,14 @@ page.on('loaded',function(){
 	}
 	param = page.getData();
 	userId = userInfo.data.id;
-	web.url = "http://192.168.0.240:8099/index.php/index/charge/charge?type="+param+"&userId="+userId;
+	var toUrl;
+	if(param <=2){
+		toUrl = "http://192.168.0.240:8099/index.php/index/charge/charge?type="+param+"&userId="+userId;
+	}
+	if(param == 3){
+		toUrl = "http://192.168.0.240:8099/index.php/index/charge/cmcc/userId/"+userId;
+	}
+	web.url = toUrl;
 })
 page.on('result',function(){
 	userInfo = storage.readFileSync('data://userInfo',true);

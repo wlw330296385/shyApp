@@ -37,7 +37,7 @@ http.url = "http://192.168.0.240:8099/index.php/index/panicbuy/index/token/"+tok
 http.method ="POST";
 http.contentType = "application/json";
 http.on('success',function(result){
-	if (result.code == 3) {
+	if (result.code >0) {
 		data = result.data;
 		core.p(data);
 		listData.addData(data);
@@ -63,6 +63,7 @@ var buttons = [ui('do_Button_1'),ui('do_Button_2'),ui('do_Button_3'),ui('do_Butt
 //按钮事件
 buttons.forEach(function(me,i){
 	me.on('touch',function(data,e){
+		changeStatus(i)
 		type = i+3;
 		listData.removeAll();
 		listData.addData(data);
@@ -74,12 +75,14 @@ buttons.forEach(function(me,i){
 
 
 function changeStatus(index){
-	for(var i = 0;i<labels.length;i++){
-		labels[i].fontColor = "666666FF";
-		icons[i].source = "source://image/menu"+i+'-2.png';
+	for(var i = 0;i<buttons.length;i++){
+		buttons[i].bgColor = "FFFFFFFF";
+		buttons[i].enabled = true;
+		buttons[i].fontColor = '000000FF';
 	} 
-	buttons[index].bgColor('FF0000FF');
+	buttons[index].bgColor='FF0000FF';;
 	buttons[index].enabled = false;
+	buttons[index].fontColor = 'FFFFFFFF';
 }
 getData();
 listData.addData(data);

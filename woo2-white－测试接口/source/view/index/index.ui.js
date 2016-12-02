@@ -116,8 +116,10 @@ http.on('fail',function(msg){
 	core.p(msg);
 })
 //弹出红包
-page.on('result',function(){
-	dialog.open();
+page.on('result',function(data){
+	if(data.act == 'reg'){
+		dialog.open("source://view/dialog/reg.ui");
+	}
 })
 //退出程序
 var pagejs = require('do/page');

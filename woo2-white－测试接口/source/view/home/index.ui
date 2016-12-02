@@ -68,7 +68,7 @@
 				]
 			},
 			{
-				"templates":"source://view/home/slideview.ui,source://view/home/goods_5.ui",
+				"templates":"source://view/home/slideview.ui,source://view/home/goods_5.ui,source://view/home/duobao_list.ui",
 				"width":"750",
 				"y":"80",
 				"id":"do_ListView_1",

@@ -24,6 +24,7 @@
 						"height":"45"
 					},
 					{
+						"border":"E3E3E3FF,1,0",
 						"bgColor":"FF0000FF",
 						"x":"12",
 						"width":"170",
