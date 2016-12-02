@@ -38,11 +38,11 @@ navs.forEach(function(me,i){
 		viewShower.showView(pages[i].id);
 	})
 })
-userInfo = storage.readFileSync('data://userInfo',true);
+
 //切换page事件
 viewShower.on('viewChanged',function(viewID,e){
+	userInfo = storage.readFileSync('data://userInfo',true);
 	if(viewID == 'user'|| viewID == 'basket'){
-		core.p(userInfo,'viewShow.userInfo');
 		global.setMemory("userInfo",userInfo.data);
 		if(userInfo.code != 1){
 //			var confirmData = {
@@ -95,7 +95,7 @@ page.on('loaded',function(){
 })
 http = mm('do_Http');
 http.method = "POST";
-http.url = 'http://testapi.e-shy.com/index.php/index/app/update';
+http.url = 'http://192.168.0.240:8099/index.php/index/app/update';
 http.on('success',function(result){
 	//	弹出更新提示
 	core.toast(result);
@@ -115,7 +115,13 @@ http.on('fail',function(msg){
 	core.toast(msg.message,'update');
 	core.p(msg);
 })
-
+//弹出红包
+page.on('result',function(data){
+	if(data.act == 'reg'){
+		dialog.open("source://view/dialog/reg.ui");
+	}
+})
+//退出程序
 var pagejs = require('do/page');
 pagejs.allowExit();	
 
