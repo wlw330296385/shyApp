@@ -18,7 +18,7 @@ var userInfo;
 var addOilCard = ui('do_ALayout_69');
 addOilCard.on('touch',function(){
 	if(userInfo.data.id_verify == 0 ){
-		core.alert("请先绑定身份证");
+		core.toast("请先绑定身份证");
 		return false;
 	}
 	app.openPage('source://view/user/addOilCard.ui','addOilCard');
@@ -78,9 +78,7 @@ ui('do_ALayout_88').on('touch',function(){
 page.on("getData",function(){
 	userInfo = storage.readFileSync('data://userInfo',true);
 	if(userInfo.code == 0 ||!userInfo){
-		core.alert('请先登录',function(){
-			app.openPage("source://view/login/login.ui");
-		})
+		app.openPage("source://view/login/login.ui");
 		return false;
 	}
 	token = kess.lockIt(userInfo.data.id);

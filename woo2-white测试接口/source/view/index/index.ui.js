@@ -114,11 +114,9 @@ http.on('fail',function(msg){
 	core.toast(msg.message,'update');
 	core.p(msg);
 })
-var jpush = sm("do_JPush");
-core.alert(jpush.getRegistrationID());
 //弹出红包
-page.on('result',function(data){
-	if(data.act == 'reg'){
+page.on('result',function(act){
+	if(act == 'reg'){
 		dialog.open("source://view/dialog/reg.ui");
 	}
 })

@@ -10,3 +10,9 @@ var core = require('do/core');
 var data = dialog.getData();
 
 core.p(data,'rec');
+
+ui('do_Label_1').text = data.username+"注册会员成功";
+
+ui('do_Label_3').text = data.hb1+" 元";
+
+ui('do_Label_5').text ="下一个红包 "+ data.hb2+" 元"

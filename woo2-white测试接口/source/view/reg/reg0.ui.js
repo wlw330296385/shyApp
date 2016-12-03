@@ -20,7 +20,7 @@ http.on('success',function(result){
 		storage.writeFile('data://userInfo',result,true,function(res){	
 			if(res){
 				core.toast('注册成功');
-				app.closePage();
+				app.closePage('reg','slide_t2b',2);
 			}else{
 					core.toast('存储失败，请检查手机权限');
 				return false;
