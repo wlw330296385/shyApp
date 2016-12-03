@@ -15,6 +15,8 @@ storage = sm('do_Storage');
 userInfo = storage.readFileSync("data://userInfo",true);
 if(userInfo.code == 1){
 	token = kess.lockIt(userInfo.data.id);
+}else{
+	app.openPage("source://view/login/login1.ui");
 }
 var img,name,price,num,title,getPageData,data,sales_id;
 getPageData = page.getData();
@@ -30,13 +32,18 @@ ui('do_Label_3').text = name;
 ui('do_Label_4').text = title;
 ui('do_ImageView_1').source = img;
 
-var addr,score;
+var addr,score,isAddr = true;
 //绑定地址
 var listData = mm('do_ListData');
 address = ui('do_ComboBox_1');
 address.on('selectChanged',function(index){
 	var one = listData.getOne(index);
 	address_id = one.id;
+})
+ui('do_ALayout_9').on('touch',function(){
+	if(!isAddr){
+		app.openPage('source://view/user/addAddress.ui');
+	}
 })
 //选择积分
 var scoreAct = false;
@@ -106,13 +113,6 @@ var total;//总金额;
 
 //获取信息
 var http = mm('do_Http');
-var storage = sm('do_Storage');
-var userInfo = storage.readFileSync("data://userInfo",true);
-if(userInfo.code == 1){
-		token = kess.lockIt(userInfo.data.id);
-	}else{
-		core.toast("请先登录");
-}
 http.url = "http://192.168.0.240:8099/index.php/index/panicbuy/order/token/"+token;
 http.method = "POST";
 http.contentType = "application/json";
@@ -123,10 +123,10 @@ http.on('success',function(result){
 		return false;
 	}else{
 		if(result.data.addr == 0){
-			core.alert('请先添加收货地址','提示',function(){
-				app.openPage("source://view/user/addAddress.ui");
-			})
+			core.alert('请先点击收件人信息添加收货地址','提示');
+			isAddr = false;
 		}else{
+			isAddr = true;
 			addr = result.data.addr;
 			listData.addData(addr);
 			address.bindItems(listData);
@@ -141,9 +141,7 @@ http.on('success',function(result){
 		}
 	}	
 })
-page.on('result',function(){
-	http.request();
-})
+
 http.on('fail',function(result){
 	core.p(result);
 	core.toast(result.message);
@@ -154,7 +152,6 @@ http.body = {
 	};
 core.p(http.body,'http.body');
 http.request();
-
 //更新地址
 page.on('result',function(){
 	http.request();
@@ -210,12 +207,14 @@ ui('do_Button_1').on('touch','',3000,function(){
 //	})
 	
 })
-ui('do_ALayout_2').on('touch',function(){
+ui('do_Button_2').on('touch',function(){
 	app.closePage();
 })
 ui('$').on('touch',function(){
 	page.hideKeyboard();
 })
+var style=require("do/style");
+style.css([ui('do_Button_1'),ui('do_Button_2')]);
 
 //安卓返回键
 page.on('back',function(){

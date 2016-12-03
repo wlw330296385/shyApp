@@ -47,7 +47,7 @@ ui('do_ALayout_2').on('touch',function(data){
 			}
 			if (dialogData == 1){					
 				core.toast('进行登陆');
-				app.openPage("source://view/login/login.ui");			
+				app.openPage("source://view/login/login1.ui");			
 			}
 		})
 	}
@@ -70,7 +70,7 @@ ui('do_ALayout_3').on('touch',function(data){
 			}
 			if (dialogData == 1){					
 				core.toast('进行登陆');
-				app.openPage("source://view/login/login.ui");			
+				app.openPage("source://view/login/login1.ui");			
 			}
 		})
 	}

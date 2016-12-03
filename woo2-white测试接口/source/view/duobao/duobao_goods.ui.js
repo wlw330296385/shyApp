@@ -162,6 +162,8 @@ page.on("loaded",function(){
 	ui('do_ALayout_7').redraw();
 })
 ui('do_ALayout_7').redraw();
+var style=require("do/style");
+style.css([ui('do_Button_1'),ui('do_Button_2'),ui('do_Button_3'),ui('do_Button_4')]);
 //安卓返回键
 page.on('back',function(){
 	app.closePage();

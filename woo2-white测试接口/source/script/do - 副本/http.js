@@ -1,6 +1,6 @@
 //---------------------------------------------------------------
 //访问http的服务
-//调试文件必须存放在：initdata://mock/ 子目录下
+//测试数据必须存放在：initdata://mock/ 子目录下
 //为了方便当前文件的升级，不建议直接修改该文件，如果需要修改相关的配置，请在httpSetting.js中修改
 //version: 1.0.0
 //---------------------------------------------------------------
@@ -28,18 +28,6 @@ function builderurlencoded(options){
 	}	
 	return _paraStr;
 }
-function buildUniqueID(options){
-	var _fullData=options.url;
-	if (options.data !=null){
-		if (typeof(options.data) == "string"){
-			_fullData += options.data;
-		}
-		else{
-			_fullData += JSON.stringify(options.data);
-		}		
-	}
-	return do_Algorithm.md5Sync(_fullData)
-}
 function builderFullUrl(options){
 	if (options.data ==null) return options.url;
 	var _paraStr=builderurlencoded(options);
@@ -56,30 +44,25 @@ function callbackFunc(options, _oldData, data, status){
 		isSucceed=true;
 	}
 	if (options.cacheLastResult){
-		if (_oldData && data && core.valueEqual(_oldData, data)) return;
+		if (_oldData && data && core.toString(_oldData, false) == core.toString(data, false)) return;
 		if (isSucceed){
-			var _id=buildUniqueID(options);
-			if (options.cacheExpires >0){
-				var _cacheTime = "data://httpCache/" + options.type  +"/" + _id + ".t";
-				var nowTime= (new Date()).getTime();
-				do_Storage.writeFile(_cacheTime, nowTime + options.cacheExpires);
-			}
-			var _cacheFile = "data://httpCache/" + options.type  +"/" + _id;
+			var _fUrl=builderFullUrl(options);
+			var _cacheFile = "data://httpCache/" + options.type  +"/" + do_Algorithm.md5Sync( _fUrl);
 			do_Storage.writeFile(_cacheFile, data);
 		}
 	}
 	var fdata=data;
 	if (options.dataFilter){
-		fdata=core.callFunction(options.dataFilter, data);
+		fdata=options.dataFilter.call(this, data);
 	}
 	if (isSucceed){
-		if (options.success) core.callFunction(options.success, fdata, status);
+		if (options.success) options.success.call(this, fdata, status);
 	}
 	else{
-		if (options.error) core.callFunction(options.error, fdata, status);
+		if (options.error) options.error.call(this, fdata, status);
 	}
 	
-	if (options.complete) core.callFunction(options.complete, fdata, status);
+	if (options.complete) options.complete.call(this, fdata);
 }
 function checkMock(_fUrl, _oldData, options){
 	if (!options.useMockData) return false;
@@ -109,10 +92,6 @@ function checkMock(_fUrl, _oldData, options){
 	return false;
 }
 function callajax(_fUrl, _oldData, options){	
-	var _http = d1.mm("do_Http");
-	if (options.beforeSend){
-		core.callFunction(options.beforeSend, options, _http);
-	}
 	var _realUrl=options.url;
 	if (options.type=="GET" || options.type=="DELETE"){
 		_realUrl=_fUrl;
@@ -120,10 +99,11 @@ function callajax(_fUrl, _oldData, options){
 	if (_realUrl.indexOf("http://") !=0 && _realUrl.indexOf("https://") !=0){
 		_realUrl = options.rootUrl + "/" + _realUrl;
 	}
+	var _http = d1.mm("do_Http");
 	_http.url = _realUrl;
 	if (options.contentType =="application/x-www-form-urlencoded")
 	{
-		_http.body = builderurlencoded(options);
+		_http.body = builderurlencoded(options.data);
 	}
 	else{
 		_http.body = JSON.stringify( options.data);
@@ -146,10 +126,13 @@ function callajax(_fUrl, _oldData, options){
 						_result=data.data;
 					}
 				}				
-			}		
+			}			
 		}
 		callbackFunc(options, _oldData, _result, data.status);
 	});
+	if (options.beforeSend){
+		options.beforeSend.call(this, options, _http);
+	}
 	_http.request();
 }
 function ajax( url, options){
@@ -157,67 +140,24 @@ function ajax( url, options){
 		options = url;
 		url = null;
 	}
-	var d=core.getOptions(options, "do/defaultSetting/httpSetting", "mySetting/httpSetting");
+	var d=core.getOptions(options, "do/httpSetting");
 	d.mockData=d.mockData||[];
-	d.cacheExpires=d.cacheExpires||0;
 	d.type=d.type||"GET";
 	d.type=d.type.toUpperCase();
 	if (url) d.url=url;
 	var _fUrl=builderFullUrl(d);
 	var _cacheFile="";
 	if (d.cacheLastResult){
-		var _id=buildUniqueID(d);
-		var _cacheTime = "data://httpCache/" + d.type  +"/" + _id + ".t";
-		var _cacheFile = "data://httpCache/" + d.type  +"/" + _id;
-		if (d.cacheExpires<0){
-			if (do_Storage.fileExist(_cacheFile)){
-				do_Storage.readFile(_cacheFile, function(data) {
-					var fdata=data;
-					if (d.dataFilter) fdata=core.callFunction(d.dataFilter, data);
-					if (d.success) core.callFunction(d.success, fdata, 200);
-					if (d.complete) core.callFunction(d.complete, fdata, 200);
-				});
-				return;
-			}
-		}
-		else{
-			if (d.cacheExpires>0){
-				if (do_Storage.fileExist(_cacheTime)){
-					do_Storage.readFile(_cacheTime, function(time) {
-						var _expireTime=parseInt(time);
-						var nowTime= (new Date()).getTime();
-						if (nowTime > _expireTime){
-							if (checkMock(_fUrl, null, d)) return;
-							callajax(_fUrl, null, d);
-						}
-						else{
-							if (do_Storage.fileExist(_cacheFile)){
-								do_Storage.readFile(_cacheFile, function(data) {
-									var fdata=data;
-									if (d.dataFilter) fdata=core.callFunction(d.dataFilter, data);
-									if (d.success) core.callFunction(d.success, fdata, 200);
-									if (d.complete) core.callFunction(d.complete, fdata, 200);
-								});
-								return;
-							}
-						}
-					});
-					return;
-				}
-			}
-			else{
-				if (do_Storage.fileExist(_cacheFile)){
-					do_Storage.readFile(_cacheFile, function(data) {
-						var fdata=data;
-						if (d.dataFilter) fdata=core.callFunction(d.dataFilter, data);
-						if (d.success) core.callFunction(d.success, fdata, 200);
-						if (d.complete) core.callFunction(d.complete, fdata, 200);
-						if (checkMock(_fUrl, data, d)) return;
-						callajax(_fUrl, data, d);
-					});
-					return;
-				}
-			}
+		var _cacheFile = "data://httpCache/" + d.type  +"/" + do_Algorithm.md5Sync(_fUrl);
+		if (do_Storage.fileExist(_cacheFile)){
+			do_Storage.readFile(_cacheFile, function(data) {
+				var fdata=data;
+				if (d.dataFilter) fdata=d.dataFilter.call(this, data);
+				if (d.success) d.success.call(this, fdata, 200);
+				if (checkMock(_fUrl, data, d)) return;
+				callajax(_fUrl, data, d);
+			});
+			return;
 		}
 	}
 	if (checkMock(_fUrl, null, d)) return;
@@ -230,7 +170,7 @@ function ajax( url, options){
  * ajax访问http服务，默认配置在httpSetting.js中配置
  * @param url 访问的url路径，可以是相对于rootUrl的路径
  * @param options 传入的选项内容
-		//上级选项名称（在defaultSetting/httpSetting.js中配置,可继承选项内容）
+		//上级选项名称（可继承选项内容）
 		parent:null,
 		//服务请求的根路径
 		rootUrl:"",
@@ -258,11 +198,9 @@ function ajax( url, options){
 		complete:null,
 		//是否缓存上次结果 （为true的时候，在返回服务结果之前会先返回上次结果，一般用于改善数据查询的交互体验）
 		cacheLastResult:false,
-		//缓存失效时长（单位为毫秒，-1表示永远使用缓存，0表示每次都先用缓存后刷新变化）
-		cacheExpires:0,
-		//是否使用调试数据
+		//是否使用测试数据
 		useMockData:false,
-		//调试数据
+		//测试数据
 		mockData:null
  */
 module.exports.ajax = function( url, options){

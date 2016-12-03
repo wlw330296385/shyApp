@@ -40,7 +40,8 @@ ui('do_Button_1').on('touch',function(){
 	page.fire('step2',data);
 })
 
-
+var style=require("do/style");
+style.css(ui('do_Button_1'));
 //隐藏键盘
 ui('$').on('touch',function(){
 	page.hideKeyboard();

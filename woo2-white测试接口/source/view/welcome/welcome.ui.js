@@ -47,7 +47,6 @@ slideview.bindItems(listdata);
 slideview.on("indexChanged",function(data){
 	changLabels(data);
 });
-
 var changLabels = function(index){
 	labels.forEach(function(data,i){
 		labels[i].bgColor = "FFFFFFAA";
@@ -59,7 +58,8 @@ var changLabels = function(index){
 		ui('do_Button_1').visible = false;
 	}
 };
-
+var style=require("do/style");
+style.css(ui('do_Button_1'));
 ui('do_Button_1').on('touch',function(){
 	app.openPage("source://view/index/index.ui",'login');
 })

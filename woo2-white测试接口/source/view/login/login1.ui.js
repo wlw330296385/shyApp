@@ -9,7 +9,6 @@ app = sm('do_App');
 page = sm('do_Page');
 core = require('do/core');
 storage = sm('do_Storage');
-var jpush = sm("do_JPush");
 page.on('loaded',function(){
 	ui('do_TextField_1').on('focusOut',function(){
 		if(this.text == ''){
@@ -30,9 +29,8 @@ http.contentType = "application/json";
 http.on('success',function(result){
 	if(result.code == 1){
 		core.p(result,'login')
-		jpush.setAlias(result.data.mobile,function(){
-			core.toast(result.data.mobile);
-		});
+		var jpush = sm('do_JPush');
+		jpush.setAlias(result.data.mobile);
 		storage.writeFile('data://userInfo',result,true,function(res){	
 			if(res){
 				core.toast('登陆成功');
@@ -52,6 +50,14 @@ http.on('fail',function(result){
 })
 http.url = "http://192.168.0.240:8099/index.php/index/user/login";
 ui('do_Button_1').on('touch',function(){
+	if(this.text == ''){
+		core.toast("用户名不能为空");
+		return false;
+	}
+	if(this.text == ''){
+		core.toast("密码不能为空");
+		return false;
+	}
 	http.body = {
 			"username":ui('do_TextField_1').text,
 			'password':ui('do_TextField_2').text
@@ -72,7 +78,8 @@ ui('do_Button_2').on('touch',function(){
 ui('do_ALayout_2').on('touch',function(){
 	app.closePage();
 })
-
+var style=require("do/style");
+style.css([ui('do_Button_1'),ui('do_Button_2'),ui('do_Button_3')]);
 //隐藏键盘
 ui('$').on('touch',function(){
 	page.hideKeyboard();

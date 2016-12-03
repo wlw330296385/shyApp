@@ -24,8 +24,10 @@ root.on("dataRefreshed",function(){
 	goods_id = this.tag;
 	root.redraw();
 })
-root.on('touch',function(){
+root.redraw();
+
+var style=require("do/style");
+style.css(ui('do_Button_1'));
+ui('do_Button_1').on('touch',function(){
 	app.openPage("source://view/duobao/duobao_goods.ui",goods_id,'slide_r2l');
 })
-
-root.redraw();

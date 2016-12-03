@@ -63,7 +63,7 @@ function getData(){
 
 var action = 1;//表示热门
 //新品上架
-ui('do_ALayout_4').on('touch',function(){
+ui('do_Button_2').on('touch',function(){
 	action = 2;
 	newGoods();
 	
@@ -79,7 +79,7 @@ function newGoods(){
 }
 
 //热门推荐
-ui('do_ALayout_2').on('touch',function(){
+ui('do_Button_1').on('touch',function(){
 	action =1;
 	hot();
 })
@@ -93,13 +93,15 @@ function hot(){
 	do_ListView_1.refreshItems();
 }
 //最新揭晓
-ui('do_ALayout_6').on('touch',function(){
+ui('do_Button_4').on('touch',function(){
 	app.openPage("source://view/duobao/winning.ui");
 })
 //即将开讲
-ui('do_ALayout_5').on('touch',function(){
+ui('do_Button_3').on('touch',function(){
 	app.openPage("source://view/duobao/win_soon.ui");
 })
+var style=require("do/style");
+style.css([ui('do_Button_1'),ui('do_Button_2'),ui('do_Button_3'),ui('do_Button_4')]);
 getData();
 listData.addData(data);
 //listData.refreshData();

@@ -6,7 +6,6 @@ var core=require("do/core");
 var d1=require("deviceone");
 
 var lastShowedView=null;
-
 //---------------------------------------------------------------
 /**
  * 允许页面关闭，支持android的返回键关闭，IOS的滑动手势关闭
@@ -16,7 +15,7 @@ var lastShowedView=null;
     	supportPanClosePage:true
  */
 module.exports.allowClose = function(_buttons, _options){
-	var d=core.getOptions(_options, "do/defaultSetting/pageSetting", "mySetting/pageSetting");
+	var d=core.getOptions(_options, "do/pageSetting");
 	var do_App = d1.sm("do_App");
 	var do_Page = d1.sm("do_Page");
 	var startTime=0;
@@ -116,20 +115,17 @@ module.exports.allowExit = function(_buttons){
     	allowUserCloseView:true
  */
 module.exports.allowHide = function(_rootView, _onShowView, _onHideView, _options){
-	var d=core.getOptions(_options, "do/defaultSetting/pageSetting", "mySetting/pageSetting");
+	var d=core.getOptions(_options, "do/pageSetting");
 	_rootView.visible = false;
 	_rootView.on("onShowView", function(data){
-		d1.sm("do_Page").hideKeyboard();
-		core.callFunction(_onShowView, data);
+		_onShowView.call(this, data);
 	});
 	_rootView.on("onHideView", function(data){
-		d1.sm("do_Page").hideKeyboard();
-		core.callFunction(_onHideView, data);
+		_onHideView.call(this, data);
 	});
 	if (d.allowUserCloseView){
 		_rootView.on("touch", function(){
-			d1.sm("do_Page").hideKeyboard();
-			core.callFunction(_onHideView);
+			_onHideView.call(this);
 		});
 	}
 	else{
@@ -182,7 +178,7 @@ var __addedviews={};
     	allowUserCloseView:true
  */
 module.exports.showView = function(_path, _data, _x, _y, _options){
-	var d=core.getOptions(_options, "do/defaultSetting/pageSetting", "mySetting/pageSetting");
+	var d=core.getOptions(_options, "do/pageSetting");
 	var _rootView = d1.ui("$");	
 	if (core.isNull(_rootView) || "do_ALayout" != _rootView.getType()) return;
 	_x=_x||0;
@@ -226,7 +222,7 @@ module.exports.hideView = function(_path, _data){
     	touchDelay:1500
  */
 module.exports.onTouch = function(_object, _func, _options){
-	var d=core.getOptions(_options, "do/defaultSetting/pageSetting", "mySetting/pageSetting");
+	var d=core.getOptions(_options, "do/pageSetting");
 	_object.on("touch", null, d.touchDelay, _func);
 };
 
@@ -243,7 +239,7 @@ module.exports.setTimeout = function(code, millisec){
 	_timer.on("tick", function(){
 		_timer.stop();
 		if (typeof(code)=="function"){
-			core.callFunction(code);
+			code.call(this);
 			return;
 		}
 		if (code && typeof(code) == "string" ){
@@ -276,7 +272,7 @@ module.exports.setInterval = function(code, millisec){
 	_timer.delay = millisec;
 	_timer.on("tick", function(){
 		if (typeof(code)=="function"){
-			core.callFunction(code);
+			code.call(this);
 			return;
 		}
 		if (code && typeof(code) == "string" ){

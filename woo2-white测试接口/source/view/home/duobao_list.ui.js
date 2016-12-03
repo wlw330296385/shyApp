@@ -71,8 +71,8 @@ buttons.forEach(function(me,i){
 		getData();
 	})
 })
-
-
+var style=require("do/style");
+style.css(buttons);
 function changeStatus(index){
 	for(var i = 0;i<buttons.length;i++){
 		buttons[i].bgColor = "FFFFFFFF";

@@ -10,7 +10,7 @@ var d1=require("deviceone");
  * 当前是否为调试状态
  */
 module.exports.isDebug = function(options){
-	var d=core.getOptions(options, "do/defaultSetting/globalSetting", "mySetting/globalSetting");
+	var d=core.getOptions(options, "do/globalSetting");
 	return d.isDebugStatus;
 };
 
@@ -19,35 +19,8 @@ module.exports.isDebug = function(options){
  */
 module.exports.getOS = function(){
 	var do_Device=d1.sm("do_Device");
-	var dInfo=do_Device.getInfo().OS;
-	return dInfo;
-};
-
-/**
- * 判断当前系统是否是IOS
- */
-module.exports.isIOS = function(){
-	var do_Device=d1.sm("do_Device");
-	var dInfo=do_Device.getInfo().OS;
-	return dInfo=="iPhone OS" || dInfo=="iPad OS" ;
-};
-
-/**
- * 判断当前系统是否是Android
- */
-module.exports.isAndroid = function(){
-	var do_Device=d1.sm("do_Device");
-	var dInfo=do_Device.getInfo().OS;
-	return dInfo=="android";
-};
-
-/**
- * 判断当前系统是否是Windows
- */
-module.exports.isWindows = function(){
-	var do_Device=d1.sm("do_Device");
-	var dInfo=do_Device.getInfo().OS;
-	return dInfo=="WINDOWS";
+	var dInfo=do_Device.getInfo();
+	return dInfo.OS;
 };
 
 /**
@@ -76,4 +49,3 @@ module.exports.getDeviceName = function(){
 	var dInfo=do_Device.getInfo();
 	return dInfo.deviceName;
 };
-

@@ -59,7 +59,7 @@ page.on('loaded',function(){
 	userInfo = storage.readFileSync('data://userInfo',true);
 	if (userInfo == '') {
 		core.alert('请先登录',function(){
-			app.openPage("source://view/login/login.ui");
+			app.openPage("source://view/login/login1.ui");
 		})
 	}
 	param = page.getData();

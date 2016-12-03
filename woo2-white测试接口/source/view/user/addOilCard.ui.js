@@ -181,7 +181,7 @@ do_Button_1.on('touch',function(){
      		storage.writeFile("data://userInfo",result,true,function(boo){
 				if(boo){
 					core.alert(result.msg,'提交成功,请重新登录',function(){
-//					app.openPage("source://view/login/login.ui");
+//					app.openPage("source://view/login/login1.ui");
 						app.closePage();
 					})
 					}

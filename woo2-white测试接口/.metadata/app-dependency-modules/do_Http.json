@@ -8,7 +8,7 @@
   "Description": "支持http/https请求服务",
   "Icon": "https://do-store.oss-cn-beijing.aliyuncs.com/D/20160121/do_Http/http.jpg",
   "BBS": "",
-  "Keyword": "",
+  "Keyword": "网络通信",
   "IOS": {
     "Support": 1,
     "MinVersion": "7.0"
@@ -128,7 +128,7 @@
       "Description": "响应请求事件",
       "ReturnType": "Node",
       "ReturnType_JavaScript": "Node",
-      "ReturnDesc": "返回值包含两个节点{currentSize:'1221',totalSize:'23234245'},单位为kB"
+      "ReturnDesc": "返回值包含两个节点{currentSize:'1221',totalSize:'23234245',currentFileSize:'',index:''}单位为kB，其中currentFileSize和index只有调用form方法时返回，分别为当前正在上传文件大小和所在files数据数组中索引"
     },
     {
       "ID": "result",

@@ -5,14 +5,14 @@
  * @Timestamp : 2016-11-29
  */
 
-var app,page,core,http,memory;
+var app,page,core,http;
 app = sm('do_App');
 page = sm('do_Page');
 core = require('do/core');
-memory = sm('do_Memory');
 var mobile;
 var phoneBtn = ui('do_Button_1');
 var toStep2 = ui('do_Button_2');
+
 var istoStep2 = false;
 //page.on('loaded',function(){
 //	if(ui('do_TextField_1').text == ''){
@@ -123,7 +123,8 @@ toStep2.on('touch',function(){
 	}
 	http2.request();
 })
-
+var style=require("do/style");
+style.css([ui('do_Button_1'),ui('do_Button_2')]);
 //隐藏键盘
 ui('$').on('touch',function(){
 	page.hideKeyboard();

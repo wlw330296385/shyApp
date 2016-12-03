@@ -17,11 +17,10 @@
 						"type":"do_ALayout",
 						"views":[
 							{
-								"textAlign":"center",
 								"fontSize":"60",
-								"id":"do_Label_1",
+								"id":"do_Button_2",
 								"text":"<",
-								"type":"do_Label",
+								"type":"do_Button",
 								"fontColor":"FFFFFFFF"
 							}
 						]
@@ -36,6 +35,34 @@
 						"fontColor":"FFFFFFFF"
 					}
 				]
+			},
+			{
+				"width":"740",
+				"x":"10",
+				"y":"272",
+				"id":"do_ALayout_9",
+				"type":"do_ALayout",
+				"views":[
+					{
+						"width":"120",
+						"x":"41",
+						"y":"16",
+						"fontSize":"21",
+						"id":"do_Label_8",
+						"text":"收货人信息",
+						"type":"do_Label",
+						"height":"65"
+					},
+					{
+						"width":"550",
+						"x":"172",
+						"y":"16",
+						"id":"do_ComboBox_1",
+						"type":"do_ComboBox",
+						"height":"65"
+					}
+				],
+				"height":"100"
 			},
 			{
 				"bgColor":"EBEBEBFF",
@@ -116,24 +143,6 @@
 					}
 				],
 				"height":"184"
-			},
-			{
-				"x":"50",
-				"width":"120",
-				"y":"300",
-				"fontSize":"21",
-				"id":"do_Label_8",
-				"text":"收货人信息",
-				"type":"do_Label",
-				"height":"65"
-			},
-			{
-				"x":"180",
-				"width":"550",
-				"y":"300",
-				"id":"do_ComboBox_1",
-				"type":"do_ComboBox",
-				"height":"65"
 			},
 			{
 				"x":"50",

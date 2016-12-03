@@ -28,7 +28,7 @@ http.on('success',function(data){
 	}
 	if (data.code == -1) {
 		core.alert(data.msg,'温馨提示',function(){
-			app.openPage("source://view/login/login.ui");
+			app.openPage("source://view/login/login1.ui");
 		})
 	}
 	

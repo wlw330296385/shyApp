@@ -45,7 +45,8 @@
 						"fontSize":"35",
 						"inputType":"ASC",
 						"id":"do_TextField_1",
-						"type":"do_TextField"
+						"type":"do_TextField",
+						"clearAll":"true"
 					}
 				]
 			},
@@ -77,6 +78,7 @@
 				"type":"do_ALayout",
 				"views":[
 					{
+						"password":"true",
 						"hint":"确认密码",
 						"width":"450",
 						"x":"25",

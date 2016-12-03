@@ -8,27 +8,10 @@ var d1 = require("deviceone");
 function getOptions(c, os, p){
 	p=p||"dOption";
 	var od=os[p];
-	if (!od){
-		od=os["dOption"];
-		if (!od) return;
-	}
+	if (!od)return;
 	if ("dOption"!=p && od.parent!=p) getOptions(c, os, od.parent);
 	for(var k in od){
-		if (c[k]==od[k] || od[k]==null) continue;
-		if (typeof(od[k]) =="object" && od[k].length != undefined){
-			if (c[k]==undefined || c[k]==null){
-				c[k]=od[k];
-				continue;
-			}
-			if (typeof(c[k]) !="object" || c[k].length == undefined){
-				c[k]=[c[k]];
-			}
-			for (var i=0; i<od[k].length; i++){
-				c[k].push(od[k][i]);
-			}
-			continue;
-		}
-		c[k]=od[k];
+		if (od[k]!=null) c[k]=od[k];
 	}
 }
 
@@ -53,32 +36,6 @@ function o2string(o, needFormat) {
 		}
 	}
 	return o;
-}
-
-//判断两个对象的值是否相等
-function valueEqual(obj1, obj2) {
-	if (obj1==undefined || obj2==undefined){
-		return false;
-	}
-	if (obj1==null && obj2==null) {
-		return true;
-	}
-	if (obj1==null || obj2==null) {
-		return false;
-	}
-	var type1=typeof(obj1);
-	var type2=typeof(obj2);
-	if (type1!=type2) return false;
-	if (type1=="object"){
-		for(var k in obj1){
-			if (!valueEqual(obj1[k], obj2[k])) return false;
-		}
-		for(var k in obj2){
-			if (obj1[k] == undefined) return false;
-		}
-		return true;
-	}
-	return obj1==obj2;
 }
 
 //输出调试信息
@@ -122,16 +79,6 @@ module.exports.toString = function(data, needFormat){
 
 //---------------------------------------------------------------
 /**
- * 判断两个对象的值是否相等
- * @param obj1 第一个对象
- * @param obj2 第二个对象
- */
-module.exports.valueEqual = function(obj1, obj2){
-	return valueEqual(obj1, obj2);
-};
-
-//---------------------------------------------------------------
-/**
  * 调试状态下，在IDE中打印信息
  * @param data 要打印的内容，可以是字符串、数字、对象或数组对象等
  * @param tag [可空] 类型标签
@@ -148,11 +95,6 @@ module.exports.p = function(data,tag){
  * @param func 可空 确认后的回调函数
  */
 module.exports.alert = function(text, title, func){
-	if (title && typeof(title) === "function" ){
-		func=title;
-		title="";
-	}
-	if (!title) title="";
 	if (text && typeof(text) === "object" ){
 		text = JSON.stringify(text);
 	}
@@ -180,39 +122,34 @@ module.exports.toast = function(o){
  */
 module.exports.error = function(o){
 	var s=o2string(o);
-	d1.print(s, "error");
 	var do_Notification=d1.sm("do_Notification");
 	do_Notification.toast(s);
+	do_Notification.alert(s, "错误提示");
 };
 
 //---------------------------------------------------------------
 /**
  * 弹出新的页面
- * @param _options 同do_App中openPage的参数
+ * @param a,b,c,d,e,f,g,h 同do_App中openPage的参数
  */
-module.exports.openPage = function(_options){
-	if ( typeof(_options) === "string" ) {
-		_options = {source:_options};
-	}
-	var d=module.exports.getOptions(_options, "do/defaultSetting/coreSetting", "mySetting/coreSetting");
+module.exports.openPage = function(a,b,c,d,e,f,g,h){
 	var do_App = d1.sm("do_App");
-	do_App.openPage(d);
+	do_App.openPage(a,b,c,d,e,f,g,h);
 };
 
 //---------------------------------------------------------------
 /**
  * 关闭最上层页面
- * @param _options 同do_App中closePage的参数
+ * @param a,b,c,d,e,f,g,h 同do_App中closePage的参数
  */
-module.exports.closePage = function(_options){
-	var d=module.exports.getOptions(_options, "do/defaultSetting/coreSetting", "mySetting/coreSetting");
+module.exports.closePage = function(a,b,c,d,e,f,g,h){
 	var do_App = d1.sm("do_App");
-	do_App.closePage(d);
+	do_App.closePage(a,b,c,d,e,f,g,h);
 };
 
 //---------------------------------------------------------------
 /**
- * 判断值是否为空值
+ * 判断值是否为空
  * @param data 判断的值
  */
 module.exports.isNull = function(data){
@@ -222,51 +159,24 @@ module.exports.isNull = function(data){
 
 //---------------------------------------------------------------
 /**
- * 判断值是否为空数据
- * @param data 判断的值
- */
-module.exports.isNullData = function(data){
-	if (data ==undefined || data==null) return true;
-	if (typeof(data)=="string" && data.length <=0) return true;
-	if (typeof(data)=="object"){
-		var n = 0;
-        for(var o in data){
-                n++;
-        }
-        if (n<=0) return true;
-	}
-	return false;
-};
-
-//---------------------------------------------------------------
-/**
  * 获取选项的配置 (用于js配置项的获取)
  * @param options 传入的自定义选项内容(也可以是选项名称)
- * @param file1 默认配置文件名称（ 不包括.js扩展名）
- * @param file2 自定义配置文件名称（ 不包括.js扩展名）
+ * @param file 相关配置文件名称（ 不包括.js扩展名）
  */
-module.exports.getOptions = function(options, file1,  file2){
+module.exports.getOptions = function(options, file){
 	options = options || {}
 	if (typeof(options)=="string"){
 		options={parent:options};
 	}
-	var c={};
-	if (file1){
-		var st=require(file1);
-		if (st && st.options){			
-			getOptions(c, st.options, options.parent);			
+	var st=require(file);
+	if (st && st.options){
+		var c={};
+		getOptions(c, st.options, options.parent);
+		for(var k in options){
+			if (options[k]!=null) c[k]=options[k];
 		}
+		options=c;
 	}
-	if (file2){
-		var st=require(file2);
-		if (st && st.options){
-			getOptions(c, st.options, options.parent);
-		}
-	}
-	for(var k in options){
-		if (options[k]!=null) c[k]=options[k];
-	}
-	options=c;
 	return options;
 };
 
@@ -276,52 +186,4 @@ module.exports.getOptions = function(options, file1,  file2){
  */
 module.exports.getUUID = function(){
 	return newUUID();
-};
-
-//---------------------------------------------------------------
-/**
- * 判断当前是否处于Page页面的环境下 (非app.js的入口环境)
- */
-module.exports.inPage = function(){
-	return __address !=undefined && __address!=null && __address.length >0;
-};
-
-//---------------------------------------------------------------
-/**
- * 调用函数(一般多用于option中的函数)
- */
-module.exports.callFunction = function(_func, data1, data2, data3){
-	if (_func==null || _func==undefined) return;
-	if (typeof(_func)=="function"){
-		return _func.call(this, data1,data2,data3);
-	}
-	if (typeof(_func)=="object" && _func.length != undefined){
-		var _result=null;
-		for(var i=0; i<_func.length; i++){			
-			_result=_func[i].call(this, data1,data2,data3)
-		}		
-		return _result;
-	}
-};
-
-//---------------------------------------------------------------
-/**
- * 尝试转为json数据
- */
-module.exports.tryParseJson = function(_data){
-	if (typeof(_data)=="string"){
-		var _r1=_data.trim();
-		if (_r1.length >0){
-			var c=_r1.charCodeAt(0);
-			if (c==123||c==91){
-				try{
-					_data=JSON.parse(_r1);
-				}
-				catch(e){
-					;
-				}
-			}				
-		}
-	}
-	return _data;
 };

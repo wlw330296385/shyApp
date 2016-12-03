@@ -57,7 +57,7 @@ viewShower.on('viewChanged',function(viewID,e){
 //				}
 //				if (dialogData == 1){					
 //					core.toast('进行登陆');
-//					app.openPage("source://view/login/login.ui");			
+//					app.openPage("source://view/login/login1.ui");			
 //				}else{
 //					viewShower.showView('home');
 //				}
@@ -65,6 +65,10 @@ viewShower.on('viewChanged',function(viewID,e){
 			app.openPage("source://view/login/login1.ui");	
 		}
 	}
+})
+
+page.on('toDB',function(){
+	viewShower.showView('duobao');
 })
 viewShower.showView('home');
 //APP更新

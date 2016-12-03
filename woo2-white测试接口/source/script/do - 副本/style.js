@@ -10,14 +10,14 @@ var do_Global = d1.sm("do_Global");
 //---------------------------------------------------------------
 /**
  * 设置ui控件的风格（包括属性和事件）
- * @param ui 要设置的ui对象，或ui对象数组
+ * @param ui 要设置的ui控件对象
  * @param options 是传入的选项内容，要求为json格式的数据。（用于设置ui的属性和事件）
  */
 module.exports.css = function(ui){
 	var options = {
 			parent:"dynamicButton",
 	}
-	var d=core.getOptions(options, "do/defaultSetting/styleSetting", "mySetting/styleSetting");
+	var d=core.getOptions(options, "do/styleSetting");
 	var as=null;
 	for(var k in d){
 		var v=d[k];
@@ -25,28 +25,14 @@ module.exports.css = function(ui){
 			v=do_Global.getMemory(v.substr(1));
 		}
 		if (typeof(v)=="function"){
-			if (typeof(ui)=="object" && ui.length > 0){
-				for (var i=0; i<ui.length; i++){
-					ui[i].on(k,v);
-				}
-			}
-			else{
 				ui.on(k,v);
-			}			
-			continue;
+				continue;
 		}
 		if (!as) as={};
 		as[k]=v;
 	}
-	if (as){
-		if (typeof(ui)=="object" && ui.length > 0){
-			for (var i=0; i<ui.length; i++){
-				ui[i].set(as);
-			}
-		}
-		else{
+	if (as) {
 			ui.set(as);
-		}
 	}
 };
 

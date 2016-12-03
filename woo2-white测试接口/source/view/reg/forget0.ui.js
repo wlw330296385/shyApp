@@ -108,7 +108,7 @@ page.on('loaded',function(){
 	}
 })
 
-ui('do_Button_2').on('touch','',3000,function(){
+ui('do_Button_3').on('touch','',3000,function(){
 	if(do_TextField_1.text == ''){
 		nf.toast({text:"账号不能为空"});
 		return false;
@@ -146,6 +146,9 @@ ui('$').on('touch',function(){
 ui('do_Button_1').on('touch',function(){
 	app.closePage('reg','slide_t2b',2);
 })
+
+var style=require("do/style");
+style.css([ui('do_Button_1'),ui('do_Button_2'),ui('do_Button_3')]);
 page.on('back',function(){
 	app.closePage('reg','slide_t2b',2);
 })

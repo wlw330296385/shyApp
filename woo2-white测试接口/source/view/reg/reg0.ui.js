@@ -59,7 +59,7 @@ page.on('step2',function(data){
 			"password2":password2,
 			"username":username,
 			"mobile":mobile,
-			"refere":referer
+			"referer":referer
 	}
 	core.p(http.body);
 	http.request();
@@ -68,7 +68,8 @@ page.on('step2',function(data){
 page.on('step3',function(){
 	
 })
-
+var style=require("do/style");
+style.css(ui('do_Button_1'));
 //关闭注册
 ui('do_Button_1').on('touch',function(){
 	app.closePage('reg','slide_t2b',2);

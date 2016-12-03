@@ -78,7 +78,7 @@ ui('do_ALayout_88').on('touch',function(){
 page.on("getData",function(){
 	userInfo = storage.readFileSync('data://userInfo',true);
 	if(userInfo.code == 0 ||!userInfo){
-		app.openPage("source://view/login/login.ui");
+		app.openPage("source://view/login/login1.ui");
 		return false;
 	}
 	token = kess.lockIt(userInfo.data.id);
@@ -98,7 +98,10 @@ page.on("getData",function(){
 	ui('do_Label_26').text = userInfo.data.royalty;//提成
 	ui('do_Label_4').text = userInfo.data.level_name;//等级
 })
-page.fire('getData');
+page.on('loaded',function(){
+	page.fire('getData');
+})
+
 //重新登录后拉下刷新绑定数据
 ui('do_ScrollView_6').on('pull',function(data){
 	  if(data.state==2)

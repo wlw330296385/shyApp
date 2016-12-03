@@ -10,9 +10,17 @@
 				"width":"180",
 				"y":"20",
 				"id":"do_ALayout_1",
-				"bgImage":"source://image/icon/nav5.png",
 				"type":"do_ALayout",
 				"isStretch":"false",
+				"views":[
+					{
+						"width":"180",
+						"id":"do_Button_1",
+						"bgImage":"source://image/icon/b1.png",
+						"type":"do_Button",
+						"height":"180"
+					}
+				],
 				"height":"180"
 			},
 			{
@@ -20,9 +28,17 @@
 				"width":"180",
 				"y":"260",
 				"id":"do_ALayout_2",
-				"bgImage":"source://image/icon/nav1.png",
 				"type":"do_ALayout",
 				"isStretch":"false",
+				"views":[
+					{
+						"width":"180",
+						"id":"do_Button_6",
+						"bgImage":"source://image/icon/a2.png",
+						"type":"do_Button",
+						"height":"180"
+					}
+				],
 				"height":"180"
 			},
 			{
@@ -30,9 +46,17 @@
 				"width":"180",
 				"y":"20",
 				"id":"do_ALayout_3",
-				"bgImage":"source://image/icon/zsh.png",
 				"type":"do_ALayout",
 				"isStretch":"false",
+				"views":[
+					{
+						"width":"180",
+						"id":"do_Button_2",
+						"bgImage":"source://image/icon/b5.png",
+						"type":"do_Button",
+						"height":"180"
+					}
+				],
 				"height":"180"
 			},
 			{
@@ -40,9 +64,17 @@
 				"width":"180",
 				"y":"20",
 				"id":"do_ALayout_4",
-				"bgImage":"source://image/icon/zsy.png",
 				"type":"do_ALayout",
 				"isStretch":"false",
+				"views":[
+					{
+						"width":"180",
+						"id":"do_Button_3",
+						"bgImage":"source://image/icon/a6.png",
+						"type":"do_Button",
+						"height":"180"
+					}
+				],
 				"height":"180"
 			},
 			{
@@ -50,9 +82,17 @@
 				"width":"180",
 				"y":"260",
 				"id":"do_ALayout_5",
-				"bgImage":"source://image/icon/nav2.png",
 				"type":"do_ALayout",
 				"isStretch":"false",
+				"views":[
+					{
+						"width":"180",
+						"id":"do_Button_5",
+						"bgImage":"source://image/icon/b3.png",
+						"type":"do_Button",
+						"height":"180"
+					}
+				],
 				"height":"180"
 			},
 			{
@@ -60,9 +100,17 @@
 				"width":"180",
 				"y":"260",
 				"id":"do_ALayout_6",
-				"bgImage":"source://image/icon/nav3.png",
 				"type":"do_ALayout",
 				"isStretch":"false",
+				"views":[
+					{
+						"width":"180",
+						"id":"do_Button_4",
+						"bgImage":"source://image/icon/b1.png",
+						"type":"do_Button",
+						"height":"180"
+					}
+				],
 				"height":"180"
 			},
 			{

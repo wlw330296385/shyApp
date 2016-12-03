@@ -4,3 +4,6 @@
  * @Author : 18507717466
  * @Timestamp : 2016-12-02
  */
+var storage,userInfo;
+userInfo = storage.readFileSync('data://userInfo',true);
+ui('do_Label_1').text = userInfo.data.id;
