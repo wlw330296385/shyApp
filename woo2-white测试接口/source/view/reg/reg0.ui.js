@@ -13,7 +13,7 @@ storage = sm('do_Storage');
 http = mm('do_Http');
 http.method = "post";
 http.contentType = "application/json";
-http.url = "http://192.168.0.240:8099/index.php/index/user/register/";
+http.url = "http://api.e-shy.com/index.php/index/user/register/";
 http.on('success',function(result){
 	if(result.code == 1){
 		core.toast(result.msg);
@@ -65,15 +65,12 @@ page.on('step2',function(data){
 	http.request();
 })
 
-page.on('step3',function(){
-	
-})
 var style=require("do/style");
 style.css(ui('do_Button_1'));
 //关闭注册
 ui('do_Button_1').on('touch',function(){
-	app.closePage('reg','slide_t2b',2);
+	app.closePage('','slide_t2b',2);
 })
 page.on('back',function(){
-	app.closePage('reg','slide_t2b',2);
+	app.closePage('','slide_t2b',2);
 })

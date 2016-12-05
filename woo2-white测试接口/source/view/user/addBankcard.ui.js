@@ -19,7 +19,7 @@ if(userInfo.code == 1){
 	core.toast("请先登录");
 }
 
-http.url = "http://192.168.0.240:8099/index.php/index/Bankcard/addBankCard/token/"+token;
+http.url = "http://api.e-shy.com/index.php/index/Bankcard/addBankCard/token/"+token;
 http.contentType = "application/json"; 
 http.method = "POST";
 http.on('success',function(result){
@@ -67,7 +67,7 @@ ui('do_Button_2').on('touch','',3000,function(){
 
 var http2,banks;
 http2 = mm('do_Http');
-http2.url = "http://192.168.0.240:8099/index.php/index/Bankcard/getBanks/token/"+token;
+http2.url = "http://api.e-shy.com/index.php/index/Bankcard/getBanks/token/"+token;
 http2.contentType = "application/json";
 http2.method = "POST";
 http2.on('success',function(result){

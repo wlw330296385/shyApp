@@ -57,7 +57,7 @@ phoneBtn.on('touch', "", 3000, function(){
 	}
 	
 	http.ajax({
-		url:"http://192.168.0.240:8099/index.php/index/user/sendRegisterCode",
+		url:"http://api.e-shy.com/index.php/index/user/sendRegisterCode",
 		data:{'mobile':myPhone.text},
 		type:'POST',
 		contentType:'application/json',
@@ -107,7 +107,7 @@ var storage = sm('do_Storage');
 var regOK = true;
 var reg = ui('reg');
 var http2 = mm('do_Http');
-http2.url = "http://192.168.0.240:8099/index.php/index/user/register";
+http2.url = "http://api.e-shy.com/index.php/index/user/register";
 http2.contentType = "application/json";
 http2.method = "POST";
 http2.on('success',function(userInfo){

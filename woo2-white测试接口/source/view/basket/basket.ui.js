@@ -56,7 +56,7 @@ page.on('getData',function(){
 			"p":p
 	}
 	http.url = "http://192.168.1.108:9999/index.php/index/order/index/token/"+token;
-//	http.url = "http://192.168.0.240:8099/index.php/index/order/index";
+//	http.url = "http://api.e-shy.com/index.php/index/order/index";
 	http.request();
 })
 //下拉刷新

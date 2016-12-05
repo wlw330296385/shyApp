@@ -39,8 +39,8 @@ rootview.on("dataRefreshed",function(){
 storage = sm('do_Storage');
 userInfo = storage.readFileSync("data://userInfo",true);
 //http = mm('do_Http');
-////http.url = "http://192.168.0.240:8099/index.php/index/charge/orderPay";
-//http.url = "http://192.168.0.240:8099/index.php/index/charge/orderPay";
+////http.url = "http://api.e-shy.com/index.php/index/charge/orderPay";
+//http.url = "http://api.e-shy.com/index.php/index/charge/orderPay";
 //http.contentType = "application/json";
 //http.method = "POST";
 //http.on('success',function(result){
@@ -77,7 +77,7 @@ do_Button_2.on('touch',function(){
 //	http.request();
 //	更换方式
 	var payMethodId = 2,orderId = ui('do_Label_3').tag,userId = userInfo.data.id
-	var urlToPay = "http://192.168.0.240:8099/index.php/index/charge/payOrder?payMethodId="+payMethodId+"&orderId="+orderId+"&userId="+userId;
+	var urlToPay = "http://api.e-shy.com/index.php/index/charge/payOrder?payMethodId="+payMethodId+"&orderId="+orderId+"&userId="+userId;
 	var uerParam = {
 			"title":"普通商品订单支付",
 			"url":urlToPay

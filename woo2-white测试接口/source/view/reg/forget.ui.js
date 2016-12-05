@@ -10,7 +10,7 @@ app = sm('do_App');
 page = sm('do_Page');
 core = require('do/core');
 http1 = mm('do_Http');
-http1.url = "http://192.168.0.240:8099/index.php/index/user/sendRegisterCode";
+http1.url = "http://api.e-shy.com/index.php/index/user/sendRegisterCode";
 http1.method = "POST";
 http1.contentType = "application/json";
 //短信验证码
@@ -28,7 +28,7 @@ http1.on('fail',function(result){
 });
 //忘记密码
 http2 = mm('do_Http');
-http2.url = "http://192.168.0.240:8099/index.php/index/user/forget";
+http2.url = "http://api.e-shy.com/index.php/index/user/forget";
 http2.method = "POST";
 http2.contentType = "application/json";
 http2.on("success",function(result){

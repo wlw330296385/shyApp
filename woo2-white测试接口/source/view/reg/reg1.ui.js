@@ -28,7 +28,7 @@ var sessionId;
 http = mm('do_Http');
 http.method = "post";
 http.contentType = "application/json";
-http.url = "http://192.168.0.240:8099/index.php/index/user/getRegisterCode";
+http.url = "http://api.e-shy.com/index.php/index/user/getRegisterCode";
 http.on('success',function(result){
 	if(result.code == 1){
 		istoStep2 = true;
@@ -91,7 +91,7 @@ time.on("tick", function(data, e) {
 var http2 = mm('do_Http');
 http2.method = "post";
 http2.contentType = "application/json";
-http2.url = "http://192.168.0.240:8099/index.php/index/user/checkVerify";
+http2.url = "http://api.e-shy.com/index.php/index/user/checkVerify";
 http2.on('success',function(result){
 	http2.setRequestHeader('cookie', "PHPSESSID="+sessionId)
 	if(result.code == 1){

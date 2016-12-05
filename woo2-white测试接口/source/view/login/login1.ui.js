@@ -48,7 +48,7 @@ http.on('fail',function(result){
 	core.toast(result.message);
 	core.p(result)
 })
-http.url = "http://192.168.0.240:8099/index.php/index/user/login";
+http.url = "http://api.e-shy.com/index.php/index/user/login";
 ui('do_Button_1').on('touch',function(){
 	if(this.text == ''){
 		core.toast("用户名不能为空");
@@ -76,6 +76,9 @@ ui('do_Button_2').on('touch',function(){
 })
 //返回
 ui('do_ALayout_2').on('touch',function(){
+	app.closePage();
+})
+page.on('back',function(){
 	app.closePage();
 })
 var style=require("do/style");

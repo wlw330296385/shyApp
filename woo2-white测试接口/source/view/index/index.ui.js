@@ -63,6 +63,8 @@ viewShower.on('viewChanged',function(viewID,e){
 //				}
 //			})
 			app.openPage("source://view/login/login1.ui");	
+		}else{
+			page.fire('getData');
 		}
 	}
 })
@@ -99,7 +101,7 @@ page.on('loaded',function(){
 })
 http = mm('do_Http');
 http.method = "POST";
-http.url = 'http://192.168.0.240:8099/index.php/index/app/update';
+http.url = 'http://api.e-shy.com/index.php/index/app/update';
 http.on('success',function(result){
 	//	弹出更新提示
 	if(result.code == 1 && result.data.force_install == 0){
@@ -118,6 +120,8 @@ http.on('fail',function(msg){
 	core.toast(msg.message,'update');
 	core.p(msg);
 })
+
+
 //弹出红包
 page.on('result',function(act){
 	if(act == 'reg'){

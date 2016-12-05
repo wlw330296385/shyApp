@@ -33,7 +33,7 @@ do_ListView_1.on('push',function(data){
 	}
 })
 
-http.url = "http://192.168.0.240:8099/index.php/index/panicbuy/index/token/"+token;
+http.url = "http://api.e-shy.com/index.php/index/panicbuy/index/token/"+token;
 http.method ="POST";
 http.contentType = "application/json";
 http.on('success',function(result){

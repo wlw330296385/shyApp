@@ -38,7 +38,7 @@ var dialog = sm('do_Dialog');
 //var qrcode = sm('do_QRCode');
 //ui('do_ALayout_88').on('touch',function(){
 //	userInfo = storage.readFileSync('data://userInfo',true);
-//	qrcode.create("http://192.168.0.240:8099/index.php/index/promote/registerWeb.html?r="+userInfo.data.mobile, 450, function (data, e) {
+//	qrcode.create("http://api.e-shy.com/index.php/index/promote/registerWeb.html?r="+userInfo.data.mobile, 450, function (data, e) {
 //		var QRcodeData = { 
 //				imgUrl:data,
 //				username:userInfo.data.username,
@@ -46,7 +46,7 @@ var dialog = sm('do_Dialog');
 //				city:userInfo.data.city_name,
 //				roleid:userInfo.data.roleid,
 //				avatar:userInfo.data.avatar,
-//				url:"http://192.168.0.240:8099/index.php/index/promote/registerWeb.html?r="+userInfo.data.mobile
+//				url:"http://api.e-shy.com/index.php/index/promote/registerWeb.html?r="+userInfo.data.mobile
 //		};
 //		var strQRdata = JSON.stringify(QRcodeData);
 //		dialog.open("source://view/dialog/QRcode.ui",strQRdata,true);
@@ -69,20 +69,20 @@ http2.on('fail',function(result){
 var userTel;
 ui('do_ALayout_88').on('touch',function(){
 	var shareData  = {
-			'shareUrl':"http://192.168.0.240:8099/index.php/index/promote/registerWeb.html?r="+userTel,
-			'shareImgUrl':"http://192.168.0.240:8099/uploads/r/"+userTel+'-qr.png'
+			'shareUrl':"http://api.e-shy.com/index.php/index/promote/registerWeb.html?r="+userTel,
+			'shareImgUrl':"http://api.e-shy.com/uploads/r/"+userTel+'-qr.png'
 	}
 	dialog.open("source://view/dialog/share.ui",shareData,true);
 })
 //绑定数据
 page.on("getData",function(){
 	userInfo = storage.readFileSync('data://userInfo',true);
-	if(userInfo.code == 0 ||!userInfo){
+	if(userInfo.code == 0 || !userInfo){
 		app.openPage("source://view/login/login1.ui");
 		return false;
 	}
 	token = kess.lockIt(userInfo.data.id);
-	http2.url = "http://192.168.0.240:8099/index.php/index/share/qrcode/token/"+token;
+	http2.url = "http://api.e-shy.com/index.php/index/share/qrcode/token/"+token;
 	http2.request();
 	ui('do_Label_5').text = userInfo.data.username;
 	if(userInfo.data.avatar == 0){
@@ -91,15 +91,12 @@ page.on("getData",function(){
 		ui('do_ImageView_2').source = userInfo.data.avatar;
 	}	
 	userTel = userInfo.data.mobile;
-	shareUrl = "http://192.168.0.240:8099/index.php/index/promote/registerWeb.html?r="+userInfo.data.mobile;
+	shareUrl = "http://api.e-shy.com/index.php/index/promote/registerWeb.html?r="+userInfo.data.mobile;
 	ui('do_Label_20').text = userInfo.data.oil_score;//油卡积分
 	ui('do_Label_22').text = userInfo.data.score;//购物积分
 	ui('do_Label_24').text = userInfo.data.commission;//推广积分
 	ui('do_Label_26').text = userInfo.data.royalty;//提成
 	ui('do_Label_4').text = userInfo.data.level_name;//等级
-})
-page.on('loaded',function(){
-	page.fire('getData');
 })
 
 //重新登录后拉下刷新绑定数据
@@ -110,9 +107,7 @@ ui('do_ScrollView_6').on('pull',function(data){
 	       this.rebound();
 	    }
 })
-page.on('result',function(){
-	page.fire('getData');
-})
+
 ui('do_ALayout_74').on('touch',function(){
 	core.alert('抱歉,该功能正在开放当中');
 })

@@ -16,7 +16,7 @@
 					{
 						"width":"180",
 						"id":"do_Button_1",
-						"bgImage":"source://image/icon/b1.png",
+						"bgImage":"source://image/icon/a1.png",
 						"type":"do_Button",
 						"height":"180"
 					}
@@ -106,7 +106,7 @@
 					{
 						"width":"180",
 						"id":"do_Button_4",
-						"bgImage":"source://image/icon/b1.png",
+						"bgImage":"source://image/icon/a3.png",
 						"type":"do_Button",
 						"height":"180"
 					}

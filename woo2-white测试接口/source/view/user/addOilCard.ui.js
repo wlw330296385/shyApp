@@ -95,7 +95,7 @@ page.on("result", function(data) {
 	}	
 	if (data.path && data.img == 1){
 		img.source = data.path;
-		http.url = "http://192.168.0.240:8099/index.php/index/File_upload/uploadImage/token/"+token;
+		http.url = "http://api.e-shy.com/index.php/index/File_upload/uploadImage/token/"+token;
 		http.contentType = "application/x-www-form-urlencoded"; 
 		http.upload(data.path,'oilcard');
         http.on('success',function(result){
@@ -114,7 +114,7 @@ page.on("result", function(data) {
 		camera.capture(768, -1, 100, true, function(imgUrl) {
 	        img.source = imgUrl;
 	        http2.contentType = "application/x-www-form-urlencoded"; 
-	        http2.url = "http://192.168.0.240:8099/index.php/index/File_upload/uploadImage/token/"+token;
+	        http2.url = "http://api.e-shy.com/index.php/index/File_upload/uploadImage/token/"+token;
 	        http2.upload(imgUrl,'oilcard');
 	        http2.on('success',function(result){
 	        	do_Button_1.enabled = true;
@@ -164,7 +164,7 @@ do_Button_1.on('touch',function(){
 		return false;
 	}
 	
-	http3.url = "http://192.168.0.240:8099/index.php/index/Oilcard/addCard/token/"+token;
+	http3.url = "http://api.e-shy.com/index.php/index/Oilcard/addCard/token/"+token;
 	http3.contentType = "application/json";	
 	http3.body = {
 		"real_name":ui('do_TextField_1').text,

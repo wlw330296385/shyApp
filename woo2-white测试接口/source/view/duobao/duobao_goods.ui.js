@@ -60,7 +60,7 @@ var goods_id = 1;
 var goods_des_ui
 
 var http = mm('do_Http');
-http.url = "http://192.168.0.240:8099/index.php/index/panicbuy/panicbuy_item/token/"+token;
+http.url = "http://api.e-shy.com/index.php/index/panicbuy/panicbuy_item/token/"+token;
 http.method = "POST";
 http.contentType = "application/json";
 var des = "暂无商品详情";
@@ -128,7 +128,7 @@ http.request();
 //购买
 var storage = sm('do_Storage');
 var httpIsGoPay = mm('do_Http');
-httpIsGoPay.url = "http://192.168.0.240:8099/index.php/index/panicbuy/isGoPay/token/"+token;
+httpIsGoPay.url = "http://api.e-shy.com/index.php/index/panicbuy/isGoPay/token/"+token;
 httpIsGoPay.method = "POST";
 httpIsGoPay.contentType = "application/json";
 httpIsGoPay.body = {

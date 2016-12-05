@@ -18,7 +18,7 @@ page.on('getGoodsId',function(id){
 	duobaoGoods_id = id;
 	core.p(duobaoGoods_id,'进入了des_1');
 	textContent = dataCache.loadData('duobaoDes'+id);	
-//	ui('do_RichLabel_1').text = "<img src = 'http://192.168.0.240:8099/uploads/editor/image/20161021/43d2233bf98dfdce14653dc41a32afca.jpg' width='375' >";
+//	ui('do_RichLabel_1').text = "<img src = 'http://api.e-shy.com/uploads/editor/image/20161021/43d2233bf98dfdce14653dc41a32afca.jpg' width='375' >";
 	ui('do_RichLabel_1').text = textContent;
 	core.p(textContent,'textContent');
 //	root.refreshData();

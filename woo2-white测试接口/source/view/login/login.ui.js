@@ -51,7 +51,7 @@ login.on('touch', "", 3000, function(){
 			tf_2.enabled = false;
 			postData = {'username':tf_1.text,'password':tf_2.text};
 			http.ajax({
-				url:'http://192.168.0.240:8099/index.php/index/user/login',
+				url:'http://api.e-shy.com/index.php/index/user/login',
 				data:postData,
 				type:'POST',
 				contentType:'application/json',

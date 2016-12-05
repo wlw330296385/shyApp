@@ -1,10 +1,7 @@
 {
 	"RootView":{
-		"border":"E3E3E3FF,1,0",
-		"x":"0",
 		"width":"750",
-		"y":"0",
-		"id":"E3E3E3FF,2,0",
+		"id":"do_ALayout_2",
 		"type":"do_ALayout",
 		"views":[
 			{
@@ -73,16 +70,14 @@
 				"height":"150"
 			},
 			{
-				"isHeaderVisible":"true",
-				"isFooterVisible":"true",
 				"templates":"source://view/duobao/list_cell.ui",
 				"width":"750",
 				"y":"150",
 				"id":"do_ListView_1",
 				"type":"do_ListView",
-				"height":"1184"
+				"height":"3000"
 			}
 		],
-		"height":"1334"
+		"height":"3150"
 	}
 }

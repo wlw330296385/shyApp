@@ -52,7 +52,7 @@ do_ListView_1.on('push',function(data){
 })
 
 function getData(){
-	http.url = "http://192.168.0.240:8099/index.php/index/order/index/token/"+token;
+	http.url = "http://api.e-shy.com/index.php/index/order/index/token/"+token;
 	http.method = "POST";
 	http.contentType = "application/json";
 	http.body = {
