@@ -41,15 +41,25 @@ ui('do_Button_6').on('touch',function(){
 
 //联通话费充值
 ui('do_Button_5').on('touch',function(){
-	core.alert('该功能下一版本将会开放');
+	if(userInfo.code == 1){
+		app.openPage('source://view/charge/webCharge.ui','4');
+	}else{
+		app.openPage("source://view/login/login1.ui");
+	}
 })
-//流量充值
+//电信充值
 ui('do_Button_4').on('touch',function(){
-	core.alert('该功能下一版本将会开放');
+	if(userInfo.code == 1){
+		app.openPage('source://view/charge/webCharge.ui','5');
+	}else{
+		app.openPage("source://view/login/login1.ui");
+	}
 })
 var style=require("do/style");
 style.css([ui('do_Button_1'),ui('do_Button_2'),ui('do_Button_3'),ui('do_Button_4'),ui('do_Button_5'),ui('do_Button_6')]);
 
-
+page.on('result',function(){
+	userInfo = storage.readFileSync("data://userInfo",true);
+})
 
 

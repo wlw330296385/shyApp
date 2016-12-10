@@ -40,7 +40,6 @@ web.on('loaded',function(){
 
 web.on('pull',function(state,offset){
 	if(state == 2){
-		core.p(2222222);
 		web.url ='';
 		web.url = data.url;
 		web.reload();

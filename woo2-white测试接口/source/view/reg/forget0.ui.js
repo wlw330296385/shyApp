@@ -48,33 +48,39 @@ var do_TextField_1 = ui('do_TextField_1'),
 	do_TextField_2 = ui('do_TextField_2'),
 	do_TextField_3 = ui('do_TextField_3'),
 	do_TextField_4 = ui('do_TextField_4'),
-	do_Button_1 = ui('do_Button_2');
+	do_Button_2 = ui('do_Button_2');
 
 var phoneTime = 59;
-do_Button_1.on('touch', "", 3000, function(){
+do_Button_2.on('touch', "", 3000, function(){
 	time.delay = 0;
 	time.interval = 1000;
 	if (!time.isStart()){
 		time.start();
 	}else{
-		notify.alert('请等待倒计时结束');
+		core.alert('请等待倒计时结束');
 		return false;
 	}
-	if(!do_TextField_1.text || do_TextField_1.text == null || do_TextField_1.text == undefined){
-		notify.alert('账号/手机号码不能为空');
-		return false;
-	}
+	var myreg = /^1(3|4|5|6|7|8)[0-9]{9}/; 
+    if(!myreg.test(do_TextField_1.text)) 
+    { 
+    	phoneTime = 59;
+    	ui('do_Button_2').text = '发送验证码';
+    	ui('do_Button_2').enabled = true;
+        time.stop(); 
+        core.alert('请输入有效的手机号码！'); 
+        return false; 
+    } 
 	http1.body = {"username":do_TextField_1.text};
 	http1.request();
 });
 
 time.on("tick", function(data, e) {
-	do_Button_1.enabled = false;
-	do_Button_1.text = '发送验证码('+ phoneTime-- +')';
+	do_Button_2.enabled = false;
+	do_Button_2.text = '发送验证码('+ phoneTime-- +')';
     if (phoneTime == 0) {
             phoneTime = 59;
-            do_Button_1.text = '发送验证码';
-            do_Button_1.enabled = true;
+            do_Button_2.text = '发送验证码';
+            do_Button_2.enabled = true;
             time.stop();               
     }
 });

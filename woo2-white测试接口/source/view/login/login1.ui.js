@@ -34,7 +34,7 @@ http.on('success',function(result){
 		storage.writeFile('data://userInfo',result,true,function(res){	
 			if(res){
 				core.toast('登陆成功');
-				app.closePage();
+				app.closePage('login');
 			}else{
 					core.toast('存储失败，请检查手机权限');
 				return false;

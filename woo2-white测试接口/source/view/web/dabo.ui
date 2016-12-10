@@ -1,0 +1,9 @@
+{
+	"RootView":{
+		"width":"750",
+		"id":"do_WebView_1",
+		"type":"do_WebView",
+		"url":"http://www.dabo.com.cn",
+		"height":"1200"
+	}
+}

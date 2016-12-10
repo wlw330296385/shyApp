@@ -15,6 +15,7 @@ core = require('do/core');
 kess = require('kess');
 var external = sm("do_External");
 var userInfo;
+var userTel;
 var addOilCard = ui('do_ALayout_69');
 addOilCard.on('touch',function(){
 	if(userInfo.data.id_verify == 0 ){
@@ -35,25 +36,6 @@ addIdentityCard.on('touch',function(){
 })
 //二维码
 var dialog = sm('do_Dialog');
-//var qrcode = sm('do_QRCode');
-//ui('do_ALayout_88').on('touch',function(){
-//	userInfo = storage.readFileSync('data://userInfo',true);
-//	qrcode.create("http://api.e-shy.com/index.php/index/promote/registerWeb.html?r="+userInfo.data.mobile, 450, function (data, e) {
-//		var QRcodeData = { 
-//				imgUrl:data,
-//				username:userInfo.data.username,
-//				province:userInfo.data.province_name,
-//				city:userInfo.data.city_name,
-//				roleid:userInfo.data.roleid,
-//				avatar:userInfo.data.avatar,
-//				url:"http://api.e-shy.com/index.php/index/promote/registerWeb.html?r="+userInfo.data.mobile
-//		};
-//		var strQRdata = JSON.stringify(QRcodeData);
-//		dialog.open("source://view/dialog/QRcode.ui",strQRdata,true);
-//	});
-//});
-
-
 //生成个人二维码
 var http2 = mm('do_Http');
 http2.method = "post";
@@ -66,8 +48,10 @@ http2.on('fail',function(result){
 	core.toast(result.message);
 })
 //分享个人二维码
-var userTel;
+
 ui('do_ALayout_88').on('touch',function(){
+	userInfo = storage.readFileSync('data://userInfo',true);
+	userTel = userInfo.data.mobile;
 	var shareData  = {
 			'shareUrl':"http://api.e-shy.com/index.php/index/promote/registerWeb.html?r="+userTel,
 			'shareImgUrl':"http://api.e-shy.com/uploads/r/"+userTel+'-qr.png'
@@ -77,10 +61,11 @@ ui('do_ALayout_88').on('touch',function(){
 //绑定数据
 page.on("getData",function(){
 	userInfo = storage.readFileSync('data://userInfo',true);
-	if(userInfo.code == 0 || !userInfo){
+	if(userInfo.code != 1){
 		app.openPage("source://view/login/login1.ui");
 		return false;
 	}
+	userTel = userInfo.data.mobile;
 	token = kess.lockIt(userInfo.data.id);
 	http2.url = "http://api.e-shy.com/index.php/index/share/qrcode/token/"+token;
 	http2.request();
@@ -90,7 +75,6 @@ page.on("getData",function(){
 	}else{
 		ui('do_ImageView_2').source = userInfo.data.avatar;
 	}	
-	userTel = userInfo.data.mobile;
 	shareUrl = "http://api.e-shy.com/index.php/index/promote/registerWeb.html?r="+userInfo.data.mobile;
 	ui('do_Label_20').text = userInfo.data.oil_score;//油卡积分
 	ui('do_Label_22').text = userInfo.data.score;//购物积分
@@ -140,16 +124,39 @@ ui('do_ALayout_89').on('touch',function(){
 	})
 })
 
+//更新信息
+page.on('resume',function(){
+	var info = page.getData();
+	if(info == 'login'){
+		page.fire('getData');
+	}
+})
 //添加银行卡
 ui('do_ALayout_75').on('touch',function(){
-	app.openPage("source://view/user/addBankcard.ui");
+	if(userInfo.code == 1){
+		app.openPage("source://view/user/addBankcard.ui");
+	}else{
+		app.openPage("source://view/login/login1.ui");
+		return false;
+	}
+	
 })
 //添加地址
 ui('do_ALayout_90').on('touch',function(){
-	app.openPage("source://view/user/addAddress.ui");
+	if(userInfo.code == 1){
+		app.openPage("source://view/user/addAddress.ui");
+	}else{
+		app.openPage("source://view/login/login1.ui");
+		return false;
+	}
 })
 
 //我的夺宝
-ui('do_ALayout_91').on('touch',function(){
-	app.openPage("source://view/duobao/my_duobao.ui");
-})
+//ui('do_ALayout_91').on('touch',function(){
+//	if(userInfo.code == 1){
+//		app.openPage("source://view/duobao/my_duobao.ui");
+//	}else{
+//		app.openPage("source://view/login/login1.ui");
+//		return false;
+//	}
+//})

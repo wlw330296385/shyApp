@@ -15,8 +15,6 @@ userInfo = storage.readFileSync('data://userInfo',true);
 kess = require('kess');
 	if(userInfo.code == 1){
 		token = kess.lockIt(userInfo.data.id);
-	}else{
-		core.toast("请先登录");
 	}
 var listData = mm('do_ListData');
 var do_ListView_1 = ui('do_ListView_1');

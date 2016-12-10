@@ -61,7 +61,7 @@ var changLabels = function(index){
 var style=require("do/style");
 style.css(ui('do_Button_1'));
 ui('do_Button_1').on('touch',function(){
-	app.openPage("source://view/index/index.ui",'login');
+	app.openPage("source://view/index/index.ui");
 })
 var pagejs = require('do/page');
 pagejs.allowExit();	

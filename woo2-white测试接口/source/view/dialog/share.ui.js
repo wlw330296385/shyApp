@@ -11,9 +11,9 @@ album = sm('do_Album');
 http = mm('do_Http');
 
 var data = dialog.getData();
+core.p(data)
 http.method = "post";
 http.url = data.shareImgUrl;
-core.p(data)
 ui('do_ImageView_1').source = data.shareImgUrl;
 //保存图片到本地
 ui('do_Button_1').on('touch',function(){
@@ -33,7 +33,7 @@ var we = sm("do_TencentWX");
 //分享到好友
 ui('do_ALayout_3').on('touch',function(){
 	we.share({
-		appId:"wx2d2c3284b084cf4c", 
+		appId:"wx8dd7bbe6f61a0bcd", 
 		scene:"0", 
 		type:"0", 
 		title:"买了车却没钱加油怎么办?来深海油免费加油吧!", 
@@ -41,16 +41,17 @@ ui('do_ALayout_3').on('touch',function(){
 		url:data.shareUrl, 
 		image:"source://image/por.png", 
 		audio:''		
-	},function(res){		
+	},function(res){	
+		core.p(res,'share')
 		if(res){
-			core.toast('分享成功');
+			core.toast('分享成功');ia
 		}
 	})
 });
 //分享到朋友圈
 ui('do_ALayout_2').on('touch',function(){
 	we.share({
-		appId:"wx2d2c3284b084cf4c", 
+		appId:"wx8dd7bbe6f61a0bcd", 
 		scene:"1", 
 		type:"0", 
 		title:"买了车却没钱加油怎么办?来深海油免费加油吧!", 
@@ -59,6 +60,7 @@ ui('do_ALayout_2').on('touch',function(){
 		image:"source://image/por.png", 
 		audio:''
 	},function(res){
+		core.p(res,'share')
 		if(res){			
 			core.toast('分享成功');
 		}

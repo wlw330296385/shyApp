@@ -25,13 +25,12 @@ var checkNav = function(index){
 		icons[index].source = "source://image/menu"+index+'-1.png';
 };
 var pages = [{id:'home',path:'source://view/home/index.ui'},
-             {id:'duobao',path:'source://view/duobao/index.ui'},
+             {id:'duobao',path:'source://view/web/dabo.ui'},
              {id:'basket',path:'source://view/basket/index.ui'},
              {id:'user',path:'source://view/user/user.ui'}
              ];
 var viewShower = ui('viewShower1');
 viewShower.addViews(pages);
-
 navs.forEach(function(me,i){
 	me.on('touch',function(data,e){
 		checkNav(i);
@@ -42,26 +41,10 @@ navs.forEach(function(me,i){
 //切换page事件
 viewShower.on('viewChanged',function(viewID,e){
 	userInfo = storage.readFileSync('data://userInfo',true);
+	
 	if(viewID == 'user'|| viewID == 'basket'){
-		global.setMemory("userInfo",userInfo.data);
 		if(userInfo.code != 1){
-//			var confirmData = {
-//					"title":"提示",
-//					"content":"需要登录才可以浏览,马上登录?",
-//					"btn1":"取消",
-//					"btn2":"确定"
-//			};
-//			dialog.open("source://view/dialog/confirm.ui",confirmData,function(dialogData,e){
-//				var outData = {
-//						"code":0
-//				}
-//				if (dialogData == 1){					
-//					core.toast('进行登陆');
-//					app.openPage("source://view/login/login1.ui");			
-//				}else{
-//					viewShower.showView('home');
-//				}
-//			})
+			core.p(userInfo,viewID)
 			app.openPage("source://view/login/login1.ui");	
 		}else{
 			page.fire('getData');
@@ -122,12 +105,27 @@ http.on('fail',function(msg){
 })
 
 
-//弹出红包
-page.on('result',function(act){
+//弹出红包and一开始的欢迎页
+page.on('resume',function(){
+	var act = page.getData();
 	if(act == 'reg'){
 		dialog.open("source://view/dialog/reg.ui");
 	}
+	userInfo = storage.readFileSync("data://userInfo",true);	
+	if(userInfo == '' || userInfo == null || userInfo == undefined){
+		userInfo = {
+				code:-1
+		}
+		storage.writeFile('data://userInfo',userInfo,true,function(){
+			app.openPage({ 
+		    	source : "source://view/welcome/welcome.ui",
+		    	id:'welcome'
+			});
+		});
+	}
+	
 })
+
 //退出程序
 var pagejs = require('do/page');
 pagejs.allowExit();	

@@ -16,15 +16,15 @@
 						"y":"18",
 						"fontSize":"35",
 						"id":"do_Label_1",
-						"text":"夺宝商品",
+						"text":"商品",
 						"type":"do_Label",
 						"height":"45"
 					},
 					{
 						"border":"E3E3E3FF,1,0",
 						"bgColor":"FF0000FF",
-						"x":"12",
-						"width":"170",
+						"x":"34",
+						"width":"200",
 						"y":"76",
 						"fontSize":"35",
 						"id":"do_Button_1",
@@ -35,8 +35,8 @@
 					},
 					{
 						"border":"E3E3E3FF,1,0",
-						"x":"192",
-						"width":"170",
+						"x":"280",
+						"width":"200",
 						"y":"76",
 						"fontSize":"35",
 						"id":"do_Button_2",
@@ -46,23 +46,12 @@
 					},
 					{
 						"border":"E3E3E3FF,1,0",
-						"x":"372",
-						"width":"180",
+						"x":"522",
+						"width":"200",
 						"y":"76",
 						"fontSize":"35",
 						"id":"do_Button_3",
 						"text":"即将揭晓",
-						"type":"do_Button",
-						"height":"50"
-					},
-					{
-						"border":"E3E3E3FF,1,0",
-						"x":"562",
-						"width":"170",
-						"y":"76",
-						"fontSize":"35",
-						"id":"do_Button_4",
-						"text":"开奖结果",
 						"type":"do_Button",
 						"height":"50"
 					}

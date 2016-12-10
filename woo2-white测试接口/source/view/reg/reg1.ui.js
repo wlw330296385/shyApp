@@ -56,11 +56,15 @@ ui('do_Button_1').on('touch','',3000,function(){
 	page.hideKeyboard();
 	time.delay = 0;
 	time.interval = 1000;
-	if(ui('do_TextField_1').text == ''){
-		core.alert('手机号码不能为空');
-		time.stop();
-		return false;
-	}else{
+	var myreg = /^1(3|4|5|6|7|8)[0-9]{9}/; 
+	if(!myreg.test(ui('do_TextField_1').text )) { 
+    	core. alert('请输入有效的手机号码！'); 
+    	 phoneTime = 59;
+    	 ui('do_Button_1').text = '发送验证码';
+    	 ui('do_Button_1').enabled = true;
+         time.stop();    
+        return false; 
+    }else {
 		mobile = ui('do_TextField_1').text;
 	}
 	if (!time.isStart()) {

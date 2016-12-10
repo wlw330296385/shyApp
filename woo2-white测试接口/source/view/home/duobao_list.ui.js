@@ -58,14 +58,13 @@ function getData(){
 	}
 	http.request();
 }
-var buttons = [ui('do_Button_1'),ui('do_Button_2'),ui('do_Button_3'),ui('do_Button_4')];
+var buttons = [ui('do_Button_1'),ui('do_Button_2'),ui('do_Button_3')];
 //按钮事件
 buttons.forEach(function(me,i){
 	me.on('touch',function(data,e){
 		changeStatus(i)
 		type = i+3;
 		listData.removeAll();
-		listData.addData(data);
 		listData.refreshData();
 		do_ListView_1.refreshItems();
 		getData();

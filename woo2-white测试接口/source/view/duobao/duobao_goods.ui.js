@@ -1,10 +1,9 @@
 /**
  * related to duobao_goods.ui
- * 
  * @Author : 18507717466
  * @Timestamp : 2016-11-04
  */
-var app,page,core,do_LinearLayout_1,scrollview1,global,root,kess,token;
+var app,page,core,do_LinearLayout_1,scrollview1,global,root,kess,token,userInfo;
 root = ui('$');
 app = sm('do_App');
 page = sm('do_Page');
@@ -14,11 +13,11 @@ do_LinearLayout_1 = ui('do_LinearLayout_1');
 scrollview1 = ui('do_ScrollView_1');
 var hashData = mm('do_HashData');
 var dataCache = sm('do_DataCache');
+var storage = sm('do_Storage');	
 ui('do_Button_4').on('touch',function(){
 	app.closePage();
 })
-kess = require('kess');
-token = kess.lockIt(0);
+
 //不允许购买
 ui('do_Button_3').enabled = false;
 //加减
@@ -56,18 +55,13 @@ scrollview1.on("pull",function(data){
 })
 
 //获取数据
-var goods_id = 1;
-var goods_des_ui
-
 var http = mm('do_Http');
-http.url = "http://api.e-shy.com/index.php/index/panicbuy/panicbuy_item/token/"+token;
 http.method = "POST";
 http.contentType = "application/json";
 var des = "暂无商品详情";
 var desData;
 var param = '暂无商品参数';
 http.on('success',function(result){
-	
 	if(result.code == 1){
 		core.p(result,'goods');
 		ui('do_Label_2').text = result.data.goods_name;//商品名
@@ -83,14 +77,10 @@ http.on('success',function(result){
 		desData = {
 			id:	result.data.id
 		};
-//		core.p(result.data.param,'result.param');
 		des = result.data.desc;
-//		core.p(des,'des');
-//		core.p(param,'param');
 		goods_id = result.data.id;
 		hashData.addData(desData);
 		goods_des_ui.refreshData();
-//		global.setMemory('goods_id', result.data.id);
 		dataCache.saveData('duobaoName'+result.data.id,result.data.goods_name);
 		dataCache.saveData('duobaoPrice'+result.data.id,result.data.goods_sales_price);
 		dataCache.saveData('duobaoImg'+result.data.id,result.data.goods_image);
@@ -101,10 +91,6 @@ http.on('success',function(result){
 		dataCache.saveData('duobaoJoinrecord'+result.data.id,result.data.joinrecord);
 		page.fire("getGoodsId",result.data.id);
 		ui('do_Button_3').enabled = true;
-//		core.p(dataCache.loadData('duobaoDes'+result.data.id),'des');
-//		core.p(dataCache.loadData('duobaoParams'+result.data.id,'duobaoParams'));
-//		core.p(dataCache.loadData('duobaoParam'+result.data.id,'duobaoParam'));
-//		core.p(dataCache.loadData('duobaoJoinrecord'+result.data.id,'duobaoJoinrecord'));
 	}else{
 		core.toast(result.msg);
 		return false;
@@ -118,32 +104,35 @@ var goods_des = do_LinearLayout_1.add({
 		path:"source://view/duobao/duobao_goods_des.ui",
 		target:"do_ALayout_10",
 	});
-goods_des_ui = ui(goods_des);
-goods_id = page.getData();
-goods_des_ui.bindData(hashData);
-http.body = {
-id:goods_id
-}
-http.request();
+
 //购买
 var storage = sm('do_Storage');
 var httpIsGoPay = mm('do_Http');
-httpIsGoPay.url = "http://api.e-shy.com/index.php/index/panicbuy/isGoPay/token/"+token;
 httpIsGoPay.method = "POST";
 httpIsGoPay.contentType = "application/json";
-httpIsGoPay.body = {
-		"id":goods_id,
-		"num":total
-}
 ui('do_Button_3').on('touch',function(){
+	httpIsGoPay.body = {
+			"id":goods_id,
+			"num":total
+	}
+	httpIsGoPay.url = "http://api.e-shy.com/index.php/index/panicbuy/isGoPay/token/"+token;
 	httpIsGoPay.request()
-	
 })
-
+//判断是否在苹果->购买
+var device = sm('do_Device');
+var deviceInfo = device.getInfo();
+var external = sm('do_External');
 httpIsGoPay.on('success',function(result){
-	core.p(result,'httpIsGoPay');
 	if(result.code == 1){
-		app.openPage("source://view/duobao/create_order.ui",{'goods_id':goods_id,'num':total});
+		if(deviceInfo.OS=="android"){
+			app.openPage("source://view/duobao/create_order.ui",{'goods_id':goods_id,'num':total});
+		}else{
+			if(userInfo.code == 1){
+				external.openURL("http://192.168.0.240:8099/index.php/index/panicbuy/payOrderWap?UserId="+userInfo.data.id+"&num="+total+"&goods_id="+goods_id);
+			}else{
+				app.openPage("source://view/login/login1.ui");
+			}
+		}
 	}else{
 		core.alert(result.msg);
 	}
@@ -153,14 +142,31 @@ httpIsGoPay.on('fail',function(result){
 	core.p(result);
 	core.alert("网络错误");
 })
+//读取用户信息
+var goods_id = 1;
+var goods_des_ui = ui(goods_des);
+page.on('loaded',function(){
+	goods_id = page.getData();
+	goods_des_ui.bindData(hashData);
+	kess = require('kess');
+	token = kess.lockIt(0);
+	core.p(token,'1')
+	http.url = "http://api.e-shy.com/index.php/index/panicbuy/panicbuy_item/token/"+token;
+	http.body = {
+		id:goods_id
+	}
+	http.request();
+	userInfo = storage.readFileSync('data://userInfo',true);
+	ui('do_ALayout_7').redraw();
+})
+page.on('resume',function(){
+	userInfo = storage.readFileSync('data://userInfo',true);
+})
 //计算几率
 function countLv(num){
 	var lv = num/ui('do_Label_14').text;
 	ui('do_Label_16').text = '获得几率'+(lv*100).toFixed(4)+'%';
 }
-page.on("loaded",function(){
-	ui('do_ALayout_7').redraw();
-})
 ui('do_ALayout_7').redraw();
 var style=require("do/style");
 style.css([ui('do_Button_1'),ui('do_Button_2'),ui('do_Button_3'),ui('do_Button_4')]);

@@ -31,13 +31,10 @@ web.on('failed',function(){
 	core.toast("页面加载失败,请下拉刷新或者关闭页面");
 })
 
-web.on('pull',function(state,offset){
-	if(state == 2){
-		web.url ='';
+web.on('pull',function(data){
+	if(data.state == 2){
 		web.url = toUrl;
 		web.reload();		
-		web.rebound();
-	}else if(state == 1){
 		web.rebound();
 	}
 })
@@ -58,7 +55,7 @@ web.on('loaded',function(){
 
 page.on('loaded',function(){
 	userInfo = storage.readFileSync('data://userInfo',true);
-	if (userInfo == '') {
+	if (userInfo.code != 1) {
 		core.alert('请先登录',function(){
 			app.openPage("source://view/login/login1.ui");
 		})
@@ -69,7 +66,13 @@ page.on('loaded',function(){
 		toUrl = "http://api.e-shy.com/index.php/index/charge/charge?type="+param+"&userId="+userId;
 	}
 	if(param == 3){
-		toUrl = "http://api.e-shy.com/index.php/index/charge/cmcc/?userId="+userId;
+		toUrl = "http://api.e-shy.com/index.php/index/charge/cmcc/?userId="+userId+"&type="+param;
+	}
+	if(param == 4){
+		toUrl = "http://api.e-shy.com/index.php/index/charge/cmcc/?userId="+userId+"&type="+param;
+	}
+	if(param == 5){
+		toUrl = "http://api.e-shy.com/index.php/index/charge/cmcc/?userId="+userId+"&type="+param;
 	}
 	web.url = toUrl;
 })

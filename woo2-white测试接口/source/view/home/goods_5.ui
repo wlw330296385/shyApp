@@ -16,7 +16,7 @@
 					{
 						"width":"180",
 						"id":"do_Button_1",
-						"bgImage":"source://image/icon/a1.png",
+						"bgImage":"source://image/icon/mall.png",
 						"type":"do_Button",
 						"height":"180"
 					}
@@ -52,7 +52,7 @@
 					{
 						"width":"180",
 						"id":"do_Button_2",
-						"bgImage":"source://image/icon/b5.png",
+						"bgImage":"source://image/icon/a6.png",
 						"type":"do_Button",
 						"height":"180"
 					}
@@ -70,7 +70,7 @@
 					{
 						"width":"180",
 						"id":"do_Button_3",
-						"bgImage":"source://image/icon/a6.png",
+						"bgImage":"source://image/icon/b5.png",
 						"type":"do_Button",
 						"height":"180"
 					}
@@ -106,7 +106,7 @@
 					{
 						"width":"180",
 						"id":"do_Button_4",
-						"bgImage":"source://image/icon/a3.png",
+						"bgImage":"source://image/icon/a4.png",
 						"type":"do_Button",
 						"height":"180"
 					}
@@ -120,7 +120,7 @@
 				"y":"206",
 				"fontSize":"30",
 				"id":"do_Label_1",
-				"text":"深海油夺宝",
+				"text":"网上商城",
 				"type":"do_Label",
 				"height":"40"
 			},
@@ -131,7 +131,7 @@
 				"y":"206",
 				"fontSize":"30",
 				"id":"do_Label_2",
-				"text":"中石化充值",
+				"text":"中石油充值",
 				"type":"do_Label",
 				"height":"40"
 			},
@@ -164,7 +164,7 @@
 				"y":"448",
 				"fontSize":"30",
 				"id":"do_Label_5",
-				"text":"流量充值",
+				"text":"电信充值",
 				"type":"do_Label",
 				"height":"40"
 			},
@@ -175,7 +175,7 @@
 				"y":"206",
 				"fontSize":"30",
 				"id":"do_Label_6",
-				"text":"中石油充值",
+				"text":"中石化充值",
 				"type":"do_Label",
 				"height":"40"
 			}
