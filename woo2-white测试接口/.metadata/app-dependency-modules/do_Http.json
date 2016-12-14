@@ -190,16 +190,16 @@
       "Description": "",
       "ReturnType": "String",
       "ReturnType_JavaScript": "String",
-      "ReturnDesc": "返回最后一次成功返回的http respose的header里某项属性的值",
+      "ReturnDesc": "返回最后一次成功返回的http respose的header里某项或所有属性的值",
       "Paras": [
         {
           "ID": "key",
           "Name": "http请求的header对应的属性",
           "Type": "String",
           "Type_JavaScript": "String",
-          "Required": 1,
+          "Required": 0,
           "DefaultValue": "",
-          "Description": ""
+          "Description": "为空时返回所有的responseHeader"
         }
       ]
     },

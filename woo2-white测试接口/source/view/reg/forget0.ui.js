@@ -5,7 +5,7 @@
  * @Timestamp : 2016-11-30
  */
 
-var app,core,page,http1,http2,time;
+var app,core,page,http1,http2,time,sessionID;
 app = sm('do_App');
 core = require('do/core');
 page = sm('do_Page');
@@ -26,7 +26,7 @@ http1.on("success",function(result){
 	
 })
 http1.on('fail',function(result){
-	core.toast(result.msg);
+	core.toast(result.message);
 });
 //忘记密码
 http2 = mm('do_Http');
@@ -36,7 +36,7 @@ http2.contentType = "application/json";
 http2.on("success",function(result){
 	if(result.code == 1){
 		core.toast(result.msg);
-		app.closePage();
+		app.closePage('reg','slide_t2b',2);
 	}else{
 		core.toast(result.msg);
 	}
@@ -60,14 +60,13 @@ do_Button_2.on('touch', "", 3000, function(){
 		core.alert('请等待倒计时结束');
 		return false;
 	}
-	var myreg = /^1(3|4|5|6|7|8)[0-9]{9}/; 
-    if(!myreg.test(do_TextField_1.text)) 
+    if(do_TextField_1.text == '' )
     { 
+    	time.stop(); 
     	phoneTime = 59;
     	ui('do_Button_2').text = '发送验证码';
-    	ui('do_Button_2').enabled = true;
-        time.stop(); 
-        core.alert('请输入有效的手机号码！'); 
+    	ui('do_Button_2').enabled = true;       
+        core.alert('用户名不能为空！'); 
         return false; 
     } 
 	http1.body = {"username":do_TextField_1.text};
@@ -116,7 +115,7 @@ page.on('loaded',function(){
 
 ui('do_Button_3').on('touch','',3000,function(){
 	if(do_TextField_1.text == ''){
-		nf.toast({text:"账号不能为空"});
+		nf.toast({text:"账号/手机号码不能为空"});
 		return false;
 	}
 	if(do_TextField_2.text == ''){

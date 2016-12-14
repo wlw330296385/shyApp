@@ -6,9 +6,6 @@ var d1 = require("deviceone");
 var app = d1.sm("do_App");
 var global = d1.sm("do_Global");
 var core = require('do/core');
-var kess = require('kess');
-var storage = d1.sm('do_Storage');
-var userInfo;
 var jpush = d1.sm("do_JPush");
 var dialog = d1.sm('do_Dialog');
 global.on("launch",function(data,e) {
@@ -19,7 +16,7 @@ global.on("launch",function(data,e) {
 //	    	animationType:"fade"
 		});
 })
-
+//订阅JPush的事件
 jpush.on("messageClicked",function(data6,e) {
 	jpush.setIconBadgeNumber(0);
 	var extra = JSON.parse(data6.extra);

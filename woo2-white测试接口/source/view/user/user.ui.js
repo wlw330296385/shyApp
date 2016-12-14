@@ -4,7 +4,6 @@
  * @Author : 18507717466
  * @Timestamp : 2016-10-03
  */
-
 var app, page, notify,storage,core,userInfo,global,shareImgUrl,shareUrl,kess,token;
 global = sm('do_Global');
 notify = sm("do_Notification");
@@ -50,8 +49,7 @@ http2.on('fail',function(result){
 //分享个人二维码
 
 ui('do_ALayout_88').on('touch',function(){
-	userInfo = storage.readFileSync('data://userInfo',true);
-	userTel = userInfo.data.mobile;
+
 	var shareData  = {
 			'shareUrl':"http://api.e-shy.com/index.php/index/promote/registerWeb.html?r="+userTel,
 			'shareImgUrl':"http://api.e-shy.com/uploads/r/"+userTel+'-qr.png'

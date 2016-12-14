@@ -1,9 +1,10 @@
 {
 	"RootView":{
 		"width":"750",
+		"zoom":"true",
 		"id":"do_WebView_1",
 		"type":"do_WebView",
-		"url":"http://www.dabo.com.cn",
+		"url":"http://mall.e-shy.com/indexoil",
 		"height":"1200"
 	}
 }

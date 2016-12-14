@@ -197,6 +197,15 @@
           "Description": "打开一个新的page的时候，如果不是全屏的话，顶部状态栏字体的前景色，只能为'white'和'black'两种值，仅支持iOS平台"
         },
         {
+          "ID": "statusBarBgColor",
+          "Name": "顶部状态栏背景色",
+          "Type": "String",
+          "Type_JavaScript": "String",
+          "Required": 0,
+          "DefaultValue": "000000FF",
+          "Description": "打开一个新的page的时候，如果不是全屏的话，顶部状态栏背景色，默认值为000000FF(黑色)"
+        },
+        {
           "ID": "id",
           "Name": "打开page的唯一标示",
           "Type": "String",
