@@ -128,7 +128,7 @@ httpIsGoPay.on('success',function(result){
 			app.openPage("source://view/duobao/create_order.ui",{'goods_id':goods_id,'num':total});
 		}else{
 			if(userInfo.code == 1){
-				external.openURL("http://192.168.0.240:8099/index.php/index/panicbuy/payOrderWap?UserId="+userInfo.data.id+"&num="+total+"&goods_id="+goods_id);
+				external.openURL("http://api.e-shy.com/index.php/index/panicbuy/payOrderWap?UserId="+userInfo.data.id+"&num="+total+"&goods_id="+goods_id);
 			}else{
 				app.openPage("source://view/login/login1.ui");
 			}

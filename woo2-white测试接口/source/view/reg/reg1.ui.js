@@ -14,31 +14,24 @@ var phoneBtn = ui('do_Button_1');
 var toStep2 = ui('do_Button_2');
 
 var istoStep2 = false;
-//page.on('loaded',function(){
-//	if(ui('do_TextField_1').text == ''){
-//		core.toast('手机号码不能为空');
-//	}
-//	if(ui('do_TextField_2').text == ''){
-//		core.toast('验证码不能为空');
-//	}
-//})
-
 //点击获取验证码
-var sessionId;
+var sessionID;
 http = mm('do_Http');
 http.method = "post";
 http.contentType = "application/json";
 http.url = "http://api.e-shy.com/index.php/index/user/getRegisterCode";
 http.on('success',function(result){
+	core.p(result,'发送验证码');
 	if(result.code == 1){
 		istoStep2 = true;
 		core.toast(result.msg);
-		sessionId = result.data.sessionId;
+		sessionID = result.data.session_id;
+		http2.setRequestHeader("Cookie","PHPSESSID="+sessionID);
 	}else{
 		phoneTime = 59;
 		phoneBtn.text = '发送验证码';
         phoneBtn.enabled = true;
-		core.toast(result.msg);
+		core.alert(result.msg);
 		time.stop();
 	}
 })
@@ -47,7 +40,6 @@ http.on('fail',function(result){
 	phoneTime = 59;
 	phoneBtn.text = '发送验证码';
     phoneBtn.enabled = true;
-	core.toast(result.msg);
 	time.stop();
 })
 var time = mm('do_Timer');
@@ -97,7 +89,7 @@ http2.method = "post";
 http2.contentType = "application/json";
 http2.url = "http://api.e-shy.com/index.php/index/user/checkVerify";
 http2.on('success',function(result){
-	http2.setRequestHeader('cookie', "PHPSESSID="+sessionId)
+	core.p(result,'检查验证码');
 	if(result.code == 1){
 		core.toast(result.msg);
 		page.fire('step1',mobile);
@@ -111,7 +103,6 @@ http2.on('fail',function(result){
 toStep2.on('touch',function(){
 	if(!istoStep2){ 
 		core.toast('请先获取验证码');;
-//		return false;
 		}
 	if(mobile == ''){
 		core.toast('手机号码不能为空');

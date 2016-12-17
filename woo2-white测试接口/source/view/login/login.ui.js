@@ -67,7 +67,7 @@ login.on('touch', "", 3000, function(){
 						tf_1.enabled = true;
 						tf_2.enabled = true;
 						login.redraw();
-						app.closePage();
+						app.closePage('login','push_t2b',1);
 						})
 					}else{
 						notify.toast(userData.msg);
@@ -107,7 +107,7 @@ login.on('touch', "", 3000, function(){
 //注册
 var reg = ui('reg');
 reg.on('touch',function(){
-	app.openPage({source:'source://view/reg/reg.ui',id:'reg'});
+	app.openPage({source:'source://view/reg/reg.ui',id:'reg',animationType:'push_t2b'});
 	page.hideKeyboard();
 });
 root_alayout.on('touch',function(){
@@ -115,12 +115,12 @@ root_alayout.on('touch',function(){
 })
 //忘记密码
 ui('forget').on('touch',function(){
-	app.openPage("source://view/reg/forget.ui");
+	app.openPage({source:"source://view/reg/forget.ui",animationType:'push_t2b'});
 })
 
 //暂不登录
 ui('do_ALayout_9').on('touch',function(){
-	app.openPage("source://view/index/index.ui");
+	app.openPage({source:"source://view/index/index.ui",animationType:'push_t2b'});
 })
 //退出程序
 var pagejs = require('do/page');

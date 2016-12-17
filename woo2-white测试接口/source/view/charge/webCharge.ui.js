@@ -74,6 +74,9 @@ page.on('loaded',function(){
 	if(param == 5){
 		toUrl = "http://api.e-shy.com/index.php/index/charge/cmcc/?userId="+userId+"&type="+param;
 	}
+	if(param == 6){
+		toUrl = "http://api.e-shy.com/index.php/index/charge/cmcc_package?userId="+userId;
+	}
 	web.url = toUrl;
 })
 page.on('result',function(){

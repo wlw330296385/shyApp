@@ -178,8 +178,37 @@
 				"text":"中石化充值",
 				"type":"do_Label",
 				"height":"40"
+			},
+			{
+				"x":"50",
+				"width":"180",
+				"y":"500",
+				"id":"do_ALayout_7",
+				"type":"do_ALayout",
+				"isStretch":"false",
+				"views":[
+					{
+						"width":"180",
+						"id":"do_Button_7",
+						"bgImage":"source://image/icon/charge.png",
+						"type":"do_Button",
+						"height":"180"
+					}
+				],
+				"height":"180"
+			},
+			{
+				"textAlign":"center",
+				"x":"50",
+				"width":"180",
+				"y":"690",
+				"fontSize":"30",
+				"id":"do_Label_7",
+				"text":"充值套餐",
+				"type":"do_Label",
+				"height":"40"
 			}
 		],
-		"height":"500"
+		"height":"750"
 	}
 }

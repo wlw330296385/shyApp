@@ -28,7 +28,8 @@ ui('do_Button_2').on('touch',function(){
 })
 //夺宝
 ui('do_Button_1').on('touch',function(){
-	page.fire('toDB');
+//	page.fire('toDB');
+	core.alert('商城正在建设中');
 })
 //移动话费充值
 ui('do_Button_6').on('touch',function(){
@@ -55,8 +56,16 @@ ui('do_Button_4').on('touch',function(){
 		app.openPage("source://view/login/login1.ui");
 	}
 })
+//套餐充值
+ui('do_Button_7').on('touch',function(){
+	if(userInfo.code == 1){
+		app.openPage('source://view/charge/webCharge.ui','6');
+	}else{
+		app.openPage("source://view/login/login1.ui");
+	}
+})
 var style=require("do/style");
-style.css([ui('do_Button_1'),ui('do_Button_2'),ui('do_Button_3'),ui('do_Button_4'),ui('do_Button_5'),ui('do_Button_6')]);
+style.css([ui('do_Button_1'),ui('do_Button_2'),ui('do_Button_3'),ui('do_Button_4'),ui('do_Button_5'),ui('do_Button_6'),ui('do_Button_7')]);
 
 page.on('result',function(){
 	userInfo = storage.readFileSync("data://userInfo",true);

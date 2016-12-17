@@ -168,9 +168,11 @@ module.exports.alert = function(text, title, func){
  * 弹出提示的临时信息
  * @param o 弹出的内容，可以是字符串、数字、对象或数组对象等
  */
-module.exports.toast = function(o){
+module.exports.toast = function(o,x,y){
+	x = x ? x : '';
+	y = y ? y : '';
 	var do_Notification=d1.sm("do_Notification");
-	do_Notification.toast(o2string(o));
+	do_Notification.toast({"text":o2string(o),"x":x,"y":y});
 };
 
 //---------------------------------------------------------------

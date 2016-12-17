@@ -23,7 +23,7 @@ page.on('resume',function(){
 	ui('do_ListView_1').refreshItems();
 	userInfo = storage.readFileSync('data://userInfo',true);
 	token = kess.lockIt(userInfo.data.id);
-	http.url = "http://192.168.0.240:8099/index.php/index/member/referers/token/"+token;
+	http.url = "http://api.e-shy.com/index.php/index/member/referers/token/"+token;
 })
 ui('do_ListView_1').on('pull',function(data){
 	if(data.state == 2){

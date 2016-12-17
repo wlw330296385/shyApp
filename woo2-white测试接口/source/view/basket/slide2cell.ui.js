@@ -13,9 +13,9 @@ algorithm = sm('do_Algorithm');
 storage = sm('do_Storage');
 userInfo = storage.readFileSync('data://userInfo',true);
 kess = require('kess');
-	if(userInfo.code == 1){
+if(userInfo.data){
 		token = kess.lockIt(userInfo.data.id);
-	}
+}
 var listData = mm('do_ListData');
 var do_ListView_1 = ui('do_ListView_1');
 do_ListView_1.bindItems(listData);
@@ -33,12 +33,18 @@ http.on('fail',function(result){
 })
 do_ListView_1.on('pull',function(data){	
 	if(data.state == 2){
+		if(userInfo.data){
 		listData.removeAll();
 		do_ListView_1.refreshItems();
 		p = 1;
 		getData();
+		this.rebound();	
+		}
+	}else{
+		core.toast('请先登录')
+		this.rebound();	
 	}
-	this.rebound();	
+	
 })
 
 do_ListView_1.on('push',function(data){
@@ -61,7 +67,9 @@ function getData(){
 }
 ui("$").on('dataRefreshed',function(){
 	status = do_ListView_1.tag;
-	getData();
+	if(userInfo.data){
+		getData();
+	}
 })
 
 do_ListView_1.refreshItems();

@@ -17,6 +17,7 @@ var userInfo;
 var userTel;
 var addOilCard = ui('do_ALayout_69');
 addOilCard.on('touch',function(){
+	if(!userInfo.data) return false;
 	if(userInfo.data.id_verify == 0 ){
 		core.toast("请先绑定身份证");
 		return false;
@@ -26,6 +27,7 @@ addOilCard.on('touch',function(){
 //身份证认证
 var addIdentityCard = ui('do_ALayout_73');
 addIdentityCard.on('touch',function(){
+	if(!userInfo.data) return false;
 	if(userInfo.data.id_verify != 0 ){
 		app.openPage('source://view/user/addIdentityCarded.ui','addIdentityCarded');
 	}else{
@@ -49,7 +51,6 @@ http2.on('fail',function(result){
 //分享个人二维码
 
 ui('do_ALayout_88').on('touch',function(){
-
 	var shareData  = {
 			'shareUrl':"http://api.e-shy.com/index.php/index/promote/registerWeb.html?r="+userTel,
 			'shareImgUrl':"http://api.e-shy.com/uploads/r/"+userTel+'-qr.png'
@@ -59,6 +60,7 @@ ui('do_ALayout_88').on('touch',function(){
 //绑定数据
 page.on("getData",function(){
 	userInfo = storage.readFileSync('data://userInfo',true);
+	if(!userInfo.data) return false;
 	if(userInfo.code != 1){
 		app.openPage("source://view/login/login1.ui");
 		return false;
@@ -86,7 +88,7 @@ ui('do_ScrollView_6').on('pull',function(data){
 	  if(data.state==2)
 	    {
 		  page.fire('getData');
-	       this.rebound();
+	      this.rebound();
 	    }
 })
 
@@ -123,9 +125,8 @@ ui('do_ALayout_89').on('touch',function(){
 })
 
 //更新信息
-page.on('resume',function(){
-	var info = page.getData();
-	if(info == 'login'){
+page.on('result',function(data){
+	if(data == 'login' || data == 'reg'){
 		page.fire('getData');
 	}
 })
@@ -141,6 +142,7 @@ ui('do_ALayout_75').on('touch',function(){
 })
 //添加地址
 ui('do_ALayout_90').on('touch',function(){
+	if(!userinfo.data) return false;
 	if(userInfo.code == 1){
 		app.openPage("source://view/user/addAddress.ui");
 	}else{

@@ -13,14 +13,12 @@ global.on("launch",function(data,e) {
 		app.openPage({ 
 	    	source : "source://view/index/index.ui",
 	    	id:"index",
-//	    	animationType:"fade"
 		});
 })
 //订阅JPush的事件
 jpush.on("messageClicked",function(data6,e) {
 	jpush.setIconBadgeNumber(0);
 	var extra = JSON.parse(data6.extra);
-	core.p(extra,'extra');
 	if(extra.act == 'web'){
 		var webData = {"url":extra.url,"title":extra.title};
 		app.openPage("source://view/web/web.ui",JSON.stringify(webData));

@@ -27,7 +27,7 @@ http.on('success',function(result){
 			}											
 		})
 	}else{
-		core.toast(result.msg);
+		core.alert(result.msg);
 	}
 })
 http.on('fail',function(result){
@@ -69,8 +69,8 @@ var style=require("do/style");
 style.css(ui('do_Button_1'));
 //关闭注册
 ui('do_Button_1').on('touch',function(){
-	app.closePage('','slide_t2b',2);
+	app.closePage('','slide_t2b',1);
 })
 page.on('back',function(){
-	app.closePage('','slide_t2b',2);
+	app.closePage('','slide_t2b',1);
 })

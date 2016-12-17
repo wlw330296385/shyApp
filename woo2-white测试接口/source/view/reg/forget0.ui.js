@@ -15,6 +15,7 @@ time = mm('do_Timer');
 http1.url = "http://api.e-shy.com/index.php/index/user/sendRegisterCode";
 http1.method = "POST";
 http1.contentType = "application/json";
+var nf = sm('do_Notification');
 //短信验证码
 http1.on("success",function(result){
 	if(result.code == 1){
@@ -36,7 +37,7 @@ http2.contentType = "application/json";
 http2.on("success",function(result){
 	if(result.code == 1){
 		core.toast(result.msg);
-		app.closePage('reg','slide_t2b',2);
+		app.closePage('for','slide_t2b',1);
 	}else{
 		core.toast(result.msg);
 	}
@@ -86,7 +87,6 @@ time.on("tick", function(data, e) {
 
 var device = sm("do_Device");
 var deviceInfo = device.getInfo();
-var nf = sm('do_Notification');
 page.on('loaded',function(){
 	if(deviceInfo.OS!="android"){
 		do_TextField_1.on('focusOut',function(){
@@ -115,19 +115,19 @@ page.on('loaded',function(){
 
 ui('do_Button_3').on('touch','',3000,function(){
 	if(do_TextField_1.text == ''){
-		nf.toast({text:"账号/手机号码不能为空"});
+		nf.toast({text:"账号/手机号码不能为空",y:120});
 		return false;
 	}
 	if(do_TextField_2.text == ''){
-		nf.toast({text:"密码不能为空"}); 
+		nf.toast({text:"密码不能为空",y:120}); 
 		return false;
 	}
 	if(do_TextField_3.text == ''){
-		nf.toast({text:"两次密码不一致"});
+		nf.toast({text:"两次密码不一致",y:120});
 		return false;
 	}
 	if(do_TextField_4.text == ''){
-		core.toast('验证码不能为空');
+		nf.toast({text:'验证码不能为空',y:120});
 		return false;
 	}
 

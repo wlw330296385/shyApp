@@ -4,20 +4,20 @@
  * @Author : 18507717466
  * @Timestamp : 2016-11-29
  */
-var app,page,core,storage,http;
+var app,page,nf,storage,http;
 app = sm('do_App');
 page = sm('do_Page');
-core = require('do/core');
+nf = sm('do_Notification');
 storage = sm('do_Storage');
 page.on('loaded',function(){
 	ui('do_TextField_1').on('focusOut',function(){
 		if(this.text == ''){
-			core.toast("用户名不能为空");
+			nf.toast("用户名不能为空");
 		}
 	})
 	ui('do_TextField_2').on('focusOut',function(){
 		if(this.text == ''){
-			core.toast("密码不能为空");
+			nf.toast("密码不能为空");
 		}
 	})
 })
@@ -28,51 +28,48 @@ http.method = "post";
 http.contentType = "application/json";
 http.on('success',function(result){
 	if(result.code == 1){
-		core.p(result,'login')
 		var jpush = sm('do_JPush');
 		jpush.setAlias(result.data.mobile);
 		storage.writeFile('data://userInfo',result,true,function(res){	
 			if(res){
-				core.toast('登陆成功');
-				app.closePage('reg','slide_t2b',1);
+				nf.toast('登陆成功');
+				app.closePage({data:'login',animationType:'slide_t2b',layer:1});
 			}else{
-					core.toast('存储失败，请检查手机权限');
+					nf.toast('存储失败，请检查手机权限');
 				return false;
 			}											
 		})
 	}else{
-		core.toast(result.msg);
+		nf.toast(result.msg);
 	}
 })
 http.on('fail',function(result){
-	core.toast(result.message);
-	core.p(result)
+	nf.toast(result.message);
 })
 http.url = "http://api.e-shy.com/index.php/index/user/login";
 ui('do_Button_1').on('touch',function(){
 	if(this.text == ''){
-		core.toast("用户名不能为空");
+		nf.toast("用户名不能为空");
 		return false;
 	}
 	if(this.text == ''){
-		core.toast("密码不能为空");
+		nf.toast("密码不能为空");
 		return false;
 	}
 	http.body = {
 			"username":ui('do_TextField_1').text,
 			'password':ui('do_TextField_2').text
 	}
-	core.p(http.body);
 	http.request();
 })
 
 //注册
 ui('do_Button_3').on('touch',function(){
-	app.openPage('source://view/reg/reg0.ui');
+	app.openPage({source:'source://view/reg/reg0.ui',animationType:'push_t2b'});
 })
 //忘记密码
 ui('do_Button_2').on('touch',function(){
-	app.openPage('source://view/reg/forget0.ui');
+	app.openPage({source:'source://view/reg/forget0.ui',animationType:'push_t2b'});
 })
 //返回
 ui('do_ALayout_2').on('touch',function(){

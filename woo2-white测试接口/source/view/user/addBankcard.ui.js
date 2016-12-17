@@ -49,8 +49,9 @@ ui('do_Button_2').on('touch','',3000,function(){
 		core.alert('姓名不能为空');
 		return false;
 	}
-	if(do_TextField_9.text == ''){
-		core.alert('银行卡号不能为空');
+	var reg = /^\d{16,19}$/ ;
+	if(!reg.test(do_TextField_9.text)){
+		core.alert('银行卡号格式错误');
 		return false;
 	}
 	http.body = {

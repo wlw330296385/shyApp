@@ -25,30 +25,34 @@ var checkNav = function(index){
 		icons[index].source = "source://image/menu"+index+'-1.png';
 };
 var pages = [{id:'home',path:'source://view/home/index.ui'},
-             {id:'duobao',path:'source://view/web/dabo.ui'},
+             {id:'duobao',path:'source://view/web/duobao.ui'},
              {id:'basket',path:'source://view/basket/index.ui'},
              {id:'user',path:'source://view/user/user.ui'}
              ];
 var viewShower = ui('viewShower1');
 viewShower.addViews(pages);
 navs.forEach(function(me,i){
-	me.on('touch',function(data,e){
-		checkNav(i);
-		viewShower.showView(pages[i].id);
+	me.on('touch',function(data,e){		
+		if(i == 1){
+				core.alert('商城正在建设中');
+		}else{
+			checkNav(i);
+			viewShower.showView(pages[i].id);
+		}
 	})
 })
 
 //切换page事件
 viewShower.on('viewChanged',function(viewID,e){
 	userInfo = storage.readFileSync('data://userInfo',true);
-	
 	if(viewID == 'user'|| viewID == 'basket'){
-		if(userInfo.code != 1){
-			core.p(userInfo,viewID)
-			app.openPage("source://view/login/login1.ui");	
-		}else{
+		if(userInfo.code && userInfo.code == 1 ){
 			page.fire('getData');
+		} else{
+			app.openPage("source://view/login/login1.ui");	
 		}
+	}else if(viewID == 'duobao'){
+		core.alert('商城正在建设中');
 	}
 })
 
@@ -69,21 +73,19 @@ page.on('loaded',function(){
 	appVer = global.getVersion();
 	if(deviceInfo.OS=="android"){
 		app_type = 1;
-		global.setMemory("equipment", 1);
 	}else{
 		app_type = 2;
-		global.setMemory("equipment", 2);
 	}
 	//尝试打开自带浏览器	
 	http.body = {
 		"app_version":appVer.ver,
 		"app_type":app_type
 	};
-//	core.alert(appVer.ver);
 	http.request();
 })
 http = mm('do_Http');
 http.method = "POST";
+http.contentType = "application/json";
 http.url = 'http://api.e-shy.com/index.php/index/app/update';
 http.on('success',function(result){
 	//	弹出更新提示
@@ -106,10 +108,10 @@ http.on('fail',function(msg){
 
 
 //弹出红包and一开始的欢迎页
-page.on('resume',function(){
-	var act = page.getData();
-	if(act == 'reg'){
+page.on('result',function(data){
+	if(data == 'reg'){
 		dialog.open("source://view/dialog/reg.ui");
+		return false;
 	}
 	userInfo = storage.readFileSync("data://userInfo",true);	
 	if(userInfo == '' || userInfo == null || userInfo == undefined){
@@ -123,7 +125,6 @@ page.on('resume',function(){
 			});
 		});
 	}
-	
 })
 
 //退出程序
