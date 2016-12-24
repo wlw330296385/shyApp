@@ -142,7 +142,7 @@ ui('do_ALayout_75').on('touch',function(){
 })
 //添加地址
 ui('do_ALayout_90').on('touch',function(){
-	if(!userinfo.data) return false;
+	if(!userInfo.data) return false;
 	if(userInfo.code == 1){
 		app.openPage("source://view/user/addAddress.ui");
 	}else{

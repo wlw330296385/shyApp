@@ -113,6 +113,9 @@ page.on('result',function(data){
 		dialog.open("source://view/dialog/reg.ui");
 		return false;
 	}
+	
+})
+page.on('resume',function(){
 	userInfo = storage.readFileSync("data://userInfo",true);	
 	if(userInfo == '' || userInfo == null || userInfo == undefined){
 		userInfo = {
@@ -126,7 +129,6 @@ page.on('result',function(data){
 		});
 	}
 })
-
 //退出程序
 var pagejs = require('do/page');
 pagejs.allowExit();	

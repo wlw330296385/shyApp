@@ -64,8 +64,13 @@ ui('do_Button_7').on('touch',function(){
 		app.openPage("source://view/login/login1.ui");
 	}
 })
+
+//保险
+ui('do_Button_8').on('touch',function(){
+	core.alert('功能正在建设中');
+})
 var style=require("do/style");
-style.css([ui('do_Button_1'),ui('do_Button_2'),ui('do_Button_3'),ui('do_Button_4'),ui('do_Button_5'),ui('do_Button_6'),ui('do_Button_7')]);
+style.css([ui('do_Button_1'),ui('do_Button_2'),ui('do_Button_3'),ui('do_Button_4'),ui('do_Button_5'),ui('do_Button_6'),ui('do_Button_7'),ui('do_Button_8')]);
 
 page.on('result',function(){
 	userInfo = storage.readFileSync("data://userInfo",true);

@@ -67,22 +67,3 @@ ui('do_ALayout_2').on('touch',function(){
 	})
 })
 
-//分享到QQ
-//var qq = sm('do_TencentQQ');
-//ui('do_ALayout_1').on('touch',function(){
-//	qq.shareToQQ({
-//		appId:"1104684313",
-//		type:0,
-//		title:"深海油互联网加油站QQ应用分享",
-//		url:data.shareUrl,
-//		image:"data://por.png",
-//		summary:'买了车却没钱加油怎么办?来深海油免费加油吧!',
-//		audio:"",
-//		appName:"深海油互联网加油站",
-//	},function(data) {
-//		if(data){
-//			core.toast('分享成功');
-//		}
-//	});
-//})
-

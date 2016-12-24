@@ -1,50 +1,50 @@
-﻿{
-  "ID": "do_CacheManager",
-  "IsContainer": "0",
-  "Type": "SM",
-  "Name": "缓存管理",
-  "Version": "Internal",
-  "Description": "管理应用内缓存，windows平台不支持",
-  "Icon": "https://deviceone.blob.core.chinacloudapi.cn/store/D/20151230/do_CacheManager/iconfont-huancunfuwu20x20.png",
-  "IOS": {
-    "Support": 1,
-    "MinVersion": "7.0"
-  },
-  "Android": {
-    "Support": 1,
-    "MinVersion": "4.0"
-  },
-  "Windows": {
-    "Support": 0,
-    "MinVersion": ""
-  },
-  "WindowsPhone": {
-    "Support": 0,
-    "MinVersion": ""
-  },
-  "Html": {
-    "Support": 1,
-    "MinVersion": "5.0"
-  },
-  "Properties": [],
-  "Events": [],
-  "syncMethodes": [],
-  "asyncMethodes": [
-    {
-      "ID": "clearImageCache",
-      "Name": "清除图片缓存",
-      "Description": "清除应用内所有图片缓存",
-      "ReturnType": "Bool",
-      "ReturnDesc": "成功返回true，失败返回false",
-      "Paras": []
-    },
-    {
-      "ID": "getImageCacheSize",
-      "Name": "获取图片缓存",
-      "Description": "获取",
-      "ReturnType": "String",
-      "ReturnDesc": "返回应用内所有图片缓存的大小总和，单位为k",
-      "Paras": []
-    }
-  ]
+{
+	"Description":"管理应用内缓存，windows平台不支持",
+	"Html":{
+		"MinVersion":"5.0",
+		"Support":1
+	},
+	"Windows":{
+		"MinVersion":"",
+		"Support":0
+	},
+	"asyncMethodes":[
+		{
+			"Description":"清除应用内所有图片缓存",
+			"Paras":[],
+			"ID":"clearImageCache",
+			"ReturnType":"Bool",
+			"Name":"清除图片缓存",
+			"ReturnDesc":"成功返回true，失败返回false"
+		},
+		{
+			"Description":"获取",
+			"Paras":[],
+			"ID":"getImageCacheSize",
+			"ReturnType":"String",
+			"Name":"获取图片缓存",
+			"ReturnDesc":"返回应用内所有图片缓存的大小总和，单位为k"
+		}
+	],
+	"IOS":{
+		"MinVersion":"7.0",
+		"Support":1
+	},
+	"Properties":[],
+	"Name":"缓存管理",
+	"Android":{
+		"MinVersion":"4.0",
+		"Support":1
+	},
+	"syncMethodes":[],
+	"Type":"SM",
+	"Version":"Internal",
+	"Events":[],
+	"ID":"do_CacheManager",
+	"Icon":"https://deviceone.blob.core.chinacloudapi.cn/store/D/20151230/do_CacheManager/iconfont-huancunfuwu20x20.png",
+	"IsContainer":"0",
+	"WindowsPhone":{
+		"MinVersion":"",
+		"Support":0
+	}
 }
