@@ -58,12 +58,13 @@
 								"views":[
 									{
 										"x":"100",
+										"width":"200",
 										"y":"70",
 										"fontSize":"26",
 										"id":"do_Label_3",
 										"text":"配送地区",
 										"type":"do_Label",
-										"height":"-1"
+										"height":"30"
 									}
 								],
 								"height":"100"
@@ -147,7 +148,7 @@
 										"id":"do_Label_4",
 										"text":"收货人姓名",
 										"type":"do_Label",
-										"height":"-1"
+										"height":"30"
 									}
 								],
 								"height":"60"
@@ -189,7 +190,7 @@
 										"id":"do_Label_5",
 										"text":"邮政编码",
 										"type":"do_Label",
-										"height":"-1"
+										"height":"30"
 									}
 								],
 								"height":"60"
@@ -229,7 +230,7 @@
 										"id":"do_Label_8",
 										"text":"手机号码",
 										"type":"do_Label",
-										"height":"-1"
+										"height":"30"
 									}
 								],
 								"height":"60"
