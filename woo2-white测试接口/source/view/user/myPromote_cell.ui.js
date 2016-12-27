@@ -8,7 +8,8 @@
 
 
 ui('$').setMapping({
-	"do_Label_1.text":"member_name",
-	"do_Label_6.text":"money",
-	"do_Label_3.text":"subcribe_time",
+	"do_Label_1.text":"data.member_name",
+	"do_Label_6.text":"data.money",
+	"do_Label_3.text":"data.subcribe_time",
+	"do_Label_2.text":"data.generation"
 })

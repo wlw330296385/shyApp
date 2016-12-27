@@ -27,54 +27,54 @@
 			},
 			{
 				"x":"210",
-				"width":"350",
-				"y":"65",
+				"width":"320",
+				"y":"50",
 				"fontSize":"45",
 				"id":"do_Label_1",
 				"text":"深海油会员",
 				"type":"do_Label",
-				"height":"75"
+				"fontStyle":"bold",
+				"height":"55"
 			},
 			{
 				"textAlign":"center",
 				"x":"210",
 				"width":"-1",
-				"y":"140",
+				"y":"115",
 				"fontSize":"35",
 				"id":"do_Label_2",
 				"text":"188888888888",
 				"type":"do_Label",
 				"fontColor":"717171FF",
-				"height":"60"
+				"height":"40"
 			},
 			{
-				"textAlign":"right",
-				"x":"560",
-				"width":"180",
-				"y":"65",
+				"x":"210",
+				"width":"400",
+				"y":"160",
 				"fontSize":"35",
 				"id":"do_Label_3",
 				"text":"2016-12-9",
 				"type":"do_Label",
 				"fontColor":"717171FF",
-				"height":"75"
+				"height":"40"
 			},
 			{
-				"textAlign":"center",
-				"x":"480",
-				"y":"140",
+				"textAlign":"right",
+				"x":"502",
+				"y":"110",
 				"fontSize":"35",
 				"id":"do_Label_4",
-				"text":"佣金:",
+				"text":"红包:",
 				"type":"do_Label",
 				"fontColor":"717171FF",
-				"height":"60"
+				"height":"40"
 			},
 			{
 				"textAlign":"center",
-				"x":"580",
-				"width":"40",
-				"y":"160",
+				"x":"599",
+				"width":"30",
+				"y":"110",
 				"fontSize":"25",
 				"id":"do_Label_5",
 				"text":"￥",
@@ -83,17 +83,16 @@
 				"height":"40"
 			},
 			{
-				"textAlign":"center",
-				"x":"620",
+				"x":"624",
 				"width":"120",
-				"y":"140",
+				"y":"92",
 				"fontSize":"50",
 				"id":"do_Label_6",
 				"text":"8888",
 				"type":"do_Label",
 				"fontStyle":"bold",
 				"fontColor":"E8380DFF",
-				"height":"60"
+				"height":"68"
 			}
 		],
 		"height":"250"

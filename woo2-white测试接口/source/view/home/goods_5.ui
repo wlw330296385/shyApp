@@ -6,7 +6,7 @@
 		"type":"do_ALayout",
 		"views":[
 			{
-				"x":"290",
+				"x":"530",
 				"width":"180",
 				"y":"500",
 				"id":"do_ALayout_1",
@@ -16,7 +16,7 @@
 					{
 						"width":"180",
 						"id":"do_Button_1",
-						"bgImage":"source://image/icon/mall.png",
+						"bgImage":"source://image/icon/shop.png",
 						"type":"do_Button",
 						"height":"180"
 					}
@@ -115,7 +115,7 @@
 			},
 			{
 				"textAlign":"center",
-				"x":"290",
+				"x":"530",
 				"width":"180",
 				"y":"690",
 				"fontSize":"30",
@@ -164,7 +164,7 @@
 				"y":"448",
 				"fontSize":"30",
 				"id":"do_Label_5",
-				"text":"电信充值",
+				"text":"电信话费充值",
 				"type":"do_Label",
 				"height":"40"
 			},
@@ -219,7 +219,7 @@
 					{
 						"width":"180",
 						"id":"do_Button_8",
-						"bgImage":"source://image/icon/insurance.png",
+						"bgImage":"source://image/icon/baoxian.png",
 						"type":"do_Button",
 						"height":"180"
 					}
@@ -234,6 +234,35 @@
 				"fontSize":"30",
 				"id":"do_Label_8",
 				"text":"保险",
+				"type":"do_Label",
+				"height":"40"
+			},
+			{
+				"x":"290",
+				"width":"180",
+				"y":"500",
+				"id":"do_ALayout_9",
+				"type":"do_ALayout",
+				"isStretch":"false",
+				"views":[
+					{
+						"width":"180",
+						"id":"do_Button_9",
+						"bgImage":"source://image/icon/w&e.png",
+						"type":"do_Button",
+						"height":"180"
+					}
+				],
+				"height":"180"
+			},
+			{
+				"textAlign":"center",
+				"x":"290",
+				"width":"180",
+				"y":"690",
+				"fontSize":"30",
+				"id":"do_Label_9",
+				"text":"水煤电",
 				"type":"do_Label",
 				"height":"40"
 			}

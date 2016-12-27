@@ -1,7 +1,3 @@
-/*******************************************************************************
- * @ ������: do_SegmentView do_SlideView
- * 
- */
 //首页底部按钮
 var navs = [ui('nav_1'),ui('nav_2'),ui('nav_3'),ui('nav_4')];
 var labels = [ui('lb_1'),ui('lb_2'),ui('lb_3'),ui('lb_4')];
@@ -33,26 +29,28 @@ var viewShower = ui('viewShower1');
 viewShower.addViews(pages);
 navs.forEach(function(me,i){
 	me.on('touch',function(data,e){		
-		if(i == 1){
-				core.alert('商城正在建设中');
-		}else{
+//		if(i == 1){
+//				core.alert('商城正在建设中');
+//		}else{
 			checkNav(i);
 			viewShower.showView(pages[i].id);
-		}
+//		}
 	})
 })
 
 //切换page事件
 viewShower.on('viewChanged',function(viewID,e){
 	userInfo = storage.readFileSync('data://userInfo',true);
-	if(viewID == 'user'|| viewID == 'basket'){
+	if(viewID == 'user'|| viewID == 'basket' ){
 		if(userInfo.code && userInfo.code == 1 ){
 			page.fire('getData');
-		} else{
+		} else if( viewID == 'duobao'){
+			app.openPage("source://view/login/login1.ui");	
+			viewShower.showView('home');
+			checkNav(0);
+		}else{
 			app.openPage("source://view/login/login1.ui");	
 		}
-	}else if(viewID == 'duobao'){
-		core.alert('商城正在建设中');
 	}
 })
 

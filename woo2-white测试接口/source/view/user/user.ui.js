@@ -151,6 +151,16 @@ ui('do_ALayout_90').on('touch',function(){
 	}
 })
 
+//红包列表
+ui('do_ALayout_94').on('touch',function(){
+	if(!userInfo.data) return false;
+	if(userInfo.code == 1){
+		app.openPage("source://view/user/myPromote.ui");
+	}else{
+		app.openPage("source://view/login/login1.ui");
+		return false;
+	}
+})
 //我的夺宝
 //ui('do_ALayout_91').on('touch',function(){
 //	if(userInfo.code == 1){

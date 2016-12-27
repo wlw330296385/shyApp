@@ -28,8 +28,7 @@ ui('do_Button_2').on('touch',function(){
 })
 //夺宝
 ui('do_Button_1').on('touch',function(){
-//	page.fire('toDB');
-	core.alert('商城正在建设中');
+	page.fire('toDB');
 })
 //移动话费充值
 ui('do_Button_6').on('touch',function(){
@@ -67,6 +66,10 @@ ui('do_Button_7').on('touch',function(){
 
 //保险
 ui('do_Button_8').on('touch',function(){
+	core.alert('功能正在建设中');
+})
+//水电费
+ui('do_Button_9').on('touch',function(){
 	core.alert('功能正在建设中');
 })
 var style=require("do/style");

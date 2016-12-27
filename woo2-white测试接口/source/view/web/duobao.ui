@@ -12,7 +12,7 @@
 				"type":"do_ALayout",
 				"views":[
 					{
-						"fontSize":"65",
+						"fontSize":"40",
 						"id":"do_Button_1",
 						"text":"<",
 						"type":"do_Button",
@@ -24,8 +24,16 @@
 						"width":"550",
 						"fontSize":"35",
 						"id":"do_Label_1",
-						"text":"深海油",
+						"text":"深海油商城",
 						"type":"do_Label",
+						"fontColor":"FFFFFFFF"
+					},
+					{
+						"x":"650",
+						"fontSize":"35",
+						"id":"do_Button_2",
+						"text":"刷新",
+						"type":"do_Button",
 						"fontColor":"FFFFFFFF"
 					}
 				]
@@ -33,14 +41,12 @@
 			{
 				"isShowLoadingProgress":"true",
 				"isHeaderVisible":"true",
-				"allowDeviceOne":"false",
 				"width":"750",
 				"y":"80",
-				"zoom":"true",
 				"id":"do_WebView_1",
 				"type":"do_WebView",
-				"url":"http://mall.e-shy.com/indexoil",
-				"height":"1450"
+				"cacheType":"normal",
+				"height":"1122"
 			}
 		],
 		"height":"1334"
